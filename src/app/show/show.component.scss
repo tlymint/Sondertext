@@ -1,0 +1,26 @@
+mat-form-field {
+    margin-right: 12px;
+  }
+
+.display {
+	display: block;
+    text-align: center;
+	grid-template-columns: repeat(3, 1fr);
+	max-width: 300px;
+    height: 200px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+	border: thin dotted #337599;
+    background-color: black;
+    color: yellow;
+}
+
+.table{
+    display: table;
+}
+
+.row {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    width: 100%;
+  }

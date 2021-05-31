@@ -1,0 +1,16 @@
+<form [formGroup]="fg" (ngSubmit)="onSubmit()">
+    <div formArrayName="inputs" *ngFor="let item of fg.get('inputs').controls; let i = index;">
+        <div [formGroupName]="i">
+            <mat-form-field class="example-full-width">
+                <input matInput formControlName="question" placeholder="Placeholder text" value="">
+</mat-form-field>
+        </div>
+    </div>
+</form>
+
+
+<div class = 'display'>
+    <div *ngFor="let wert of fg.get('inputs').controls" >
+        {{removeQuotes(wert.get('question').value | json)}}
+    </div>
+</div>

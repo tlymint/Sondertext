@@ -1,0 +1,38 @@
+<p>table works!</p>
+<div class="row">
+    <div class="col-xs">
+    <h4>Sondertext-format</h4>
+    </div>
+</div>  
+
+<div class="row">
+    <div class="col-xs-4">
+    <div class="card">
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <!-- This is tree node template for leaf nodes -->
+                <mat-tree-node *matTreeNodeDef="let node">
+                    <li class="tree-node" [ngClass]="'level-'+node.level" *ngIf="showAllNodes?true:node.selected">
+                        <div class="row middle-xs" >
+                            <div class="col-xs">
+                                {{node.name}}
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="row middle-xs end-xs">
+                                    <div class="center-xs action-icons">
+                                        <mat-checkbox class="checklist-leaf-node" [checked]="itemSelection.isSelected(node)"
+                                        [indeterminate]="descendantsPartiallySelectedAndNotAll(node)" (change)="itemSelectionToggle(node)"></mat-checkbox>
+                                        <p *ngIf="!itemSelection.isSelected(node)">select</p>
+                                        <p *ngIf="itemSelection.isSelected(node)">selected</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </mat-tree-node>
+            </mat-tree>
+    </div>
+</div>
+    <div class="col-xs">
+        <app-show #addinput></app-show>
+    </div>
+</div>     
