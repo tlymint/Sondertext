@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule} from '@angular/material/icon';
-import { MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -15,11 +15,8 @@ import { TableComponent } from './table/table.component';
 import { ShowComponent } from './show/show.component';
 import { MatSelectModule} from "@angular/material/select";
 import { MatListModule} from '@angular/material/list';
-import { CdkTableModule} from '@angular/cdk/table';
-import { TestComponent} from './test/test.component';
-
-
-import { Routes, RouterModule } from '@angular/router';
+import { CdkTableModule } from '@angular/cdk/table';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -32,9 +29,6 @@ import { Routes, RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      { path: '', component:  TestComponent},
-    ]),
     FormsModule,
     BrowserAnimationsModule,
     MatTreeModule,
@@ -48,7 +42,8 @@ import { Routes, RouterModule } from '@angular/router';
     CdkTableModule,
     ReactiveFormsModule
   ],
+  exports: [TestComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

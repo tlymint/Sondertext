@@ -1,7 +1,7 @@
 import { Component, ViewContainerRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
-import { TreeItem, TreeItemFlat, TREE_DATA,ChecklistDatabase } from './tree-data';
+import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 import { of as ofObservable, Observable, BehaviorSubject } from 'rxjs';
 import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule} from '@angular/material';
@@ -9,7 +9,8 @@ import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatPro
 @Component({
   selector: 'app-tree-view',
   templateUrl: './tree-view.component.html',
-  styleUrls: ['./tree-view.component.scss']
+  styleUrls: ['./tree-view.component.scss'],
+  providers: [ChecklistDatabase]
 })
 
 export class TreeViewComponent {
@@ -100,9 +101,49 @@ export class TreeViewComponent {
       this.itemSelection.select(...descendants) : this.itemSelection.deselect(...descendants);
 
     //
-    this.markSelectedNodes();
-    // store the number of selected items on toggle
-    this.selectedItems = this.itemSelection['_selection'].size;
+    descendants.forEach(child => this.checklistSelection.isSelected(child));
+    this.checkAllParentsSelection(node);
+  }
+
+  /* Checks all the parents when a leaf node is selected/unselected */
+  checkAllParentsSelection(node: TreeItemFlat): void {
+    let parent: TreeItemFlat | null = this.getParentNode(node);
+    while (parent) {
+      this.checkRootNodeSelection(parent);
+      parent = this.getParentNode(parent);
+    }
+  }
+
+  checkRootNodeSelection(node: TreeItemFlat): void {
+    const nodeSelected = this.checklistSelection.isSelected(node);
+    const descendants = this.treeControl.getDescendants(node);
+    const descAllSelected = descendants.length > 0 && descendants.every(child => {
+      return this.checklistSelection.isSelected(child);
+    });
+    if (nodeSelected && !descAllSelected) {
+      this.checklistSelection.deselect(node);
+    } else if (!nodeSelected && descAllSelected) {
+      this.checklistSelection.select(node);
+    }
+  }
+
+  getParentNode(node: TreeItemFlat): TreeItemFlat | null {
+    const currentLevel = this.getLevel(node);
+
+    if (currentLevel < 1) {
+      return null;
+    }
+
+    const startIndex = this.treeControl.dataNodes.indexOf(node) - 1;
+
+    for (let i = startIndex; i >= 0; i--) {
+      const currentNode = this.treeControl.dataNodes[i];
+
+      if (this.getLevel(currentNode) < currentLevel) {
+        return currentNode;
+      }
+    }
+    return null;
   }
 
   /* toggle for showing selected nodes or showing all nodes */
