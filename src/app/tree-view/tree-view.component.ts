@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef } from '@angular/core';
+import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef, Input } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
 import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
@@ -9,6 +9,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
 import { TREE_DATA } from '../table/table-data';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-tree-view',
@@ -18,6 +19,8 @@ import { TREE_DATA } from '../table/table-data';
 })
 
 export class TreeViewComponent {
+  @Input() toolbar: ToolbarComponent;
+
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
@@ -223,6 +226,7 @@ export class TreeViewComponent {
     const parentNode = this.flatNodeMap.get(node);
     // 
     let isParentHasChildren: boolean = false;
+
     if (parentNode.children)
       isParentHasChildren = true;
     //
@@ -230,6 +234,8 @@ export class TreeViewComponent {
     // expand the subtree only if the parent has children (parent is not a leaf node)
     if (isParentHasChildren)
       this.treeControl.expand(node);
+      this.toolbar.dialoghidden = false;
+      this.toolbar.dialogshow = true;
   }
 
   /**remove a node */

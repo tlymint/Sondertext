@@ -33,6 +33,9 @@ export class ToolbarComponent implements OnInit {
   message:string= "tabe";
   signalG:boolean= false;
   signalT:boolean= true;
+  dialoghidden: boolean = true;
+  dialogshow: boolean = false;
+  
   receiveMessage($event:string) {
     if($event == "tabe" ) {
       this.signalT = true;

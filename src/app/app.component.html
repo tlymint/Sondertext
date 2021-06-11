@@ -1,10 +1,5 @@
 
 <div class="topnav"></div><!DOCTYPE html>
-
-  
-  <div class="header">
-    <h1>Sondertext</h1>
-  </div>
   
   <div class="topnav">
     <a href="#">Sondertext</a>
@@ -22,7 +17,12 @@
     <div class="rightcolumn">
       <div class="card">
         <div class="container">
+          <div [hidden]="dialoghidden">
             <app-data-table [toolbar] = 'toolbar'></app-data-table>
+          </div>
+          <div [hidden]="dialoghiddenshow">
+            <app-table></app-table>
+          </div>
         </div>
       </div>
     </div>

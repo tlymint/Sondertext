@@ -1,20 +1,20 @@
-<mat-toolbar color="#a6a8b1">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" color="primary">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Datenbank</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="material-icons-outlined" (click)="addFolder()">
+    <button mat-icon-button class="material-icons-outlined" color="primary" (click)="addFolder()">
       <mat-icon>add_circle</mat-icon>
     </button>
-    <button mat-icon-button class="material-icons-outlined" >
+    <button mat-icon-button class="material-icons-outlined" color="primary">
       <mat-icon>file_copy</mat-icon>
     </button>
-    <button mat-icon-button class="material-icons-outlined">
+    <button mat-icon-button class="material-icons-outlined" color="primary">
         <mat-icon>save</mat-icon>
     </button>
-    <app-disp-toggle #disp (messageEvent)="receiveMessage($event)"></app-disp-toggle>
     <app-drucken #druck></app-drucken>
+    <app-disp-toggle #disp (messageEvent)="receiveMessage($event)"></app-disp-toggle>
 </mat-toolbar>
 
 <app-tree-view #treeview></app-tree-view>
