@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Add Folder</h1>
+<div mat-dialog-content class="mat-typography">
+    <p>Tippe Name der Datei ein</p>
+  <mat-form-field>
+    <mat-label>add a new Folder</mat-label>
+    <input matInput [(ngModel)]="data.foldername">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.foldername" cdkFocusInitial>Ok</button>
+</div>

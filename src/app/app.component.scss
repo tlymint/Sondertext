@@ -41,13 +41,13 @@ body {
 /* Left column */
 .leftcolumn {   
   float: left;
-  width: 40%;
+  width: 50%;
   margin-left: 1%;
 }
 
 /* Right column */
 .rightcolumn {
-  width: 55%;
+  width: 45%;
   float: left;
   background-color: #f1f1f1;
   padding-left: 1%;
@@ -62,7 +62,7 @@ body {
 
 /* Add a card effect for articles */
 .card {
-  background-color: rgb(255, 249, 249);
+  background-color: rgb(231, 219, 219);
   padding: 20px;
   margin-top: 20px;
 }

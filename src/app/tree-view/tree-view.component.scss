@@ -51,4 +51,22 @@ p {
   .mat-nested-tree-node li ul {
     padding-bottom: 5px;
   }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
   
+  .hide_btn {
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .show_btn {
+    opacity: 0.5;
+  }
+
+  .show_btn:hover
+  {
+    opacity: 1;
+    color: rgb(181, 210, 247);
+  }

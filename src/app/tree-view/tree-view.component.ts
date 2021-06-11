@@ -1,10 +1,14 @@
-import { Component, ViewContainerRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
 import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
-import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
+import { MatTreeFlattener, MatTreeFlatDataSource, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of as ofObservable, Observable, BehaviorSubject } from 'rxjs';
 import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { cloneDeep } from "lodash";
+import { TREE_DATA } from '../table/table-data';
 
 @Component({
   selector: 'app-tree-view',
@@ -17,33 +21,40 @@ export class TreeViewComponent {
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
-  itemSelection = new SelectionModel<TreeItem>(true);
+  itemSelection = new SelectionModel<TreeItemFlat>(true);
   showAllNodes: boolean;
   selectedItems: number;
+  itemCount: number;
+  isEditActive: boolean = false;
+  editItem: any = null;
+  editorFocused: boolean = false;
+  hoverItem: any = null;
+  originalText: string = '';
   name: string;
+  copy: any;
+  animal: boolean = false;
   flatNodeMap: Map<TreeItemFlat, TreeItem> = new Map<TreeItemFlat, TreeItem>();
 
   /** Map from nested node to flattened node. This helps us to keep the same object for selection */
   nestedNodeMap: Map<TreeItem, TreeItemFlat> = new Map<TreeItem, TreeItemFlat>();
-
+;
   /** A selected parent node to be inserted */
   selectedParent: TreeItemFlat | null = null;
 
   /** The new item's name */
   newItemName: string = '';
+  nestedDataSource: MatTreeNestedDataSource<TreeItemFlat>;
 
   treeFlattener: MatTreeFlattener<TreeItem, TreeItemFlat>;
 
 
   /** The selection for checklist */
-  checklistSelection = new SelectionModel<TreeItemFlat>(true /* multiple */);
 
-  constructor(private database: ChecklistDatabase) {
+  constructor(private database: ChecklistDatabase, public dialog: MatDialog, private elementRef: ElementRef) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
     this.treeControl = new FlatTreeControl<TreeItemFlat>(this.getLevel, this.isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
     database.dataChange.subscribe(data => {
       this.dataSource.data = data;
     });
@@ -76,21 +87,17 @@ export class TreeViewComponent {
   /* Whether all the descendants of the node are selected. */
   descendantsAllSelected(node: TreeItemFlat): boolean {
     const descendants = this.treeControl.getDescendants(node);
-    return descendants.every(child => this.checklistSelection.isSelected(child));
+    const descAllSelected = descendants.length > 0 && descendants.every(child => {
+      return this.itemSelection.isSelected(child);
+    });
+    return descAllSelected;
   }
 
   /** Whether part of the descendants are selected and not all are selected */
-  descendantsPartiallySelectedAndNotAll(node: TreeItemFlat): boolean {
-    const descendants = this.treeControl.getDescendants(node);
-    const result = descendants.some(child => this.itemSelection.isSelected(child));
-    return result && !this.descendantsAllSelected(node);
-  }
-
-  /* Whether part of the descendants are selected */
   descendantsPartiallySelected(node: TreeItemFlat): boolean {
     const descendants = this.treeControl.getDescendants(node);
     const result = descendants.some(child => this.itemSelection.isSelected(child));
-    return result;
+    return result && !this.descendantsAllSelected(node);
   }
 
   /* Toggle selection */
@@ -101,7 +108,13 @@ export class TreeViewComponent {
       this.itemSelection.select(...descendants) : this.itemSelection.deselect(...descendants);
 
     //
-    descendants.forEach(child => this.checklistSelection.isSelected(child));
+    descendants.forEach(child => this.itemSelection.isSelected(child));
+    this.checkAllParentsSelection(node);
+  }
+
+  /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
+  LeafItemSelectionToggle(node: TreeItemFlat): void {
+    this.itemSelection.toggle(node);
     this.checkAllParentsSelection(node);
   }
 
@@ -115,15 +128,15 @@ export class TreeViewComponent {
   }
 
   checkRootNodeSelection(node: TreeItemFlat): void {
-    const nodeSelected = this.checklistSelection.isSelected(node);
+    const nodeSelected = this.itemSelection.isSelected(node);
     const descendants = this.treeControl.getDescendants(node);
     const descAllSelected = descendants.length > 0 && descendants.every(child => {
-      return this.checklistSelection.isSelected(child);
+      return this.itemSelection.isSelected(child);
     });
     if (nodeSelected && !descAllSelected) {
-      this.checklistSelection.deselect(node);
+      this.itemSelection.deselect(node);
     } else if (!nodeSelected && descAllSelected) {
-      this.checklistSelection.select(node);
+      this.itemSelection.select(node);
     }
   }
 
@@ -219,10 +232,62 @@ export class TreeViewComponent {
       this.treeControl.expand(node);
   }
 
+  /**remove a node */
+  removeItem(node: TreeItemFlat) {
+    
+    console.log(node)
+    // Get the parent node of the selected child node
+    const parentNode = this.getParentNode(node);
+
+    // Map from flat node to nested node.
+    const parentFlat = this.flatNodeMap.get(parentNode);
+
+    this.database.deleteItem(parentFlat!, node.name);
+    this.treeControl.expand(node);
+  } 
+
+  openDialog(node: TreeItemFlat) {
+    let dialogRef = this.dialog.open(DialogContentComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.removeItem(node);
+    });
+  }
+
+  /**copy a node */
+  copyItem(node: TreeItemFlat) {
+    this.copy = cloneDeep(node)
+    console.log(this.copy)
+  }
+
+  /**cut a node */
+  cutItem(node: TreeItemFlat) {
+    this.copy = cloneDeep(node)
+    this.removeItem(node);
+  }
+
+  /**paste a node */
+  pasteItem(node: TreeItemFlat) {
+    const parentNode = this.flatNodeMap.get(node);
+    this.database.insertItem(parentNode, this.copy.name); 
+  }
+
   /** Save the node to database */
   saveNode(node: TreeItemFlat, itemValue: string) {
     const nestedNode = this.flatNodeMap.get(node);
     this.database.updateItem(nestedNode!, itemValue);
+  }
+
+  /**add root node */
+  addFolder(name:string){
+     this.database.addRoot(name);
+  }
+
+  changeItem(node: TreeItemFlat){
+
   }
 }
 

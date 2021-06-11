@@ -9,32 +9,63 @@ export class TreeItem {
 export class TreeItemFlat {
   name: string;
   level: number;
+  parentId: number;
   expandable: boolean;
 }
 
 
 const TREE_DATA = {
-  Groceries: {
-    'Almond Meal flour': null,
-    'Organic eggs': null,
-    'Protein Powder': null,
-    Fruits: {
-      Apple: null,
-      Berries: ['Blueberry', 'Raspberry'],
-      Orange: null
+  'Administration': {
+      'Benutzerverwaltung': null,
+      'Kommunikation': null,
+      'GIS-Karte': null,
+  },
+  'DFI-Projektierung': {
+    'DFI-Sonderfälle': null,
+    'DFI-Anzeiger': null,
+    'DFI-Haltestellen': null,
+  },
+  'Fahrplandaten':null,
+  'Displaymasken':{
+    'ZAK-Masken':null,
+    'SOT-Masken':null,
+    'ZZA-Masken':null,
+    'MAM-Masken':null,
+  },
+  'Sondertexte': {
+    'Normale-Sondertexte':null,
+    'Sondertexte für Umleitungen':null,
+    'Ständige Sondertexte':null,
+    'Spezialfälle': {
+      'MAM':null,
+      'ZZA':null,
+      'Test':null,
+      'Grundbilder':null,
     }
   },
-  Reminders: [
-    'Cook dinner',
-    'Read the Material Design spec',
-    'Upgrade Application to Angular'
-  ]
+  'Aufträge':{
+    'Benutzerdefinierte Aufträge':null,
+    'Spezialfälle der Auftragsverwaltung':{
+      'MAM-Anlage':null,
+      'Evakuierung':null,
+      'CMS-Aufträge':null,
+      'Ausblenden von Linien':null,
+    }
+  },
+  'Betriebstagebücher':{
+    'Anzeigen von System und Fehlermeldungen':null,
+    'Anzeigen Änderungs-Histroie':null,
+    'Statistikdaten':null,
+    'Berichte':null,
+  }
+
 };
 
 
 @Injectable()
 export class ChecklistDatabase {
   dataChange: BehaviorSubject<TreeItem[]> = new BehaviorSubject<TreeItem[]>([]);
+  parentNodeMap = new Map<TreeItemFlat, TreeItem>();
 
   get data(): TreeItem[] { return this.dataChange.value; }
 
@@ -71,9 +102,14 @@ export class ChecklistDatabase {
         data.push(node);
       }
       return data;
-    }
+  }
 
-    /** Add an item to to-do list */
+  /**add a root-node to treeitem */
+  addRoot(name: string){
+    const dataNode = new TreeItem[name];
+  }
+
+    /** Add an item to treeitem */
   insertItem(parent: TreeItem, name: string) {
     const child = <TreeItem>{ name: name };
     if (parent.children) { // parent already has children
@@ -85,6 +121,35 @@ export class ChecklistDatabase {
       parent.children.push(child);
       this.dataChange.next(this.data);
     }
+  }
+
+  findParent(id: number, node: any): any {
+
+    console.log("id " + id + " node" + node.id);
+    if (node != undefined && node.id === id) {
+      return node;
+    } else {
+      console.log("ELSE " + JSON.stringify(node.children));
+      for (let element in node.children) {
+        console.log("Recursive " + JSON.stringify(node.children[element].children));
+        if (node.children[element].children != undefined && node.children[element].children.length > 0) {
+          return this.findParent(id, node.children[element]);
+        } else {
+          continue;
+        }
+
+
+      }
+
+    }
+  }
+
+  deleteItem(parent: TreeItem, name: string){
+    if (parent.children) {
+      parent.children = parent.children.filter(c => c.name !== name);
+      this.dataChange.next(this.data);
+    }
+
   }
 
   updateItem(node: TreeItem, name: string) {
