@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ToolbarComponent } from 'src/app/dateneditor/toolbar/toolbar.component';
+import { DisplaymanagementComponent } from 'src/app/displaymanagement/displaymanagement.component';
 
 @Component({
   selector: 'app-bearbeitenmenu',
@@ -7,7 +7,7 @@ import { ToolbarComponent } from 'src/app/dateneditor/toolbar/toolbar.component'
   styleUrls: ['./bearbeitenmenu.component.scss']
 })
 export class BearbeitenmenuComponent implements OnInit {
-  @Input() toolbar: ToolbarComponent;
+  @Input() displaymanagement: DisplaymanagementComponent;
 
   constructor() { }
 
@@ -16,7 +16,14 @@ export class BearbeitenmenuComponent implements OnInit {
 
   openDateneditor() {
     console.log('opendateneditor');
-    this.toolbar.showDatenEditor = false;
+    this.displaymanagement.hiddenDatenEditor = false;
+    this.displaymanagement.hiddenDisplayEditor = true;
+  }
+
+  openDisplayeditor(){
+    console.log('opendisplayeditor');
+    this.displaymanagement.hiddenDatenEditor = true;
+    this.displaymanagement.hiddenDisplayEditor = false;
   }
 
 }

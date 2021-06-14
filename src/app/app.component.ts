@@ -7,5 +7,4 @@ import { Component, ViewChild } from '@angular/core';
 })
 
 export class AppComponent {
- @ViewChild('toolbar', {static: false}) toolbar:any
 }

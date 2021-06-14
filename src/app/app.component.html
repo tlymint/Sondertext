@@ -3,26 +3,11 @@
   
   <div class="topnav">
     <app-dateimenu></app-dateimenu>
-    <app-bearbeitenmenu [toolbar] = 'toolbar'></app-bearbeitenmenu>
+    <app-bearbeitenmenu [displaymanagement] = 'displaymanagement'></app-bearbeitenmenu>
     <app-ansichtmenu></app-ansichtmenu>
   </div>
 
   <div class="topnav">
-    <app-toolbar-app></app-toolbar-app>
   </div>
-
-  <div [hidden]="toolbar.showDatenEditor">
-    <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>
-          <app-toolbar #toolbar></app-toolbar>
-        </mat-drawer>
-    <mat-drawer-content>
-    <div [hidden]="toolbar.dialoghidden">
-      <app-data-table [toolbar] = 'toolbar'></app-data-table>
-    </div>
-    <div [hidden]="toolbar.dialogshow">
-        <app-table [toolbar] = 'toolbar'></app-table>
-    </div>
-   </mat-drawer-content>
-  </mat-drawer-container>
-</div>
+  
+  <app-displaymanagement #displaymanagement></app-displaymanagement>

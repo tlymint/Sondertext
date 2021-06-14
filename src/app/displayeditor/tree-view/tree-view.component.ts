@@ -9,7 +9,6 @@ import {MatDialog} from '@angular/material/dialog';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
 import { TREE_DATA } from '../../sondertext-datenbank/table/table-data';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
 
 @Component({
@@ -55,7 +54,6 @@ export class TreeViewComponent {
   constructor(private database: ChecklistDatabase, 
     public dialog: MatDialog, 
     private elementRef: ElementRef,
-    public toolbar: ToolbarComponent,
     public show: ShowComponent
     ) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
@@ -230,7 +228,6 @@ export class TreeViewComponent {
     const parentNode = this.flatNodeMap.get(node);
     // 
     let isParentHasChildren: boolean = false;
-    this.toolbar.showDialog();
     if (parentNode.children)
       isParentHasChildren = true;
     //

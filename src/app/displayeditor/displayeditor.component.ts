@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayeditorComponent implements OnInit {
 
+  hiddenGrafik: boolean = true;
+
   constructor() { }
 
   ngOnInit() {

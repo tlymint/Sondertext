@@ -1,0 +1,7 @@
+<mat-dialog-content class="mat-typography">
+    <h3>Möchten Sie wirklich die Node Löschen</h3>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">stornieren</button>
+    <button mat-button [mat-dialog-close]="animal" cdkFocusInitial>Löschen</button>
+  </mat-dialog-actions>

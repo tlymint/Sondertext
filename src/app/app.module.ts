@@ -17,10 +17,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { TreeViewComponent } from './dateneditor/tree-view/tree-view.component';
 
 /**Show the Sondertext-format Table */
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './sondertext-datenbank/table/table.component';
 
 /**Display-Dialog Windows */
-import { ShowComponent } from './show/show.component';
+import { ShowComponent } from './sondertext-datenbank/show/show.component';
 import { MatSelectModule} from "@angular/material/select";
 import { MatListModule } from '@angular/material/list';
 import { CdkTableModule } from '@angular/cdk/table';
@@ -58,11 +58,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { BearbeitenmenuComponent } from './Menu/bearbeitenmenu/bearbeitenmenu.component';
 import { AnsichtmenuComponent } from './Menu/ansichtmenu/ansichtmenu.component';
-import { ToolbarAppComponent } from './toolbar-app/toolbar-app.component';
+import { ToolbarAppComponent } from './dateneditor/toolbar-app/toolbar-app.component';
 import { DisplayeditorComponent } from './displayeditor/displayeditor.component';
 import { DateneditorComponent } from './dateneditor/dateneditor.component';
 import { GrafikComponent } from './displayeditor/grafik/grafik.component';
 import { SondertextDatenbankComponent } from './sondertext-datenbank/sondertext-datenbank.component';
+import { DisplaymanagementComponent } from './displaymanagement/displaymanagement.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { SondertextDatenbankComponent } from './sondertext-datenbank/sondertext-
     DateneditorComponent,
     GrafikComponent,
     SondertextDatenbankComponent,
+    DisplaymanagementComponent,
   ],
   entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
   imports: [

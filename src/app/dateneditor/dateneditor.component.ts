@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dateneditor',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dateneditor.component.scss']
 })
 export class DateneditorComponent implements OnInit {
+  
+  @ViewChild('toolbar', {static: false}) toolbar:any
 
+  hiddenTable: boolean = false;
   constructor() { }
 
   ngOnInit() {

@@ -1,1 +1,17 @@
-<p>displayeditor works!</p>
+<p>
+    <mat-toolbar>
+      <span>Displayvorlagen</span>
+    </mat-toolbar>
+  </p>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <app-tree-view #treeview></app-tree-view>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div [hidden]="hiddenGrafik">
+            <app-grafik></app-grafik>
+        </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+    

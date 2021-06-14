@@ -1,1 +1,21 @@
-<p>dateneditor works!</p>
+<p>
+    <mat-toolbar>
+      <span>Dateneditor</span>
+    </mat-toolbar>
+  </p>
+
+<app-toolbar></app-toolbar>
+<app-toolbar-app></app-toolbar-app>
+
+
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <app-tree-view></app-tree-view>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div [hidden]="hiddenTable">
+            <app-table></app-table>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+    

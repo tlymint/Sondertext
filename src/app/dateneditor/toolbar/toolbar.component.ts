@@ -39,7 +39,6 @@ export class ToolbarComponent implements OnInit {
   signalT:boolean= true;
   dialoghidden: boolean = true;
   dialogshow: boolean = true;
-  showDatenEditor: boolean = true;
 
   receiveMessage($event:string) {
     if($event == "tabe" ) {
