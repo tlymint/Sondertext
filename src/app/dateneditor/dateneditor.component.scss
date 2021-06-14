@@ -4,3 +4,24 @@
     margin: 10px;
     border: 1px solid #555;
   }
+  .main-container{
+    display: flex;
+    height: 500px;
+}
+  
+.left-container{
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.resize-handle{
+    flex: 0 0 20px;
+    cursor: col-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-container{
+    flex: 1 1 50vw;
+}

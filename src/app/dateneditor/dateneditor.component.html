@@ -7,14 +7,16 @@
 <app-toolbar></app-toolbar>
 <app-toolbar-app #toolbar></app-toolbar-app>
 
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-      <app-tree-view></app-tree-view>
-    </mat-drawer>
-    <mat-drawer-content>
-        <div [hidden]="hiddenTable">
-            <app-data-table [toolbar]='toolbar'></app-data-table>
-        </div>
-    </mat-drawer-content>
-</mat-drawer-container>
-    
+<div class="main-container"  (mouseup)="changeResizeMode(false)" (mousemove)="changeLeftContainerWidth($event)" (mouseleave)="changeResizeMode(false)">
+  <div class="left-container" [style.flex-basis]="leftContainerWidth">      
+    <app-tree-view></app-tree-view> 
+  </div>
+  <div class="resize-handle" (mousedown)="changeResizeMode(true)" (mouseup)="changeResizeMode(false)" [style.background-color]="highlightHandle">
+      <div>||</div>
+  </div>
+  <div class="right-container">
+         
+    <app-data-table [toolbar]='toolbar'>
+    </app-data-table>
+  </div>
+</div>
