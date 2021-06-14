@@ -74,6 +74,7 @@ p {
   .checklist-leaf-node {
     margin: 0 10px;
   }
+
   ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
     background-color: #405e5f !important;
   }
@@ -90,3 +91,11 @@ p {
     color: #405e5f;
   }
   
+  .txtColor:hover{
+    color: rgb(12, 12, 12);
+    cursor: pointer;
+  }
+  
+  .background-highlight{
+    background: rgb(181, 210, 247);
+  }

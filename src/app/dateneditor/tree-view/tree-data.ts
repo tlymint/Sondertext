@@ -16,7 +16,14 @@ export class TreeItemFlat {
 
 const TREE_DATA = {
   'Administration': {
-      'Benutzerverwaltung': null,
+      'Benutzerverwaltung': {
+        'Neu': {
+          value: 1,
+          data: 0,
+        },
+        'Admin': 1,
+        'Bedienplatz':2,
+      },
       'Kommunikation': null,
       'GIS-Karte': null,
   },

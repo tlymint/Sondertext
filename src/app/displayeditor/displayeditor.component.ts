@@ -9,7 +9,7 @@ export class DisplayeditorComponent implements OnInit {
 
   hiddenGrafik: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

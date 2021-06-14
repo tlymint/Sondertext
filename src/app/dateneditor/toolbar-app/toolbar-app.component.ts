@@ -12,4 +12,22 @@ export class ToolbarAppComponent implements OnInit {
   ngOnInit() {
   }
 
+  message:string= "tabe";
+  signalG:boolean= true;
+  signalT:boolean= false;
+  dialoghidden: boolean = false;
+  dialogshow: boolean = true;
+
+  receiveMessage($event:string) {
+    if($event == "tabe" ) {
+      this.signalT = true;
+      this.signalG = false;
+    }
+    if($event == "graf") {
+      this.signalT = false;
+      this.signalG = true;
+    }
+    this.message = $event;
+  }
+
 }
