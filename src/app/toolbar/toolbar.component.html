@@ -1,21 +1,20 @@
+<div class="wind2" [hidden]="hiddenDatenEditor">
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" color="primary">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Datenbank</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="material-icons-outlined" color="primary" (click)="addFolder()">
-      <mat-icon>add_circle</mat-icon>
-    </button>
-    <button mat-icon-button class="material-icons-outlined" color="primary">
-      <mat-icon>file_copy</mat-icon>
-    </button>
-    <button mat-icon-button class="material-icons-outlined" color="primary">
-        <mat-icon>save</mat-icon>
-    </button>
-    <app-drucken #druck></app-drucken>
+  <button mat-button [matMenuTriggerFor]="menu">Datei</button>
+  <!-- #enddocregion mat-menu-trigger-for -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click) = 'openDateneditor()'>Betriebstagebuch importieren</button>
+    <button mat-menu-item (click) = 'openDyFaAuftrage()'>Beenden</button> 
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="menu">Ansicht</button>
+  <!-- #enddocregion mat-menu-trigger-for -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click) = 'openDateneditor()'>...</button>
+    <button mat-menu-item (click) = 'openDyFaAuftrage()'>...</button> 
+  </mat-menu>
     <app-disp-toggle #disp (messageEvent)="receiveMessage($event)"></app-disp-toggle>
 </mat-toolbar>
 
-<app-tree-view #treeview></app-tree-view>
+<app-tree-view #treeview (toolbar)="showDialog($event)"></app-tree-view>
   
+</div>

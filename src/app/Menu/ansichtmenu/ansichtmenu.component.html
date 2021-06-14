@@ -1,0 +1,6 @@
+<!-- #docregion mat-menu-trigger-for -->
+<button mat-button [matMenuTriggerFor]="menu">Ansicht</button>
+<!-- #enddocregion mat-menu-trigger-for -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click) = 'openDateneditor()'>...</button>
+</mat-menu>

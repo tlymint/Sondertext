@@ -1,0 +1,8 @@
+<!-- #docregion mat-menu-trigger-for -->
+<button mat-button [matMenuTriggerFor]="menu">Datei</button>
+<!-- #enddocregion mat-menu-trigger-for -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click) = 'Abmelden()'>Abmelden...</button>
+  <button mat-menu-item (click) = 'Grafikeditor()'>Grafikeditor</button> 
+  <button mat-menu-item (click) = 'Beenden()'>Beenden</button>
+</mat-menu>

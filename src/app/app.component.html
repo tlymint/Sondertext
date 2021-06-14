@@ -2,28 +2,27 @@
 <div class="topnav"></div><!DOCTYPE html>
   
   <div class="topnav">
-    <a href="#">Sondertext</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <a href="#" style="float:right">Link</a>
+    <app-dateimenu></app-dateimenu>
+    <app-bearbeitenmenu></app-bearbeitenmenu>
+    <app-ansichtmenu></app-ansichtmenu>
   </div>
-  
-  <div class="row">
-    <div class="leftcolumn">
-      <div class="card">  
+
+  <div class="topnav">
+    <app-toolbar-app></app-toolbar-app>
+  </div>
+
+  <div [hidden]="toolbar.dialoghidden">
+    <mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened>
           <app-toolbar #toolbar></app-toolbar>
-      </div>
+        </mat-drawer>
+    <mat-drawer-content>
+    <div [hidden]="toolbar.dialoghidden">
+      <app-data-table [toolbar] = 'toolbar'></app-data-table>
     </div>
-    <div class="rightcolumn">
-      <div class="card">
-        <div class="container">
-          <div [hidden]="dialoghidden">
-            <app-data-table [toolbar] = 'toolbar'></app-data-table>
-          </div>
-          <div [hidden]="dialoghiddenshow">
-            <app-table></app-table>
-          </div>
-        </div>
-      </div>
+    <div [hidden]="toolbar.dialogshow">
+        <app-table [toolbar] = 'toolbar'></app-table>
     </div>
-  </div>
+   </mat-drawer-content>
+  </mat-drawer-container>
+</div>

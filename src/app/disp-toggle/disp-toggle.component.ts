@@ -24,5 +24,4 @@ export class DispToggleComponent implements OnInit {
   sendMessage() {
     this.messageEvent.emit(this.selectedVal);
   }
- 
 }

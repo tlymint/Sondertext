@@ -1,8 +1,9 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild,Input} from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource, MatNestedTreeNode } from '@angular/material/tree';
 import { SelectionModel } from '@angular/cdk/collections';
 import { TreeItem, TREE_DATA } from './table-data';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-table',
@@ -12,6 +13,7 @@ import { TreeItem, TREE_DATA } from './table-data';
 
 export class TableComponent {
  @ViewChild('addinput',{static: false}) addinput:any;
+ @Input() toolbar: ToolbarComponent;
 
   treeData: any[];
   treeControl = new NestedTreeControl<TreeItem>(node => node.children);
@@ -107,6 +109,10 @@ export class TableComponent {
       }
     }
     return false;
+  }
+
+  quit(){
+    this.toolbar.hideDialog();
   }
 }
 

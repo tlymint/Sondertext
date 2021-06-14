@@ -10,6 +10,7 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
 import { cloneDeep } from "lodash";
 import { TREE_DATA } from '../table/table-data';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { ShowComponent } from '../show/show.component';
 
 @Component({
   selector: 'app-tree-view',
@@ -19,8 +20,6 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 })
 
 export class TreeViewComponent {
-  @Input() toolbar: ToolbarComponent;
-
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
@@ -53,7 +52,12 @@ export class TreeViewComponent {
 
   /** The selection for checklist */
 
-  constructor(private database: ChecklistDatabase, public dialog: MatDialog, private elementRef: ElementRef) {
+  constructor(private database: ChecklistDatabase, 
+    public dialog: MatDialog, 
+    private elementRef: ElementRef,
+    public toolbar: ToolbarComponent,
+    public show: ShowComponent
+    ) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
     this.treeControl = new FlatTreeControl<TreeItemFlat>(this.getLevel, this.isExpandable);
@@ -226,21 +230,19 @@ export class TreeViewComponent {
     const parentNode = this.flatNodeMap.get(node);
     // 
     let isParentHasChildren: boolean = false;
-
+    this.toolbar.showDialog();
     if (parentNode.children)
       isParentHasChildren = true;
     //
-    this.database.insertItem(parentNode!, '');
+    this.database.insertItem(parentNode!, this.show.getInputValues());
+    this.saveNode(node, this.show.getInputValues())
     // expand the subtree only if the parent has children (parent is not a leaf node)
     if (isParentHasChildren)
       this.treeControl.expand(node);
-      this.toolbar.dialoghidden = false;
-      this.toolbar.dialogshow = true;
   }
 
   /**remove a node */
   removeItem(node: TreeItemFlat) {
-    
     console.log(node)
     // Get the parent node of the selected child node
     const parentNode = this.getParentNode(node);

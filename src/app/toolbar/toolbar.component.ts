@@ -1,11 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { ChecklistDatabase } from '../tree-view/tree-data';
+import { TreeViewComponent } from '../tree-view/tree-view.component';
 import {AddfolderComponent} from './addfolder/addfolder.component';
+
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrls: ['./toolbar.component.scss'],
+  providers: [ChecklistDatabase]
 })
 export class ToolbarComponent implements OnInit {
   @ViewChild('treeview',{static: false}) treeview:any;
@@ -32,10 +36,11 @@ export class ToolbarComponent implements OnInit {
 
   message:string= "tabe";
   signalG:boolean= false;
-  signalT:boolean= true;
-  dialoghidden: boolean = true;
+  signalT:boolean= false;
+  dialoghidden: boolean = false;
   dialogshow: boolean = false;
-  
+  hiddenDatenEditor: boolean = false;
+
   receiveMessage($event:string) {
     if($event == "tabe" ) {
       this.signalT = true;
@@ -52,4 +57,13 @@ export class ToolbarComponent implements OnInit {
     this.message = $event;
   }
 
+  showDialog(){
+    this.dialoghidden = true;
+    this.dialogshow = false;
+  }
+
+  hideDialog(){
+    this.dialoghidden = false;
+    this.dialogshow = true;
+  }
 }

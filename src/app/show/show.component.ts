@@ -11,6 +11,7 @@ export class ShowComponent {
 
   fg: FormGroup;
   fa: FormArray;
+  inputValues: string;
   selected = 0;
   public count = 0;
 
@@ -37,6 +38,7 @@ export class ShowComponent {
       question: new FormControl("")
     });
   }
+
   getValue() {
     if(this.count !== 0){
        return true;
@@ -48,6 +50,13 @@ export class ShowComponent {
 
   removeQuotes(value){
     return value.replace(/\"/g, "");
+  }
+
+  getInputValues(){
+    for (var i = 0; i < this.fa.length; i++) {
+       this.inputValues = this.fg[i].get('question').value.concat(this.fg[i+1].get('question').value)
+    }
+    return this.inputValues
   }
 }
 

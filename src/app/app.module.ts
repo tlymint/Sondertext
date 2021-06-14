@@ -35,6 +35,10 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { DispToggleComponent } from './disp-toggle/disp-toggle.component';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
+/**Data Grafik unf Data Table */
+import { DataGrafikComponent } from './data-grafik/data-grafik.component';
+import { DataTableComponent } from './data-table/data-table.component';
+
 /**Drucken */
 import { DruckenComponent } from './drucken/drucken.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -47,8 +51,14 @@ import { AddfolderComponent } from './toolbar/addfolder/addfolder.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { DataGrafikComponent } from './data-grafik/data-grafik.component';
-import { DataTableComponent } from './data-table/data-table.component';
+import { DateimenuComponent } from './Menu/dateimenu/dateimenu.component';
+
+import {MatMenuModule} from '@angular/material/menu';
+
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BearbeitenmenuComponent } from './Menu/bearbeitenmenu/bearbeitenmenu.component';
+import { AnsichtmenuComponent } from './Menu/ansichtmenu/ansichtmenu.component';
+import { ToolbarAppComponent } from './toolbar-app/toolbar-app.component';
 
 
 @NgModule({
@@ -65,8 +75,12 @@ import { DataTableComponent } from './data-table/data-table.component';
     AddfolderComponent,
     DataGrafikComponent,
     DataTableComponent,
+    DateimenuComponent,
+    BearbeitenmenuComponent,
+    AnsichtmenuComponent,
+    ToolbarAppComponent,
   ],
-  entryComponents: [DialogContentComponent, AddfolderComponent],
+  entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -87,9 +101,11 @@ import { DataTableComponent } from './data-table/data-table.component';
     MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatMenuModule,
+    MatSidenavModule
   ],
-  providers: [],
+  providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
