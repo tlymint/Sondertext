@@ -3,7 +3,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource, MatNestedTreeNode } from '@angular/material/tree';
 import { SelectionModel } from '@angular/cdk/collections';
 import { TreeItem, TREE_DATA } from './table-data';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { ToolbarComponent } from '../dateneditor/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-table',

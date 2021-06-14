@@ -3,7 +3,7 @@
   
   <div class="topnav">
     <app-dateimenu></app-dateimenu>
-    <app-bearbeitenmenu></app-bearbeitenmenu>
+    <app-bearbeitenmenu [toolbar] = 'toolbar'></app-bearbeitenmenu>
     <app-ansichtmenu></app-ansichtmenu>
   </div>
 
@@ -11,7 +11,7 @@
     <app-toolbar-app></app-toolbar-app>
   </div>
 
-  <div [hidden]="toolbar.dialoghidden">
+  <div [hidden]="toolbar.showDatenEditor">
     <mat-drawer-container class="example-container">
         <mat-drawer mode="side" opened>
           <app-toolbar #toolbar></app-toolbar>

@@ -8,9 +8,9 @@ import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatPro
 import {MatDialog} from '@angular/material/dialog';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
-import { TREE_DATA } from '../table/table-data';
+import { TREE_DATA } from '../../table/table-data';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { ShowComponent } from '../show/show.component';
+import { ShowComponent } from '../../show/show.component';
 
 @Component({
   selector: 'app-tree-view',

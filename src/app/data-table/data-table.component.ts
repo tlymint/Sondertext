@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild,Input } from '@angular/core
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { ToolbarComponent } from '../dateneditor/toolbar/toolbar.component';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
   
   @Component({

@@ -35,11 +35,11 @@ export class ToolbarComponent implements OnInit {
   }
 
   message:string= "tabe";
-  signalG:boolean= false;
-  signalT:boolean= false;
-  dialoghidden: boolean = false;
-  dialogshow: boolean = false;
-  hiddenDatenEditor: boolean = false;
+  signalG:boolean= true;
+  signalT:boolean= true;
+  dialoghidden: boolean = true;
+  dialogshow: boolean = true;
+  showDatenEditor: boolean = true;
 
   receiveMessage($event:string) {
     if($event == "tabe" ) {

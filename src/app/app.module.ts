@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 /**Tree-view List for Displayeditor */
-import { TreeViewComponent } from './tree-view/tree-view.component';
+import { TreeViewComponent } from './dateneditor/tree-view/tree-view.component';
 
 /**Show the Sondertext-format Table */
 import { TableComponent } from './table/table.component';
@@ -27,7 +27,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 /**Pop-up Dialog */
-import { DialogContentComponent } from './tree-view/dialog-content/dialog-content.component';
+import { DialogContentComponent } from './dateneditor/tree-view/dialog-content/dialog-content.component';
 
 
 /**Switch Table and Display-Windows */
@@ -41,11 +41,11 @@ import { DataTableComponent } from './data-table/data-table.component';
 
 /**Drucken */
 import { DruckenComponent } from './drucken/drucken.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
 
 /**Toolbar for Tree-view */
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { AddfolderComponent } from './toolbar/addfolder/addfolder.component';
+import { AddfolderComponent } from './dateneditor/toolbar/addfolder/addfolder.component';
 
 /**Data-Table */
 import { MatTableModule } from '@angular/material/table';
@@ -59,6 +59,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { BearbeitenmenuComponent } from './Menu/bearbeitenmenu/bearbeitenmenu.component';
 import { AnsichtmenuComponent } from './Menu/ansichtmenu/ansichtmenu.component';
 import { ToolbarAppComponent } from './toolbar-app/toolbar-app.component';
+import { DisplayeditorComponent } from './displayeditor/displayeditor.component';
+import { DateneditorComponent } from './dateneditor/dateneditor.component';
+import { GrafikComponent } from './displayeditor/grafik/grafik.component';
+import { SondertextDatenbankComponent } from './sondertext-datenbank/sondertext-datenbank.component';
 
 
 @NgModule({
@@ -79,6 +83,10 @@ import { ToolbarAppComponent } from './toolbar-app/toolbar-app.component';
     BearbeitenmenuComponent,
     AnsichtmenuComponent,
     ToolbarAppComponent,
+    DisplayeditorComponent,
+    DateneditorComponent,
+    GrafikComponent,
+    SondertextDatenbankComponent,
   ],
   entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
   imports: [
