@@ -29,15 +29,19 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
-  
-  <!-- Copyright 2021 Google LLC. All Rights Reserved.
-      Use of this source code is governed by an MIT-style license that
-      can be found in the LICENSE file at http://angular.io/license -->
-<div>
-    <button mat-flat-button (click)="ubernehmen()">übernehmen</button>
-    <button mat-flat-button (click)="Okay()">Okay</button>
-    <button mat-flat-button (click)="Abbrechen()">Abbrechen</button>
+</table>
+<br>
+<br>
+<div class="row">
+    <div class="col-xs-6">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="example-button-row"> 
+            <button mat-flat-button (click)="Ubernehmen()">uebernehmen</button>
+            <button mat-flat-button (click)="Okay()">Okay</button>
+            <button mat-flat-button (click)="Abbrechen()">Abbrechen</button>
+        </div>
+    </div>
 </div>

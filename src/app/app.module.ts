@@ -35,10 +35,6 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { DispToggleComponent } from './disp-toggle/disp-toggle.component';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
-/**Data Grafik unf Data Table */
-import { DataGrafikComponent } from './data-grafik/data-grafik.component';
-import { DataTableComponent } from './data-table/data-table.component';
-
 /**Drucken */
 import { DruckenComponent } from './drucken/drucken.component';
 import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
@@ -64,6 +60,7 @@ import { DateneditorComponent } from './dateneditor/dateneditor.component';
 import { GrafikComponent } from './displayeditor/grafik/grafik.component';
 import { SondertextDatenbankComponent } from './sondertext-datenbank/sondertext-datenbank.component';
 import { DisplaymanagementComponent } from './displaymanagement/displaymanagement.component';
+import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 
 
 @NgModule({
@@ -78,8 +75,6 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
     DruckenComponent,
     ToolbarComponent,
     AddfolderComponent,
-    DataGrafikComponent,
-    DataTableComponent,
     DateimenuComponent,
     BearbeitenmenuComponent,
     AnsichtmenuComponent,
@@ -89,6 +84,7 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
     GrafikComponent,
     SondertextDatenbankComponent,
     DisplaymanagementComponent,
+    EditorTableComponent,
   ],
   entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
   imports: [

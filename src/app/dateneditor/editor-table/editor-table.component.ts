@@ -21,28 +21,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  selector: 'app-editor-table',
+  templateUrl: './editor-table.component.html',
+  styleUrls: ['./editor-table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class EditorTableComponent implements OnInit {
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ubernehmen(){
-
-  }
-
-  Okay(){
-
-  }
-
-  Abbrechen(){
-    
   }
 
 }
