@@ -15,13 +15,11 @@ export class BearbeitenmenuComponent implements OnInit {
   }
 
   openDateneditor() {
-    console.log('opendateneditor');
     this.displaymanagement.hiddenDatenEditor = false;
     this.displaymanagement.hiddenDisplayEditor = true;
   }
 
   openDisplayeditor(){
-    console.log('opendisplayeditor');
     this.displaymanagement.hiddenDatenEditor = true;
     this.displaymanagement.hiddenDisplayEditor = false;
   }

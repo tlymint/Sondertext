@@ -1,13 +1,10 @@
 
 <div class="topnav"></div><!DOCTYPE html>
   
-  <div class="topnav">
+  <div class="topnav" [hidden] = "false">
     <app-dateimenu></app-dateimenu>
     <app-bearbeitenmenu [displaymanagement] = 'displaymanagement'></app-bearbeitenmenu>
     <app-ansichtmenu></app-ansichtmenu>
-  </div>
-
-  <div class="topnav">
   </div>
   
   <app-displaymanagement #displaymanagement></app-displaymanagement>
