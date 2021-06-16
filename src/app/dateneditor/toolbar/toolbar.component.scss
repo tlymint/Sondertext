@@ -2,9 +2,13 @@
     flex: 1 1 auto;
   }
 .mat-toolbar {
-  background:#bddde0;
-  height: 30px;
+  background:#bdcfda;
+  height: 35px;
   }
 .mat-icon {
-  color: #405e5f;
+  color: #273838;
+}
+
+.mat-button:hover {
+  background-color:#e0ecf3;
 }
