@@ -1,9 +1,11 @@
+// Setting for scrollbar
 .scroll-window{
   height: 100%;
   width: 100%;
   border: 0px solid black;
 }
   
+// Setting 
 .action-icons {
   margin-right: 0.5rem;
   cursor: pointer;
@@ -29,8 +31,9 @@ li {
 }
 
 // Node background colors
+/*
 .level-1 {
-  background-color: #f7d4bc;
+  background-color: #ffffff;
 }
 .level-2 {
   background-color: #f5f2f2;
@@ -38,21 +41,42 @@ li {
 .level-3 {
   background-color: #c9f4d0;
 }
-
+*/
 
 li.tree-node {
   list-style-type: none;
   margin-top: 5px;
 }
+// Setting for tree
 .mat-tree-node, .mat-nested-tree-node {
   min-height: auto;
-  background-color: brown;
-  color:rgb(255, 255, 255);
-
+  background-color: white;
+  color:black;
 
 }
 .mat-nested-tree-node li ul {
   padding-bottom: 5px;
+}
+
+.mat-icon {
+  color: rgb(150, 150, 150);
+}
+.mat-icon:hover {
+  color:rgb(12, 12, 12);
+}
+
+.txtColor:hover{
+  color: rgb(50, 50, 50);
+  cursor: pointer;
+}
+
+.background-highlight{
+  background: rgb(200, 200, 200);
+  
+}
+.mat-icon-button{
+  font-family: sans-serif,  Arial, 'Arial Narrow','Franklin Gothic Medium'  ;
+  font-size: 16px;
 }
 
 .example-spacer {
@@ -71,13 +95,14 @@ li.tree-node {
 .show_btn:hover
 {
   opacity: 1;
-  color: rgb(181, 210, 247);
 }
 
 .checklist-leaf-node {
   margin: 0 0px;
 }
 
+/*
+// Setting for checkbox icon
 ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
   background-color: #405e5f !important;
 }
@@ -89,37 +114,24 @@ li.tree-node {
 ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
   background-color: #27A6B2 !important;
 }
+*/
 
-.mat-icon {
-  color: #ffffff;
-}
 
-.txtColor:hover{
-  color: rgb(12, 12, 12);
-  cursor: pointer;
-}
 
-.background-highlight{
-  background: rgb(165, 93, 117);
-  
-}
-.mat-icon-button{
-  font-family: sans-serif,  Arial, 'Arial Narrow','Franklin Gothic Medium'  ;
-  font-size: 16px;
-}
+
+
+// Setting for Contextmenu(Effect like openning a context menu window)
+/*
 .mat-menu{
-  background-color: brown;
-  
+  background-color: rgb(255, 255, 255);
 }
-
-  
+*/
 
 .mat-menu-item{
-  background-color: brown;
-
+  background-color: rgb(255, 255, 255);
 
 }
 .mat-menu-item:hover{
-  background-color:rgb(165, 93, 117);
+  background-color:rgb(200, 200, 200);
 }
 

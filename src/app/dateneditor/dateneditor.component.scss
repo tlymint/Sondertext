@@ -1,11 +1,11 @@
 
 .main-container{
     display: flex;
-    height: 100%;
+    height: 600px;
 }
   
 .left-container{
-    background-color:brown;
+    background-color:white;
 }
 
 .resize-handle{
@@ -23,6 +23,12 @@
 .right-container{
     flex: 1 1 50vw;
     background-color: #b6b6b6;
+    
+}
+
+.displayer {
+    width:100%;
+    height:550px;
 }
 
 .row {

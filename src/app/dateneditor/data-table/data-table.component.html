@@ -1,51 +1,36 @@
-<div class="wind1" [hidden]="toolbar.signalT">  
-    <div class="mat-elevation-z8">
-        <table mat-table class="full-width-table" matSort aria-label="Elements">
-        <!-- Id Column -->
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-            <td mat-cell *matCellDef="let row">{{row.id}}</td>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-            <td mat-cell *matCellDef="let row">{{row.name}}</td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row 
-        (click)="clickedRows.add(row)"
-        [class.demo-row-is-clicked]="clickedRows.has(row)"
-        *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    
-        <mat-paginator #paginator
-            [length]="dataSource?.data.length"
-            [pageIndex]="0"
-            [pageSize]="10"
-            [pageSizeOptions]="[5,10,20]">
-        </mat-paginator>
-    </div>
-  <!--
- <div>
-        <h3>
-        Click Log
-        </h3>
-    </div>
-    <div *ngIf="!clickedRows.size">
-        Clicked rows will be logged here
-    </div>
-    
-    <ul>
-        <li *ngFor="let clickedRow of clickedRows">
-        Clicked on {{clickedRow.name}}
-        </li>
-    </ul>
-  -->
-   
-</div>
+<cdk-virtual-scroll-viewport itemSize="50" class="scroll-window2">
 
-  <div class="wind2" [hidden]="toolbar.signalG">
-     <app-data-grafik [grafikSource]="grafikSource"></app-data-grafik>
-  </div>
+    <div class="wind1" [hidden]="toolbar.signalT">  
+        <div class="mat-elevation-z8">
+            <table mat-table class="full-width-table" matSort aria-label="Elements">
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                <td mat-cell *matCellDef="let row">{{row.id}}</td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row 
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        
+            <mat-paginator #paginator
+                [length]="dataSource?.data.length"
+                [pageIndex]="0"
+                [pageSize]="10"
+                [pageSizeOptions]="[5,10,20]">
+            </mat-paginator>
+         </div>
+    </div>
+    <div class="wind2" [hidden]="toolbar.signalG">
+        <app-data-grafik [grafikSource]="grafikSource"></app-data-grafik>
+    </div>
+</cdk-virtual-scroll-viewport>

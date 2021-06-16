@@ -38,7 +38,9 @@ import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 /**Drucken */
 import { DruckenComponent } from './drucken/drucken.component';
+import { PrintPreviewComponent } from './drucken/drucken.component';
 import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
+
 
 /**Toolbar for Tree-view */
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -94,8 +96,14 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     SondertextDatenbankComponent,
     DisplaymanagementComponent,
     EditorTableComponent,
+    PrintPreviewComponent,
   ],
-  entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
+  entryComponents: [
+    DialogContentComponent, 
+    AddfolderComponent,
+    DruckenComponent,
+    PrintPreviewComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
