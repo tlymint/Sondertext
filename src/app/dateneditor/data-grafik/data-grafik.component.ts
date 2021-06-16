@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DataGrafikComponent implements OnInit {
 
   @Input() grafikSource:any;
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'Zeit', 'RZL', 'Richtung', 'M_Zeit', 'M_Linie',
+                        'M_Kurs', 'Route', 'Fahrtart', 'Umlauf'];
   constructor() { }
 
   ngOnInit() {

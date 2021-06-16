@@ -6,32 +6,27 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
-  name: string;
+  RZL_Button: string;
+  Umlauf: string;
+  Fahrtart: string;
+  Route: string;
+  M_Kurs: string;
+  M_Linie: string;
+  M_Zeit: string;
+  Richtung: string;
+  RZL: string;
+  Zeit: string;
   id: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {id: 1, Zeit: '07:10', RZL: '2732', RZL_Button: '', Richtung: '1', M_Zeit: '',
+   M_Linie: '', M_Kurs: '', Route: '794', Fahrtart: '4', Umlauf: '75204'},
+  {id: 2, Zeit: '07:21', RZL: '2733', RZL_Button: '', Richtung: '1', M_Zeit: '07:49',
+   M_Linie: '752', M_Kurs: '04', Route: '5', Fahrtart: '0', Umlauf: '75204'},
+  {id: 3, Zeit: '', RZL: '', RZL_Button: '', Richtung: '', M_Zeit: '',
+   M_Linie: '', M_Kurs: '', Route: '', Fahrtart: '', Umlauf: ''},
 ];
 
 /**
@@ -58,12 +53,11 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     // stream for the data-table to consume.
     const dataMutations = [
       observableOf(this.data),
-      this.paginator.page,
       this.sort.sortChange
     ];
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
+      return this.getSortedData([...this.data]);
     }));
   }
 
@@ -77,10 +71,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: DataTableItem[]) {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    return data.splice(startIndex, this.paginator.pageSize);
-  }
+  
 
   /**
    * Sort the data (client-side). If you're using server-side sorting,
@@ -94,7 +85,15 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
+        case 'Umlauf': return compare(a.Umlauf, b.Umlauf, isAsc);
+        case 'Fahrtart': return compare(a.Fahrtart, b.Fahrtart, isAsc);
+        case 'Route': return compare(a.Route, b.Route, isAsc);
+        case 'M_Kurs': return compare(a.M_Kurs, b.M_Kurs, isAsc);
+        case 'M_Linie': return compare(a.M_Linie, b.M_Linie, isAsc);
+        case 'M_Zeit': return compare(a.M_Zeit, b.M_Zeit, isAsc);
+        case 'Richtung': return compare(a.Richtung, b.Richtung, isAsc);
+        case 'RZL': return compare(a.RZL, b.RZL, isAsc);
+        case 'Zeit': return compare(a.Zeit, b.Zeit, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }
