@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./displaymanagement.component.scss']
 })
 export class DisplaymanagementComponent implements OnInit {
-  hiddenDatenEditor: boolean = true;
+  hiddenDatenEditor: boolean = false;
   hiddenDisplayEditor: boolean = true;
 
   constructor() { }

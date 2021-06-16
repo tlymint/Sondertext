@@ -1,8 +1,4 @@
-<p>
-    <mat-toolbar>
-      <span>Dateneditor</span>
-    </mat-toolbar>
-  </p>
+
 
 <app-toolbar></app-toolbar>
 <app-toolbar-app #toolbar></app-toolbar-app>
@@ -12,11 +8,25 @@
     <app-tree-view></app-tree-view> 
   </div>
   <div class="resize-handle" (mousedown)="changeResizeMode(true)" (mouseup)="changeResizeMode(false)" [style.background-color]="highlightHandle">
-      <div>||</div>
   </div>
   <div class="right-container">
-         
-    <app-data-table [toolbar]='toolbar'>
-    </app-data-table>
+    <div>
+        <app-data-table [toolbar]='toolbar'>
+        </app-data-table>
+    </div>    
+    <div class="row">
+          <div class="example-button-row" > 
+            <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+            <span class= "OkandCancel-button">
+              <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+              <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+            </span>       
+          </div>
+    </div>
+
   </div>
 </div>
+<div class = "status-container">
+  <b>{{help_content}}</b>
+</div>
+

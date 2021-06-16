@@ -44,6 +44,9 @@ import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddfolderComponent } from './dateneditor/toolbar/addfolder/addfolder.component';
 
+/**scrolling */
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 /**Data-Table */
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -64,6 +67,7 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 import { DataTableComponent } from './dateneditor/data-table/data-table.component';
 import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+
 
 
 @NgModule({
@@ -115,7 +119,8 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ScrollingModule
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],

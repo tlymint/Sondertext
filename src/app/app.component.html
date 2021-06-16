@@ -1,6 +1,13 @@
 <div class="topnav"></div><!DOCTYPE html>
-
 <div class="topnav">
+    <app-ansichtmenu></app-ansichtmenu>
+    <app-bearbeitenmenu [displaymanagement]=DisplaymanagementComponent></app-bearbeitenmenu>
+    <app-dateimenu></app-dateimenu>
 </div>
-  
-<app-dateneditor></app-dateneditor>
+
+<div class="page-margin">
+    <app-displaymanagement #DisplaymanagementComponent></app-displaymanagement> 
+    <!--<app-dateneditor></app-dateneditor>-->
+</div>
+
+
