@@ -1,60 +1,70 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
-    <button mat-icon-button disabled></button>
-    <mat-checkbox class="checklist-leaf-node"
-                  [checked]="itemSelection.isSelected(node)"
-                  (change)="LeafItemSelectionToggle(node)">{{node.name}}</mat-checkbox>
-                  <span class="example-spacer"></span> 
-                  <label [ngClass]="{show_btn: itemSelection.isSelected(node), hide_btn: !itemSelection.isSelected(node)}">  
-                    <button mat-icon-button (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
-                    <button mat-icon-button (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                      <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                    <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
-                    <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
-                    <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
-                    <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
-                    </mat-menu>
-                  </label>
-  </mat-tree-node>
-
-  <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding>
-    <button mat-icon-button disabled></button>
-    <mat-form-field>
-      <mat-label>New item...</mat-label>
-      <input matInput #itemValue placeholder="Ex. Lettuce">
-    </mat-form-field>
-    <button mat-button (click)="saveNode(node, itemValue.value)">Save</button>
-   
-  </mat-tree-node>
-
-  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-    <button mat-icon-button class="tree" matTreeNodeToggle
-            [attr.aria-label]="'Toggle ' + node.name">
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
+<cdk-virtual-scroll-viewport itemSize="50" class="scroll-window">
+  
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding
+    (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
     
-    <mat-checkbox class="checklist-leaf-node"
-                  [checked]="descendantsAllSelected(node)"
-                  [indeterminate]="descendantsPartiallySelected(node)"
-                  (change)="itemSelectionToggle(node)">{{node.name}}</mat-checkbox> 
-    <span class="example-spacer"></span> 
-      <label [ngClass]="{show_btn: itemSelection.isSelected(node), hide_btn: !itemSelection.isSelected(node)}">         
-        <button mat-icon-button (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
-        <button mat-icon-button (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-        <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
-        <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
-        <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
-        <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
-        </mat-menu>
-      </label> 
+      <button mat-icon-button disabled></button>
+      <button mat-icon-button class="checklist-leaf-node"
+        (click)="itemSelection.isSelected(node)"
+        (change)="LeafItemSelectionToggle(node)" 
+        >{{node.name}}
+      </button>
+      <span class="example-spacer"></span> 
+      <label [ngClass]="{show_btn: activeNode === node, hide_btn: activeNode !== node}">  
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
+      <button mat-menu-item (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
+      <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
+      <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
+      <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
+      <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
+      </mat-menu>
+    </label>
   </mat-tree-node>
-</mat-tree>
+
+    <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding 
+    (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
+      <button mat-icon-button disabled></button>
+      <mat-form-field>
+        <mat-label>New item...</mat-label>
+        <input matInput #itemValue placeholder="Ex. Lettuce">
+      </mat-form-field>
+      <button mat-button (click)="saveNode(node, itemValue.value)">Save</button>
+    
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding 
+    (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
+      <button mat-icon-button class="tree" matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      
+      <button mat-icon-button class="checklist-leaf-node"
+                    (click)="descendantsAllSelected(node)"
+                    (change)="itemSelectionToggle(node)">{{node.name}}</button> 
+      <span class="example-spacer"></span> 
+        <label [ngClass]="{show_btn: activeNode === node, hide_btn: activeNode !== node}">         
+          
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
+          <button mat-menu-item (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
+          <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
+          <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
+          <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
+          <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
+          </mat-menu>
+        </label> 
+    </mat-tree-node>
+  </mat-tree>
+
+</cdk-virtual-scroll-viewport>

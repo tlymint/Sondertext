@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import xml2js from 'xml2js';  
+import { HttpClient, HttpHeaders } from '@angular/common/http';  
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  recht: string;
+  wert: any;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {recht: 'Passwort', wert:'aktiv'},
+  {recht: 'Datei: Abmeldung', wert:'aktiv'},
+  {recht: 'Datei: Grafikeditor', wert:'aktiv'},
+  {recht: 'Datei: Programm beenden', wert:'aktiv'},
+  {recht: 'Dateneditor: Administrator', wert:'aktiv'},
+  {recht: 'Dateneditor: Betriebstageuch erweitert', wert:'aktiv'},
+  {recht: 'Dateneditor: DyFa-Gruppen', wert:'aktiv'},
+  {recht: 'Dateneditor: Grafikdaten', wert:'aktiv'},
+  {recht: 'Bearbeiten: Dateneditor', wert:'aktiv'},
+  {recht: 'Bearbeiten: Sondertextdatenbank', wert:'aktiv'},
+  {recht: 'Bearbeiten: Benutzerdefinierte Aufträge', wert:'aktiv'},
+  {recht: 'Bearbeiten: Ständige Aufträge', wert:'aktiv'},
 ];
 
 @Component({
@@ -25,13 +27,54 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './editor-table.component.html',
   styleUrls: ['./editor-table.component.scss']
 })
-export class EditorTableComponent implements OnInit {
+export class EditorTableComponent{
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['recht', 'wert'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
 
-  ngOnInit() {
-  }
+  title = 'read-xml-angular8';  
+  public xmlItems: any;  
+  constructor(private _http: HttpClient) { this.loadXML(); }  
+  loadXML() {  
+    this._http.get('/assets/xml/exampleTable.xml',  
+      {  
+        headers: new HttpHeaders()  
+          .set('Content-Type', 'text/xml')  
+          .append('Access-Control-Allow-Methods', 'GET')  
+          .append('Access-Control-Allow-Origin', '*')  
+          .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
+        responseType: 'text'  
+      })  
+      .subscribe((data) => {  
+        this.parseXML(data)  
+          .then((data) => {  
+            this.xmlItems = data;  
+          });  
+      });  
+  }  
+  parseXML(data) {  
+    return new Promise(resolve => {  
+      var k: string | number,  
+        arr = [],  
+        parser = new xml2js.Parser(  
+          {  
+            trim: true,  
+            explicitArray: true  
+          });  
+      parser.parseString(data, function (err, result) {  
+        var obj = result.Employee;  
+        for (k in obj.emp) {  
+          var item = obj.emp[k];  
+          arr.push({  
+            id: item.id[0],  
+            name: item.name[0],  
+            gender: item.gender[0],  
+            mobile: item.mobile[0]  
+          });  
+        }  
+        resolve(arr);  
+      });  
+    });  
+  }  
 
 }

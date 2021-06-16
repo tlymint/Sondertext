@@ -1,10 +1,13 @@
-
 <div class="topnav"></div><!DOCTYPE html>
-  
-  <div class="topnav" [hidden] = "false">
-    <app-dateimenu></app-dateimenu>
-    <app-bearbeitenmenu [displaymanagement] = 'displaymanagement'></app-bearbeitenmenu>
+<div class="topnav">
     <app-ansichtmenu></app-ansichtmenu>
-  </div>
-  
-  <app-displaymanagement #displaymanagement></app-displaymanagement>
+    <app-bearbeitenmenu [displaymanagement]=DisplaymanagementComponent></app-bearbeitenmenu>
+    <app-dateimenu></app-dateimenu>
+</div>
+
+<div class="page-margin">
+    <app-displaymanagement #DisplaymanagementComponent></app-displaymanagement> 
+    <!--<app-dateneditor></app-dateneditor>-->
+</div>
+
+

@@ -28,12 +28,15 @@ export class TreeViewComponent {
   selectedItems: number;
   itemCount: number;
   isEditActive: boolean = false;
+  isClicked: boolean = false;
   editItem: any = null;
   editorFocused: boolean = false;
   hoverItem: any = null;
   originalText: string = '';
   name: string;
+  activeNode;
   copy: any;
+  buttonColor: 'primary';
   animal: boolean = false;
   flatNodeMap: Map<TreeItemFlat, TreeItem> = new Map<TreeItemFlat, TreeItem>();
 
@@ -99,7 +102,7 @@ export class TreeViewComponent {
     });
     return descAllSelected;
   }
-
+  
   /** Whether part of the descendants are selected and not all are selected */
   descendantsPartiallySelected(node: TreeItemFlat): boolean {
     const descendants = this.treeControl.getDescendants(node);

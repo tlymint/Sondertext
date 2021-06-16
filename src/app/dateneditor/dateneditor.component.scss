@@ -1,6 +1,55 @@
-.example-container {
-    width: 1400px;
-    height: 800px;
-    margin: 10px;
-    border: 1px solid #555;
-  }
+
+.main-container{
+    display: flex;
+    height: 100%;
+}
+  
+.left-container{
+    background-color:brown;
+}
+
+.resize-handle{
+    flex: 0 0 5px;
+    cursor: col-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background-color:rgb(240, 234, 234) ;
+    
+}
+
+
+.right-container{
+    flex: 1 1 50vw;
+    background-color: #b6b6b6;
+}
+
+.row {
+    width: 100%;
+    text-align: right;
+}
+
+
+
+.example-button-row {
+    display: table-cell;
+    width: 100%;
+}
+
+.example-button-row .mat-button-base {
+margin: 8px 8px 8px 0;
+}
+
+.OkandCancel-button{
+    margin-left: 30px;
+}
+
+
+.status-container{
+    padding:5px;
+    padding-left: 20px;
+    background-color: #b6b6b6;
+    color:black;
+    font-family: 'Arial Narrow';
+}

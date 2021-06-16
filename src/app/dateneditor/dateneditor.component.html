@@ -1,14 +1,32 @@
-<app-toolbar></app-toolbar>
-<app-toolbar-app></app-toolbar-app>
 
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-      <app-tree-view></app-tree-view>
-    </mat-drawer>
-    <mat-drawer-content>
-        <div [hidden]="hiddenTable">
-            <app-editor-table></app-editor-table>
-        </div>
-    </mat-drawer-content>
-</mat-drawer-container>
-    
+
+<app-toolbar></app-toolbar>
+<app-toolbar-app #toolbar></app-toolbar-app>
+
+<div class="main-container"  (mouseup)="changeResizeMode(false)" (mousemove)="changeLeftContainerWidth($event)" (mouseleave)="changeResizeMode(false)">
+  <div class="left-container" [style.flex-basis]="leftContainerWidth">      
+    <app-tree-view></app-tree-view> 
+  </div>
+  <div class="resize-handle" (mousedown)="changeResizeMode(true)" (mouseup)="changeResizeMode(false)" [style.background-color]="highlightHandle">
+  </div>
+  <div class="right-container">
+    <div>
+        <app-data-table [toolbar]='toolbar'>
+        </app-data-table>
+    </div>    
+    <div class="row">
+          <div class="example-button-row" > 
+            <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+            <span class= "OkandCancel-button">
+              <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+              <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+            </span>       
+          </div>
+    </div>
+
+  </div>
+</div>
+<div class = "status-container">
+  <b>{{help_content}}</b>
+</div>
+

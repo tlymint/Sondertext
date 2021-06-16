@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /**UI Module */
@@ -32,7 +33,7 @@ import { DialogContentComponent } from './dateneditor/tree-view/dialog-content/d
 
 /**Switch Table and Display-Windows */
 import { MatDialogModule} from '@angular/material/dialog';
-import { DispToggleComponent } from './disp-toggle/disp-toggle.component';
+import { DispToggleComponent } from './dateneditor/disp-toggle/disp-toggle.component';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 /**Drucken */
@@ -42,6 +43,9 @@ import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
 /**Toolbar for Tree-view */
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddfolderComponent } from './dateneditor/toolbar/addfolder/addfolder.component';
+
+/**scrolling */
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 /**Data-Table */
 import { MatTableModule } from '@angular/material/table';
@@ -61,6 +65,9 @@ import { GrafikComponent } from './displayeditor/grafik/grafik.component';
 import { SondertextDatenbankComponent } from './sondertext-datenbank/sondertext-datenbank.component';
 import { DisplaymanagementComponent } from './displaymanagement/displaymanagement.component';
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
+import { DataTableComponent } from './dateneditor/data-table/data-table.component';
+import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+
 
 
 @NgModule({
@@ -71,6 +78,8 @@ import { EditorTableComponent } from './dateneditor/editor-table/editor-table.co
     ShowComponent,
     DruckenComponent,
     DialogContentComponent,
+    DataTableComponent ,
+    DataGrafikComponent,
     DispToggleComponent,
     DruckenComponent,
     ToolbarComponent,
@@ -95,6 +104,7 @@ import { EditorTableComponent } from './dateneditor/editor-table/editor-table.co
     MatCheckboxModule,
     MatSlideToggleModule,
     MatIconModule,
+    HttpClientModule,
     MatButtonModule,
     MatSelectModule,
     MatInputModule,
@@ -109,7 +119,8 @@ import { EditorTableComponent } from './dateneditor/editor-table/editor-table.co
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ScrollingModule
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
