@@ -22,17 +22,17 @@ export class DateneditorComponent implements OnInit {
 
   leftContainerWidth: number = 250;
   mouseDownOnHandle: boolean = false;
-  highlightHandle: string = '#e3e3e6';
+  highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{
     this.mouseDownOnHandle = value;
     if(value===true) {
-      this.highlightHandle = '#e3e3e6';
+      this.highlightHandle = 'rgb(200, 200, 200)';
       this.oldX = event.clientX;
     }
       
     else
-      this.highlightHandle = '#c9c9e6';
+      this.highlightHandle = 'rgb(243, 243, 243)';
   }
   
   changeLeftContainerWidth(event: MouseEvent): void{

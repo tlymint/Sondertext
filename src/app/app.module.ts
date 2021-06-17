@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card'; 
 
 /**Tree-view List for Displayeditor */
 import { TreeViewComponent } from './dateneditor/tree-view/tree-view.component';
@@ -97,6 +98,7 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     DisplaymanagementComponent,
     EditorTableComponent,
     PrintPreviewComponent,
+
   ],
   entryComponents: [
     DialogContentComponent, 
@@ -128,7 +130,8 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    ScrollingModule
+    ScrollingModule,
+    MatCardModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
