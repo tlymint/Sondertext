@@ -7,12 +7,13 @@
 .full-width-table {
     width: 50px;
     height: 100%;
-    margin-right: 10px;
-    
+    margin-right: 10px; 
   }
-  .mat-header-row{
-    height: 30px;
-  }
+
+.mat-header-row{
+  height: 30px;
+}
+
 .mat-row{
   height: 2px;
 }
@@ -20,6 +21,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
     background-color: rgb(204, 207, 207);
@@ -33,6 +35,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -41,6 +44,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 0px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
   }
 
@@ -56,6 +60,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -64,6 +69,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -72,6 +78,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -80,6 +87,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -88,6 +96,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -96,6 +105,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -104,6 +114,7 @@
     font-size:12px;
     height: 5px;
     vertical-align: middle;
+    padding: 8px 8px 8px 8px;
     border-left: .5px solid rgba(0, 0, 0, 0.12);
     border-right: .5px solid rgba(0, 0, 0, 0.12);
   }
@@ -112,24 +123,20 @@
     font-weight: bold;
   }
 
-  .wind1 {
-    width: 50px;
-    margin-top: 10px;
-    margin-left: 10px;
-    background-color: white;
-    
-  }
   
-  .wind2 {
+
+ .mat-icon-button{
     width: 100%;
-    margin-top: 10px;
-    background-color: white;
+    height: 500%;
+    //font-size: 2.5px;
+    //margin-top: 10px;
   }
 
   .mat-icon {
-    width: 10px;
+    width: 100%;
     height: 100%;
-    margin-bottom: 35px;
+    margin-bottom: 12px;
+    //transform: rotate(90deg);
     color: #dce0e0;
   }
 
@@ -137,6 +144,33 @@
     color: #595c5c;
   }
 
-  .mat-icon-button{
-    height: 2px;
+  .mat-elevation-z8{
+      transition: none !important;
+      box-shadow: none !important;
+  }
+
+  .wind1 {
+    width: 900px;
+    height: 470px;
+    margin-top: 10px;
+    margin-left: 2px;
+    background-color: white;
+  }
+
+  .wind1-row{
+    width: 900px;
+    height: 31.3px;
+    background-color: rgb(204, 207, 207);
+  }
+
+  .wind1-column{
+    width: 45.05px;
+    height: 470px;
+    background-color: rgb(204, 207, 207);
+  }
+
+  .wind2 {
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
   }

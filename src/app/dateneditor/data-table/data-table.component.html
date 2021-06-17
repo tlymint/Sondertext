@@ -1,5 +1,6 @@
 <cdk-virtual-scroll-viewport itemSize="50" class="scroll-window">
 <div class="wind1" [hidden]="toolbar.signalT">  
+    <div class="wind1-row">   <div class="wind1-column"> 
     <div class="mat-elevation-z8">
         <table mat-table class="full-width-table" matSort aria-label="Elements">
         <!-- Id Column -->
@@ -77,6 +78,7 @@
         *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
+</div></div>
 </div>
 
   <!--
