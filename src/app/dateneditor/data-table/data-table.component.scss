@@ -8,8 +8,14 @@
     width: 50px;
     height: 100%;
     margin-right: 10px;
+    
   }
-
+  .mat-header-row{
+    height: 30px;
+  }
+.mat-row{
+  height: 2px;
+}
   .mat-cell.cdk-column-id, .mat-header-cell.cdk-column-id{
     font-size:12px;
     height: 5px;
@@ -122,10 +128,15 @@
 
   .mat-icon {
     width: 10px;
-    height: 15px;
+    height: 100%;
+    margin-bottom: 35px;
     color: #dce0e0;
   }
 
   .mat-icon:hover{
     color: #595c5c;
+  }
+
+  .mat-icon-button{
+    height: 2px;
   }
