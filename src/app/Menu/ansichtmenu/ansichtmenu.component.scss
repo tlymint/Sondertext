@@ -1,4 +1,9 @@
 .mat-button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    margin-left: 5px;
+  }
+
+  .mat-button:hover {
+    background-color:rgb(206, 206, 206);
   }
