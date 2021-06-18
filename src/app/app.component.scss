@@ -1,7 +1,14 @@
 body {
-  font-family: Arial;
+  /*font-family:'Franklin Gothic Medium';*/
   padding: 10px;
   background: #5296a0;
+}
+
+.page-margin{
+  margin: 0 auto;
+  max-width: 80em;
+  min-width: 80em;
+  position: relative;
 }
 
 /* Header/Blog Title */
@@ -167,3 +174,4 @@ ul, #myUL {
   margin: 10px;
   border: 1px solid #555;
 }
+

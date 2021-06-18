@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 
+
 @Component({
   selector: 'app-dateneditor',
   templateUrl: './dateneditor.component.html',
@@ -10,12 +11,13 @@ export class DateneditorComponent implements OnInit {
   @ViewChild('toolbar', {static: false}) toolbar:any
 
   hiddenTable: boolean = false;
+  help_content:string = "This container used to help User to understand some difficulty operation.";
   constructor() { }
 
   ngOnInit() {
   }
 
-  leftContainerWidth: string = '33vw';
+  leftContainerWidth: string = '20vw';
   mouseDownOnHandle: boolean = false;
   highlightHandle: string = '#e3e3e6';
 
