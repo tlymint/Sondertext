@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding = 'ISO-8859-1' standalone = 'yes'?>
+<?xml-stylesheet type='text/xsl' href='export.xsl'?>
+<treeitem type="table" name=" Zug- und Busnummern" >
+   <record name="1" >
+      <item name="Linie" ><![CDATA[008-999]]></item>
+      <item name="Kurs" ><![CDATA[1-49]]></item>
+      <item name="Ziel" ><![CDATA[*]]></item>
+      <item name="Gruppe" ><![CDATA[0]]></item>
+   </record>
+   <record name="2" >
+      <item name="Linie" ><![CDATA[008-999]]></item>
+      <item name="Kurs" ><![CDATA[50-99]]></item>
+      <item name="Ziel" ><![CDATA[*]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="3" >
+      <item name="Linie" ><![CDATA[008-009]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[300-399,500-699,800-999]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="4" >
+      <item name="Linie" ><![CDATA[008-009]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[700-799]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="5" >
+      <item name="Linie" ><![CDATA[070-083]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[300-399,500-699,800-999]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="6" >
+      <item name="Linie" ><![CDATA[070-083]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[700-799]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="7" >
+      <item name="Linie" ><![CDATA[700-719]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[300-399,500-699,800-999]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="8" >
+      <item name="Linie" ><![CDATA[700-719]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[700-799]]></item>
+      <item name="Gruppe" ><![CDATA[2]]></item>
+   </record>
+   <record name="9" >
+      <item name="Linie" ><![CDATA[201-999]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[001-008,500-508]]></item>
+      <item name="Gruppe" ><![CDATA[1]]></item>
+   </record>
+   <record name="10" >
+      <item name="Linie" ><![CDATA[201-999]]></item>
+      <item name="Kurs" ><![CDATA[*]]></item>
+      <item name="Ziel" ><![CDATA[009-499,509-999]]></item>
+      <item name="Gruppe" ><![CDATA[0]]></item>
+   </record>
+   <record name="11" >
+      <item name="Linie" ><![CDATA[001-007]]></item>
+      <item name="Kurs" ><![CDATA[1-60]]></item>
+      <item name="Ziel" ><![CDATA[009-499,509-999]]></item>
+      <item name="Gruppe" ><![CDATA[0]]></item>
+   </record>
+   <record name="12" >
+      <item name="Linie" ><![CDATA[001-008]]></item>
+      <item name="Kurs" ><![CDATA[61-99]]></item>
+      <item name="Ziel" ><![CDATA[*]]></item>
+      <item name="Gruppe" ><![CDATA[1]]></item>
+   </record>
+</treeitem>

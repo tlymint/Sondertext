@@ -24,14 +24,6 @@ const EXAMPLE_DATA: DataTableItem[] = [
   {id: 10, name: 'Neon'},
   {id: 11, name: 'Sodium'},
   {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
 ];
 
 /**

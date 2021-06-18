@@ -11,7 +11,7 @@
                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                       <mat-icon>more_vert</mat-icon>
                     </button>
-                    <mat-menu #menu="matMenu">
+                    <mat-menu #infomenu="matMenu">
                     <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
                     <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
                     <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
@@ -49,7 +49,7 @@
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
           <mat-icon>more_vert</mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
+        <mat-menu #infomenu="matMenu">
         <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
         <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
         <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
