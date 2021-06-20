@@ -23,7 +23,7 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
   
     /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
     displayedColumns = ['id', 'Zeit', 'RZL', 'RZL_Button', 'Richtung', 'M_Zeit', 'M_Linie',
-                        'M_Kurs', 'Route', 'Fahrtart', 'Umlauf'];
+    'M_Kurs', 'Route', 'Fahrtart', 'Umlauf'];
   
     ngOnInit() {
       this.dataSource = new DataTableDataSource();
@@ -34,6 +34,12 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
       this.grafikSource = this.table.dataSource;
+    }
+
+    rowClicked:any;
+    changeTableRowColor(idx: any) { 
+    if(this.rowClicked === idx) this.rowClicked = -1;
+    else this.rowClicked = idx;
     }
   }
   
