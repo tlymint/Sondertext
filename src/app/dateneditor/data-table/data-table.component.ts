@@ -22,7 +22,8 @@ import { DataTableDataSource, DataTableItem } from './data-table-datasource';
     clickedRows = new Set<DataTableItem>();
   
     /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-    displayedColumns = ['id', 'name'];
+    displayedColumns = ['id', 'Zeit', 'RZL', 'RZL_Button', 'Richtung', 'M_Zeit', 'M_Linie',
+                        'M_Kurs', 'Route', 'Fahrtart', 'Umlauf'];
   
     ngOnInit() {
       this.dataSource = new DataTableDataSource();

@@ -2,6 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import xml2js from 'xml2js';  
 import { HttpClient, HttpHeaders } from '@angular/common/http';  
 
+export interface PeriodicElement {
+  recht: string;
+  wert: any;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {recht: 'Passwort', wert:'aktiv'},
+  {recht: 'Datei: Abmeldung', wert:'aktiv'},
+  {recht: 'Datei: Grafikeditor', wert:'aktiv'},
+  {recht: 'Datei: Programm beenden', wert:'aktiv'},
+  {recht: 'Dateneditor: Administrator', wert:'aktiv'},
+  {recht: 'Dateneditor: Betriebstageuch erweitert', wert:'aktiv'},
+  {recht: 'Dateneditor: DyFa-Gruppen', wert:'aktiv'},
+  {recht: 'Dateneditor: Grafikdaten', wert:'aktiv'},
+  {recht: 'Bearbeiten: Dateneditor', wert:'aktiv'},
+  {recht: 'Bearbeiten: Sondertextdatenbank', wert:'aktiv'},
+  {recht: 'Bearbeiten: Benutzerdefinierte Aufträge', wert:'aktiv'},
+  {recht: 'Bearbeiten: Ständige Aufträge', wert:'aktiv'},
+];
+
 @Component({
   selector: 'app-editor-table',
   templateUrl: './editor-table.component.html',
@@ -9,12 +29,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EditorTableComponent{
 
+  displayedColumns: string[] = ['recht', 'wert'];
+  dataSource = ELEMENT_DATA;
+
   title = 'read-xml-angular8';  
   public xmlItems: any;  
-  public tableValues = [];
-  constructor(private _http: HttpClient) { this.loadXML();}  
+  constructor(private _http: HttpClient) { this.loadXML(); }  
   loadXML() {  
-    this._http.get('/assets/xml/Zug- und Busnummern.xml',  
+    this._http.get('/assets/xml/exampleTable.xml',  
       {  
         headers: new HttpHeaders()  
           .set('Content-Type', 'text/xml')  
@@ -40,15 +62,14 @@ export class EditorTableComponent{
             explicitArray: true  
           });  
       parser.parseString(data, function (err, result) {  
-        var number = result.treeitem.record;
-        for (var i=0;i<number.length;i++) {  
-          var item = number[i];  
+        var obj = result.Employee;  
+        for (k in obj.emp) {  
+          var item = obj.emp[k];  
           arr.push({  
-            name: item.$['name'],  
-            Linie: item.item[0]._,  
-            Kurs: item.item[1]._,  
-            Ziel: item.item[2]._,
-            Gruppe: item.item[3]._
+            id: item.id[0],  
+            name: item.name[0],  
+            gender: item.gender[0],  
+            mobile: item.mobile[0]  
           });  
         }  
         resolve(arr);  

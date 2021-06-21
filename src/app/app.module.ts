@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card'; 
 
 /**Tree-view List for Displayeditor */
 import { TreeViewComponent } from './dateneditor/tree-view/tree-view.component';
@@ -38,7 +39,9 @@ import { MatButtonToggleModule} from '@angular/material/button-toggle';
 
 /**Drucken */
 import { DruckenComponent } from './drucken/drucken.component';
+import { PrintPreviewComponent } from './drucken/drucken.component';
 import { ToolbarComponent } from './dateneditor/toolbar/toolbar.component';
+
 
 /**Toolbar for Tree-view */
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -67,6 +70,8 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 import { DataTableComponent } from './dateneditor/data-table/data-table.component';
 import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+import { DetailansichtComponent } from './dateneditor/detailansicht/detailansicht.component';
+
 
 
 
@@ -94,8 +99,15 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     SondertextDatenbankComponent,
     DisplaymanagementComponent,
     EditorTableComponent,
+    PrintPreviewComponent,
+    DetailansichtComponent
   ],
-  entryComponents: [DialogContentComponent, AddfolderComponent,DruckenComponent],
+  entryComponents: [
+    DialogContentComponent, 
+    AddfolderComponent,
+    DruckenComponent,
+    PrintPreviewComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -120,7 +132,8 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    ScrollingModule
+    ScrollingModule,
+    MatCardModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],

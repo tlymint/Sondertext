@@ -1,4 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+import { TreeViewComponent } from './tree-view/tree-view.component';
 
 
 @Component({
@@ -10,6 +11,9 @@ export class DateneditorComponent implements OnInit {
   
   @ViewChild('toolbar', {static: false}) toolbar:any
 
+  //variable using to resize container left and right
+  oldX = 0;
+  //
   hiddenTable: boolean = false;
   help_content:string = "This container used to help User to understand some difficulty operation.";
   constructor() { }
@@ -17,21 +21,59 @@ export class DateneditorComponent implements OnInit {
   ngOnInit() {
   }
 
-  leftContainerWidth: string = '20vw';
-  mouseDownOnHandle: boolean = false;
-  highlightHandle: string = '#e3e3e6';
+  get self(): DateneditorComponent {
+    return this;
+  }
 
-  changeResizeMode(value: boolean): void{
+  leftContainerWidth: number = 250;
+  mouseDownOnHandle: boolean = false;
+  hideSondertext: boolean = true;
+  showSondertext: boolean = true;
+  highlightHandle: string = 'rgb(243, 243, 243)';
+
+  changeResizeMode(value: boolean, event:MouseEvent): void{
     this.mouseDownOnHandle = value;
-    if(value===true)
-      this.highlightHandle = '#e3e3e6';
+    if(value===true) {
+      this.highlightHandle = 'rgb(200, 200, 200)';
+      this.oldX = event.clientX;
+    }
+      
     else
-      this.highlightHandle = '#c9c9e6';
+      this.highlightHandle = 'rgb(243, 243, 243)';
   }
   
   changeLeftContainerWidth(event: MouseEvent): void{
     if(this.mouseDownOnHandle)
-      this.leftContainerWidth = event.clientX - 10 + "px";
+    {
+      this.leftContainerWidth += (event.clientX - this.oldX);
+      this.oldX = event.clientX;
+    }
+  }
+
+  showTable(){
+    console.log('tableshow');
+    this.hideSondertext = true;
+    this.showSondertext = false;
+  }
+
+  notshowTable(){
+    console.log('Detailshow');
+    this.hideSondertext = false;
+    this.showSondertext = true;
+  }
+
+  /**To do */
+
+  Uebernehmen(){
+
+  }
+
+  Okay(){
+
+  }
+
+  Abbrechen(){
+
   }
 
 }

@@ -1,9 +1,3 @@
-body {
-  /*font-family:'Franklin Gothic Medium';*/
-  padding: 10px;
-  background: #5296a0;
-}
-
 .page-margin{
   margin: 0 auto;
   max-width: 80em;
@@ -11,167 +5,17 @@ body {
   position: relative;
 }
 
-/* Header/Blog Title */
-.header {
-  padding: 30px;
-  text-align: center;
-  background: white;
-}
-
-.header h1 {
-  font-size: 50px;
-}
-
-/* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: #5296a0;
+  background-color: rgb(138, 138, 138);
+  color:white;
+  
 }
 
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: #5296a0;
-}
 
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 50%;
-  margin-left: 1%;
-}
 
-/* Right column */
-.rightcolumn {
-  width: 45%;
-  float: left;
-  background-color: #f1f1f1;
-  padding-left: 1%;
-}
 
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
 
-/* Add a card effect for articles */
-.card {
-  background-color: #6f8c96;
-  padding: 20px;
-  margin-top: 20px;
-}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: inline-block;
-}
-
-/* Footer */
-#footer {
-  height: 40px;
-  width: 1000px;
-  background: #33FF66;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 1200px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #486466;
-}
-
-/* Navbar links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Links - change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Remove default bullets */
-ul, #myUL {
-  list-style-type: none;
-}
-
-/* Remove margins and padding from the parent ul */
-#myUL {
-  margin: 0;
-  padding: 0;
-}
-
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer; 
-  user-select: none; /* Prevent text selection */
-}
-
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transform: rotate(90deg); 
-}
-
-/* Hide the nested list */
-.nested {
-  display: none;
-}
-
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.active {
-  display: block;
-}
-
-.inline{
-  display: flex;
-}
-.example-container {
-  width: 1400px;
-  height: 800px;
-  margin: 10px;
-  border: 1px solid #555;
-}
 

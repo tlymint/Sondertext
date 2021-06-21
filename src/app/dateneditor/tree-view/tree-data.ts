@@ -9,64 +9,237 @@ export class TreeItem {
 export class TreeItemFlat {
   name: string;
   level: number;
-  parentId: number;
   expandable: boolean;
 }
 
 
 const TREE_DATA = {
-  'Administration': {
-      'Benutzerverwaltung': {
-        'Neu': {
-          value: 1,
-          data: 0,
-        },
-        'Admin': 1,
-        'Bedienplatz':2,
-      },
-      'Kommunikation': null,
-      'GIS-Karte': null,
+  'Betriebstagebuch': {
+    'Qualitätsreporting': null,
+    'Statistuik': {
+        'DyFa-BR': null,
+        'DyFa-ZR':null,
+    },
+    'Systemmeldungen 18.06.21': {
+
+    },
   },
-  'DFI-Projektierung': {
-    'DFI-Sonderfälle': null,
-    'DFI-Anzeiger': null,
-    'DFI-Haltestellen': null,
+  'DYFA-Gruppen': {
+    '*Neu': null,
+    'ALLE': null,
+    'Alle 2-Zeiler Strab': null,
+    'Alle 3-Zeiler Strab': null,
+    'Alle 4-Zeiler Strabbahn': null,
+    'Alle 4-Zeiler Strab': null,
+    'Alle 8-Zeiler Strabbahn': null,
+    'Alle 8-Zeiler Strab': null,
+    'Alle Bus': null,
+    'AMN': null,
+    'AMN AB1 MB1': null,
+    'AMN AB1+2 MB1+2': null,
+    'AMN AB2': null,
+    'AMN AB2 MB2': null,
+    'AMN AB2+4 MB2+4': null,
+    'AMN AB4': null,
+    'AMN AB4 MB4': null,
+    'AMN AP+MK+Z': null,
+
   },
-  'Fahrplandaten':null,
-  'Displaymasken':{
-    'ZAK-Masken':null,
-    'SOT-Masken':null,
-    'ZZA-Masken':null,
-    'MAM-Masken':null,
+  'DYFA-Gruppen: Evakuierung':{
+    '*Neu': null,
+    '010:':'U-Bahn_Komplett',
+    '020:':'U-Bahn_Hochflurtunnel',
+    '030:':'U-Bahn_Niederflurtunnel',
+  },
+  'Fahrpläne':{
+    'Tages-Fahrplan':{
+      'ZAK-Masken':null,
+      'SOT-Masken':null,
+      'ZZA-Masken':null,
+      'MAM-Masken':null,
+    }
   },
   'Sondertexte': {
-    'Normale-Sondertexte':null,
-    'Sondertexte für Umleitungen':null,
-    'Ständige Sondertexte':null,
-    'Spezialfälle': {
+    'Arena / Messe Nord - diverse Spezialtexte für Messen und Veranstaltungen (deutsch, englisch)':{
+      'arena-Anfahrten':{
+        '461:':'Zu dem Konzert von Udo Lindenberg fährt die U78 bereits ab 15 Uhr verstärkt bis Haltestelle "Arena / Messe Nord". Die Haltestelle "Mörikestraße" wird zwischen 15 Uhr und 16 Uhr nicht bedient.',
+        '462:':'Train to concert "BON JOVI" is U78 to stop "Arena / Messe Nord".',
+        '796:':'Sie erreichen das Konzert "TAKE THAT" mit der U78 bis Haltestelle "Arena / Messe Nord".',
+        '797:':'Train to concert "TAKE THAT" is U78 to stop "Arena / Messe Nord".',
+        '798:':'Sie erreichen das Konzert "TAKE THAT" mit der U79 bis Haltestelle "Messe Ost/Stockumer Kirchstraße". Wechseln Sie zum Bahnsteig gegenüber und fahren Sie mit der U78 bis "Arena / Messe Nord".',
+        '799:':'Train to TAKE THAT can be reached by U79 to the station "Messe Ost/Stockumer Kirchstraße". Go to the opposite platform and take the U78 to "Arena / Messe Nord".'
+      },
+      'Messe Absagen':{
+        '1534:':'Die Messen "METAV" und "Energy Storage Europe" wurden auf unbestimmte Zeit verschoben. Nähere Informationen unter www.messe-duesseldorf.de',
+        '1535:':'The "METAV" and "Energy Storage Europe" fairs have been postponed indefinitely. More information at: www.messe-duesseldorf.de',
+        '1536:':'Die Messe "Pro Wein" wurde verschoben. Neuer Termin: 21. März bis 23. März 2021. Nähere Informationen unter www.messe-duesseldorf.de',
+        '1537:':'The "Pro Wein" fair have been postponed. New appointment: 21.03. - 23.03.2021. More information at: www.messe-duesseldorf.de',
+        '1538:':'Die Messen "wire" und "Tube wurden verschoben. Neuer Termin: 07. bis 11. Dezember 2020. Nähere Informationen unter www.messe-duesseldorf.de',
+        '1539:':'The fairs "wire" and "Tube" have been postponed to 7th - 11th of December 2020. More information: www.messe-duesseldorf.de',
+        '1540:':'Die Messe "Flotte! Der Branchentreff" wurde verschoben. Neuer Termin: 27. bis 28. Mai 2020. Nähere Informationen unter www.messe-duesseldorf.de',
+        '1541:':'The fair "Flotte! Der Branchentreff" has been postponed to 27th - 28th of May 2020. More information: www.messe-duesseldorf.de',
+      },
+      'Messeanfahrten U78 (de, en)':{
+
+      },
+      'Messeanfahrten U79 aus DU (de, en)':{
+        'Standard Hinweis Nord (de, en)':{
+          'Architect@Work':{},
+          'BEAUTY':{},
+          'Chefs Culinar':{},
+          'METAV + Energy Storage':{},
+          'PSI':{},
+          'REHACare':{},
+        },
+        'Standard Hinweis Nord und Ost (de, en)':{
+          'Aluminium':{},
+          'BEAUTY':{},
+          'Beauty + Hair':{},
+          'glasstec':{},
+          'MEDICA':{},
+          'METAV':{},
+          'ProWein':{},
+          'PSI':{},
+        },
+        'Standard Hinweis Nord und Süd (de, en)':{
+          'A+A':{},
+          'BEAUTY':{},
+          'BEAUTY+ProWein':{},
+          'GDS':{},
+          'ProWein':{},
+          'ProWein+Energy Storage':{},
+          'REHACare':{},
+        },
+        'Standard Hinweis Nord, Ost und Süd (de, en)':{
+          'Architect@Work':{},
+          'BEAUTY':{},
+          'Chefs Culinar':{},
+          'METAV + Energy Storage':{},
+          'PSI':{},
+          'REHACare':{},
+        },
+        'Standard Hinweis Ost (de, en)':{
+          'Architect@Work':{},
+          'BEAUTY':{},
+          'Chefs Culinar':{},
+          'METAV + Energy Storage':{},
+          'PSI':{},
+          'REHACare':{},
+        },
+        'Standard Hinweis Ost und Süd (de, en)':{
+          'Architect@Work':{},
+          'BEAUTY':{},
+          'Chefs Culinar':{},
+          'METAV + Energy Storage':{},
+          'PSI':{},
+          'REHACare':{},
+        },
+        'Standard Hinweis Süd (de, en)':{
+          'Architect@Work':{},
+          'BEAUTY':{},
+          'Chefs Culinar':{},
+          'METAV + Energy Storage':{},
+          'PSI':{},
+          'REHACare':{},
+        }
+      },
+      'Sportpark Nord/Europaplatz (de, en)':{
+        '523:':'Kein Einstieg an dieser Haltestelle. Züge in Richtung Düsseldorf Innenstadt fahren ab Haltestelle "Arena / Messe Nord". No Entrance at this stop. Trains via Düsseldorf City leave at "Arena / Messe Nord".'
+      }
+    },
+    'Arena / Messe Nord - MAM-Betriebsfälle 1 bis 5':null,
+    'Corona Texte':null,
+    'Evakuierung': {
       'MAM':null,
       'ZZA':null,
       'Test':null,
       'Grundbilder':null,
-    }
+    },
+    'Fahrplanwechsel':{
+
+    },
+    'Freibäder':{
+
+    },
+    'Fußball Arena':{
+
+    },
+    'Grundtexte und Rückfalltexte':{
+
+    },
+    'Infoplatz':{
+
+    },
+    'Ständige Sondertexte':{
+
+    },
+    'Test und Wartung Technik':{
+
+    },
+    'Umleitungen, geplante Sperrungen, Veranstaltungen und Informationen':{
+
+    },
+    'ZZA-Texte':{
+
+    },
+
+
   },
-  'Aufträge':{
-    'Benutzerdefinierte Aufträge':null,
-    'Spezialfälle der Auftragsverwaltung':{
+  'Grafikdaten':{
+    'Ansichten':null,
+    'Farben':null,
+    'Layer':{
       'MAM-Anlage':null,
       'Evakuierung':null,
       'CMS-Aufträge':null,
       'Ausblenden von Linien':null,
-    }
+    },
+    'Zoomstufen':null,
   },
-  'Betriebstagebücher':{
-    'Anzeigen von System und Fehlermeldungen':null,
-    'Anzeigen Änderungs-Histroie':null,
-    'Statistikdaten':null,
-    'Berichte':null,
+  'Projektierung':{
+    'Zug- und Busnummern':null,
+    'Anzeigerbereiche (VRR)':null,
+    'Automatische EH-Löschung':null,
+    'Bahnsteigabschnittsanzeige':{
+
+    },
+    'CMS-Liniennummer':null,
+    'Display-Vorlagen':{
+
+    },
+    'Fahrgastwechselzeiten':null,
+    'Fahrzeuggruppen':null,
+    'Feinziel nach Grobziel':null,
+    'Gleisgenaue Abfahrtprognose':null,
+    'Haltestellen-Nummern ITCS->DyFa':null,
+    'Kopplung von Anzeigern':null,
+    'Kurzwenden ignorieren':null,
+    'Linientext-Zuordnung':null,
+    'Linienwege':{
+
+    },
+    'Mofis-Objekte':{
+
+    },
+    'NLT-Fehlermeldungen':null,
+    'Sonderfälle':{
+
+    },
+    
+    'Sonderfälle Wendezeiten':null,
+    'Trennung von Bus und Bahnlinien':null,
+    'Verteilen von Dyfa-Zeilen':null,
+    'Zieltexte':{
+
+    },
+    'Zuglenk-Rechner':{
+
+    },
+  },
+  'Reisezeitlisten':{
   }
 
-};
+}
 
 
 @Injectable()

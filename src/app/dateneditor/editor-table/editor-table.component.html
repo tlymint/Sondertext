@@ -1,18 +1,16 @@
 <div class="container">    
     <table class="table table-bordered table-hover">    
       <tr>    
-        <th>name</th>    
-        <th>Linie</th>    
-        <th>Kurs</th>    
-        <th>Ziel</th>    
-        <th>Gruppe</th>  
+        <th>Id</th>    
+        <th>Name</th>    
+        <th>Gender</th>    
+        <th>Mobile</th>    
       </tr>    
-      <tr *ngFor="let item of xmlItems">      
-        <td>{{item.name}}</td>      
-        <td>{{item.Linie}}</td>   
-        <td>{{item.Kurs}}</td> 
-        <td>{{item.Ziel}}</td> 
-        <td>{{item.Gruppe}}</td> 
+      <tr *ngFor="let item of xmlItems">    
+        <td>{{item.id}}</td>    
+        <td>{{item.name}}</td>    
+        <td>{{item.gender}}</td>    
+        <td>{{item.mobile}}</td>    
       </tr>    
     </table>    
   </div>  
@@ -20,35 +18,25 @@
 <div class="row">
     <div class="col-xs-6">
         <div class="card">
-<table mat-table [dataSource]="arr" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- Position Column -->
-    <ng-container matColumnDef="item.name">
-      <th mat-header-cell *matHeaderCellDef>name</th>
-      <td mat-cell *matCellDef="let item"> {{item.name}} </td>
+    <ng-container matColumnDef="recht">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element"> {{element.recht}} </td>
     </ng-container>
-    <ng-container matColumnDef="item.Linie">
-      <th mat-header-cell *matHeaderCellDef>Linie</th>
-      <td mat-cell *matCellDef="let item"> {{item.Linie}} </td>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="wert">
+      <th mat-header-cell *matHeaderCellDef> Wert </th>
+      <td mat-cell *matCellDef="let element"> {{element.wert}} </td>
     </ng-container>
-    <ng-container matColumnDef="item.Kurs">
-      <th mat-header-cell *matHeaderCellDef>Kurs</th>
-      <td mat-cell *matCellDef="let item"> {{item.Kurs}} </td>
-    </ng-container>
-    <ng-container matColumnDef="item.Ziel">
-      <th mat-header-cell *matHeaderCellDef>name</th>
-      <td mat-cell *matCellDef="let item"> {{item.Ziel}} </td>
-    </ng-container>
-    <ng-container matColumnDef="item.Gruppe">
-      <th mat-header-cell *matHeaderCellDef>name</th>
-      <td mat-cell *matCellDef="let item"> {{item.Gruppe}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="xmlItems"></tr>
-    <tr mat-row *matRowDef="let row; columns: xmlItems;"></tr>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 </div>
@@ -58,16 +46,6 @@
 <br>
 <div class="row">
     <div class="col-xs-6">
-<<<<<<< HEAD
-        <div class="card">
-        <div class="example-button-row"> 
-            <button mat-flat-button (click)="Ubernehmen()">uebernehmen</button>
-            <button mat-flat-button (click)="Okay()">Okay</button>
-            <button mat-flat-button (click)="Abbrechen()">Abbrechen</button>
-        </div>
-    </div>
-    </div>
-=======
     </div>
 </div>
 <div class="row">
@@ -80,5 +58,4 @@
       </div>
   </div>
   </div>
->>>>>>> e01de28ae94bc279e81bb16072ed78140f2a6795
 </div>
