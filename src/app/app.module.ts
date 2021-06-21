@@ -70,7 +70,9 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 import { DataTableComponent } from './dateneditor/data-table/data-table.component';
 import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+import { TestComponent } from './test/test.component';
 
+// costum right-click contextmenu
 
 
 @NgModule({
@@ -98,6 +100,7 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     DisplaymanagementComponent,
     EditorTableComponent,
     PrintPreviewComponent,
+    TestComponent,
 
   ],
   entryComponents: [
@@ -132,6 +135,7 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     MatSidenavModule,
     ScrollingModule,
     MatCardModule,
+ 
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
