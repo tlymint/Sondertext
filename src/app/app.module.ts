@@ -73,6 +73,9 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
 import { TestComponent } from './test/test.component';
 
 // costum right-click contextmenu
+import { DetailansichtComponent } from './dateneditor/detailansicht/detailansicht.component';
+
+import { NgMarqueeModule } from 'ng-marquee';
 
 
 @NgModule({
@@ -102,6 +105,7 @@ import { TestComponent } from './test/test.component';
     PrintPreviewComponent,
     TestComponent,
 
+    DetailansichtComponent
   ],
   entryComponents: [
     DialogContentComponent, 
@@ -135,7 +139,7 @@ import { TestComponent } from './test/test.component';
     MatSidenavModule,
     ScrollingModule,
     MatCardModule,
- 
+    NgMarqueeModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],

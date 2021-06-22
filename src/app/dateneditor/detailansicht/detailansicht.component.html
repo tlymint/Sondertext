@@ -1,0 +1,32 @@
+<cdk-virtual-scroll-viewport itemSize="500" class="scroll-window">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" aria-label="Elements">
+
+        <ng-container matColumnDef="Text">
+          <th mat-header-cell *matHeaderCellDef> Text 461 </th>
+          <td mat-cell *matCellDef="let element"> {{element.Text}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Kategorie">
+          <th mat-header-cell *matHeaderCellDef > Kategorie </th>
+          <td mat-cell *matCellDef="let element"> {{element.Kategorie}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Ausrichtung">
+            <th mat-header-cell *matHeaderCellDef > Ausrichtung</th>
+            <td mat-cell *matCellDef="let element"> {{element.Ausrichtung}} </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> 
+  </div>
+  <mat-card>
+    <h4>Displayvorlage: 017::4Z:ZAK + 1Z SOT(24)</h4>
+    <div class = "display">
+      <ng-marquee speed="drowsy" class="text">
+          {{removeQuotes(dataSource[0].Text | json)}}
+      </ng-marquee>
+    </div>
+  </mat-card>          
+</cdk-virtual-scroll-viewport>

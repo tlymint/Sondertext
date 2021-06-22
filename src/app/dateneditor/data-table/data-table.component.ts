@@ -54,8 +54,8 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   onContextMenu(event: MouseEvent, row: DataTableItem) {
     event.preventDefault();
  
-    this.contextMenuPosition.x = event.pageX -250 + 'px';
-    this.contextMenuPosition.y = event.pageY -140 + 'px';
+    this.contextMenuPosition.x = event.clientX -250 + 'px';
+    this.contextMenuPosition.y = event.clientY -140 + 'px';
     this.contextMenu.menuData = { 'item': row };
     this.contextMenu.menu.focusFirstItem('mouse');
     this.contextMenu.openMenu();

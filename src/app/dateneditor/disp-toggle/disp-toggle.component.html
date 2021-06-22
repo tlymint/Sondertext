@@ -7,10 +7,12 @@
 </mat-button-toggle-group>
 -->
 
+
+
 <span class="comboBox">
     <mat-form-field appearance=""  floatLabel="never" style="width:100px ! important">
         <mat-label>Ansicht</mat-label>
-        <mat-select disableRipple (selectionChange)="valChange($event.value)" [(value)]="selectedView"> 
+        <mat-select disableRipple (selectionChange)="valChange($event.value)" [(value)]="selectedView" [disabled]="disableSelect.value"> 
            <mat-option *ngFor="let view of views" [value]="view.value" >
                {{view.name}}
            </mat-option>

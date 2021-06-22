@@ -1,4 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+import { TreeViewComponent } from './tree-view/tree-view.component';
+
 
 
 @Component({
@@ -20,8 +22,14 @@ export class DateneditorComponent implements OnInit {
   ngOnInit() {
   }
 
+  get self(): DateneditorComponent {
+    return this;
+  }
+
   leftContainerWidth: number = 250;
   mouseDownOnHandle: boolean = false;
+  hideSondertext: boolean = true;
+  showSondertext: boolean = true;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{
@@ -41,8 +49,32 @@ export class DateneditorComponent implements OnInit {
       this.leftContainerWidth += (event.clientX - this.oldX);
       this.oldX = event.clientX;
     }
-      
-      
+  }
+
+  showTable(){
+    console.log('tableshow');
+    this.hideSondertext = true;
+    this.showSondertext = false;
+  }
+
+  notshowTable(){
+    console.log('Detailshow');
+    this.hideSondertext = false;
+    this.showSondertext = true;
+  }
+
+  /**To do */
+
+  Uebernehmen(){
+
+  }
+
+  Okay(){
+
+  }
+
+  Abbrechen(){
+
   }
 
 }
