@@ -1,15 +1,16 @@
 
 
 <app-toolbar ></app-toolbar>
-<app-toolbar-app #toolbar></app-toolbar-app>
+<app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor"></app-toolbar-app>
 
 <div class="main-container"  (mouseup)="changeResizeMode(false, $event)" (mousemove)="changeLeftContainerWidth($event)" (mouseleave)="changeResizeMode(false, $event)">
   <div class="left-container" [style.width.px]="leftContainerWidth">      
     <app-tree-view [parent]="self"></app-tree-view> 
   </div>
+
   <div class="resize-handle" (mousedown)="changeResizeMode(true, $event)" (mouseup)="changeResizeMode(false, $event)" [style.background-color]="highlightHandle">
-  
   </div>
+
   <div class="right-container"> 
      <div *ngIf = "chooseDateneditor">
         <div class = "disp-title">
@@ -28,6 +29,7 @@
           </div> 
         </div>  
       </div> 
+
       <div *ngIf = "chooseSondertext">
         <div class = "disp-title">
           <mat-card>Detailansicht</mat-card>
@@ -44,9 +46,24 @@
           </div> 
         </div>  
       </div> 
+
       <div *ngIf = "chooseAuftrag">
         <!--  Auftragsverwaltung   -->
-        <p>here is UI for Auftragsverwaltung!</p>
+        <div class="disp-title">
+          <mat-card>Benutzerdefinierte Aufträge</mat-card>
+        </div>
+        <div class="displayer">
+          <app-auftragsverwaltung></app-auftragsverwaltung>
+        </div>
+        <div class="row">
+          <div class="example-button-row" > 
+            <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+            <span class= "OkandCancel-button">
+              <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+              <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+            </span>       
+          </div>
+        </div>
       </div>
       <div *ngIf = "chooseDisplayeditor">
         <p>Here is UI for Displayeditor</p>
