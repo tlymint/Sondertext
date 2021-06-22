@@ -262,12 +262,20 @@ export class TreeViewComponent {
     this.treeControl.expand(node);
   } 
 
+  /** switch the display of the right container  */ 
   displayRightContainer(node: TreeItemFlat){
     console.log(this.getParentNode(node).name);
     if(this.getParentNode(node).name == 'Sondertexte'){
-       this.parent.notshowTable();
-    }else{
-      this.parent.showTable();
+       this.parent.showSondertexte();
+    } 
+    else if(this.getParentNode(node).name == "Projektierung") {
+      this.parent.showAuftraege();
+    }
+    else if(this.getParentNode(node).name == "Grafikdaten") {
+      this.parent.showDisplayeditor();
+    }
+    else{
+      this.parent.showDateneditor();
     }
   }
 

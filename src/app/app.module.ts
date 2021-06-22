@@ -76,6 +76,7 @@ import { TestComponent } from './test/test.component';
 import { DetailansichtComponent } from './dateneditor/detailansicht/detailansicht.component';
 
 import { NgMarqueeModule } from 'ng-marquee';
+import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwaltung.component';
 
 
 @NgModule({
@@ -105,7 +106,9 @@ import { NgMarqueeModule } from 'ng-marquee';
     PrintPreviewComponent,
     TestComponent,
 
-    DetailansichtComponent
+    DetailansichtComponent,
+
+    AuftragsverwaltungComponent
   ],
   entryComponents: [
     DialogContentComponent, 

@@ -11,7 +11,7 @@
   
   </div>
   <div class="right-container"> 
-     <div [hidden] = "showSondertext">
+     <div *ngIf = "chooseDateneditor">
         <div class = "disp-title">
           <mat-card>Tabelle Überschrift</mat-card>
         </div>
@@ -28,7 +28,7 @@
           </div> 
         </div>  
       </div> 
-      <div [hidden] = "hideSondertext">
+      <div *ngIf = "chooseSondertext">
         <div class = "disp-title">
           <mat-card>Detailansicht</mat-card>
         </div>
@@ -44,6 +44,13 @@
           </div> 
         </div>  
       </div> 
+      <div *ngIf = "chooseAuftrag">
+        <!--  Auftragsverwaltung   -->
+        <p>here is UI for Auftragsverwaltung!</p>
+      </div>
+      <div *ngIf = "chooseDisplayeditor">
+        <p>Here is UI for Displayeditor</p>
+      </div>
   </div>  
 </div>
 
