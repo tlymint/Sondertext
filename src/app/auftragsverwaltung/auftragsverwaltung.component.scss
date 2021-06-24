@@ -13,7 +13,6 @@
     background-color: rgb(204, 207, 207);
 }
 
-
 .wind1-column{
     width: 40px;
     height: 508px;
@@ -33,7 +32,7 @@ height: 30px;
 
 .mat-row{
     height: 2px;
-  }
+}
 
 //Einstellung für allen Einheiten in der title
 .mat-header-cell{
@@ -44,7 +43,6 @@ height: 30px;
     border-right: .5px solid rgba(0, 0, 0, 0.12);
     background-color: rgb(204, 207, 207);
     white-space: nowrap; /* 不换行 */
-
 }
 //spezial für erste Zeile:
 .mat-cell.cdk-column-id, .mat-header-cell.cdk-column-id{
@@ -77,6 +75,10 @@ height: 30px;
     //cursor: pointer; /* hover显示手形 */
 }
 
+/**
+ *  Einstellung für jede Spalte in Data-Table
+ */
+
 .mat-cell.cdk-column-nr, .mat-cell.cdk-column-text,
 .mat-cell.cdk-column-beginnAm, .mat-cell.cdk-column-beginnUm,
 .mat-cell.cdk-column-endAm, .mat-cell.cdk-column-endUm, .mat-cell.cdk-column-all,
@@ -100,7 +102,6 @@ height: 30px;
     white-space: nowrap; /* 不换行 */
 }
 
-
 .mat-cell.cdk-column-zyklus{
     text-align: right;
     padding: 0px 2px 0px 2px;
@@ -111,7 +112,14 @@ height: 30px;
     white-space: nowrap; /* 不换行 */
 }
 
-// einstellung für Element: Gruppe und Text
+.mat-cell.mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-text,
+.mat-header-cell.cdk-column-gruppe, .mat-header-cell.cdk-column-text{
+    border-right:0px;
+}
+/** bis hier */
+
+
+/** einstellung für Element: Gruppe und Text */
 .grBut, .txBut {
     max-width:20px;
     padding:0 0 0 0;
@@ -120,15 +128,17 @@ height: 30px;
 }
 
 
-.mat-cell.mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-text,
-.mat-header-cell.cdk-column-gruppe, .mat-header-cell.cdk-column-text{
-    border-right:0px;
-}
 
-// Anzeige der Wert von ausgewählten Elementen über Combobox wird versteckt.
+
+/**
+ *  Anzeige der Wert von ausgewählten Elementen über Combobox wird versteckt.
+ *  Problem: wenn so eingestellt ist, wird alle Combo-box nichts angezeigt.
+ */
+/*
 ::ng-deep .mat-select-value {
     display:none !important;
 }
+*/
 
 // Einstellung für Layout von ComboBox und Werte von Elementen: prioritäten und Zyklus 
 .comboBox-val {
@@ -140,3 +150,14 @@ height: 30px;
     display: inline-block;
     vertical-align:top;
 }
+
+/**
+ * Einstellung für Farbenänderung wenn id gedrückt ist
+ */
+ .buttonclick {
+    background-color: rgb(0, 0, 0, 0.12);
+  }
+  
+  .buttonorigin {
+    background-color: rgb(204, 207, 207);
+  }

@@ -62,25 +62,10 @@ export class DataTableComponent implements AfterViewInit, OnInit {
     this.contextMenu.menu.focusFirstItem('mouse');
     this.contextMenu.openMenu();
   }
-  onContextMenuAction1() {
+  onContextMenuAction() {
     alert(`Click on Action 1 `);
   }
-  onContextMenuAction2() {
-    alert(`Click on Action 2`);
-  }
-  // bis here
-  onContextMenuAction3() {
-    alert(`Click on Action 3 `);
-  }
-  onContextMenuAction4() {
-    alert(`Click on Action 4`);
-  }
-  onContextMenuAction5() {
-    alert(`Click on Action 5 `);
-  }
-  onContextMenuAction6() {
-    alert(`Click on Action 6`);
-  }
+  
 
   constructor(public dialog: MatDialog) {}
 

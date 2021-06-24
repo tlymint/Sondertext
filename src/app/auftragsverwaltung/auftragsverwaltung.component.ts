@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatListIconCssMatStyler } from '@angular/material';
 import { MatTable } from '@angular/material/table';
+import {  MatMenuTrigger } from '@angular/material';
 
 export interface AuftTemplate {
   id: string;
@@ -65,6 +66,14 @@ export class AuftragsverwaltungComponent implements OnInit {
   ];
   
   dataSource=ELEMENT_DATA;
+
+  // Dong: right-click-contextmenu
+  @ViewChild(MatMenuTrigger, {static: true})
+  contextMenu: MatMenuTrigger;
+  contextMenuPosition = { x: '0px', y: '0px' };
+  // bis here
+
+
   constructor() { }
 
   ngOnInit() {
@@ -72,5 +81,21 @@ export class AuftragsverwaltungComponent implements OnInit {
   public boxValChange(val: string, element: string){
     element = val;
   }
+  clickedRows = new Set<AuftTemplate>();
+  elementClicked:any;
+  changeTableElementColor(idx: any) { 
+  if(this.elementClicked === idx) this.elementClicked = -1;
+  else this.elementClicked = idx;
+  }
 
+  //Dong: right-click-contextmenu
+  onContextMenu(event: MouseEvent, element: AuftTemplate) {
+    event.preventDefault();
+ 
+    this.contextMenuPosition.x = event.clientX + 'px';
+    this.contextMenuPosition.y = event.clientY + 'px';
+    this.contextMenu.menuData = { 'item': element };
+    this.contextMenu.menu.focusFirstItem('mouse');
+    this.contextMenu.openMenu();
+  }
 }

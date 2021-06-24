@@ -112,15 +112,17 @@
         </div>
         <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
             <ng-template matMenuContent let-item>
-                <button mat-menu-item (click)="onContextMenuAction1()">Bearbeiten</button>
-                <button mat-menu-item (click)="onContextMenuAction2()">Suchen...</button>
-                <button mat-menu-item (click)="onContextMenuAction3()">Ausschneiden</button>
-                <button mat-menu-item (click)="onContextMenuAction4()">Kopieren</button>
-                <button mat-menu-item (click)="onContextMenuAction5()">Einfügen</button>
-                <button mat-menu-item (click)="onContextMenuAction6()">Kopierte Zellen einfügen...</button>
-                <button mat-menu-item (click)="onContextMenuAction7()">Zeile(n) einfügen</button>
-                <button mat-menu-item (click)="onContextMenuAction8()">Zeile(n) löschen</button>
-                <button mat-menu-item (click)="onContextMenuAction9()">Zellinhalte löschen</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Ändern</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Neu</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Löschen</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Kopieren</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Ausschneiden</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Einfügen</button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="onContextMenuAction()">Suchen...</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Ersetzen...</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Gehe zu...</button>
+                <button mat-menu-item (click)="onContextMenuAction()">Auswahl anzeigen...</button>
             </ng-template>
         </mat-menu>
         <!---->
