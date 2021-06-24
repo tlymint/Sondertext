@@ -1,12 +1,14 @@
-import { AfterViewInit, Component, OnInit, ViewChild,Input } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild,Input} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 // Dong: right-click-contextmenu
-import { MatMenu, MatMenuTrigger } from '@angular/material';
+import {  MatMenuTrigger } from '@angular/material';
 // bis here
+import {MatDialog} from '@angular/material/dialog';
+
   
 @Component({
   selector: 'app-data-table',
@@ -63,17 +65,35 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   onContextMenuAction1() {
     alert(`Click on Action 1 `);
   }
-  
   onContextMenuAction2() {
     alert(`Click on Action 2`);
   }
   // bis here
-  selectedRowIndex = -1;  
-
-  highlight(row){
-    this.selectedRowIndex = row.id;
+  onContextMenuAction3() {
+    alert(`Click on Action 3 `);
   }
+  onContextMenuAction4() {
+    alert(`Click on Action 4`);
+  }
+  onContextMenuAction5() {
+    alert(`Click on Action 5 `);
+  }
+  onContextMenuAction6() {
+    alert(`Click on Action 6`);
+  }
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(DialogTableComponent);
+  }
+
 }
 
-//[ngClass]="{'highlight': selectedRowIndex == row.id}" (click)="highlight(row)"
+@Component({
+  selector: 'dialog-table',
+  templateUrl: 'dialog-table.html'
+})
+export class DialogTableComponent {}
+
   
