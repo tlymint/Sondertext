@@ -1,0 +1,142 @@
+.wind1 {
+    width: 100%;
+    height: 508px;
+    //margin-top: 10px;
+    //margin-left: 2px;
+    background-color: white;
+    overflow: auto;
+}
+
+.wind1-row{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(204, 207, 207);
+}
+
+
+.wind1-column{
+    width: 40px;
+    height: 508px;
+    background-color: rgb(204, 207, 207);
+}
+
+.auftrag-table {
+width: 100%;
+height: 100%;
+margin-right: 10px; 
+}
+
+//Einstellung für Zeile: Title
+.mat-header-row{
+height: 30px;
+}
+
+.mat-row{
+    height: 2px;
+  }
+
+//Einstellung für allen Einheiten in der title
+.mat-header-cell{
+    font-size:12px;
+    height: 5px;
+    vertical-align: left;
+    padding: 0px 5px 0px 5px;
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+    white-space: nowrap; /* 不换行 */
+
+}
+//spezial für erste Zeile:
+.mat-cell.cdk-column-id, .mat-header-cell.cdk-column-id{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 0px 0px 0px 0px;
+    border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+}
+
+.mat-cell {
+    font-size:12px;
+    height: 5px;
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+.mat-cell.cdk-column-bez, .mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-status{
+    text-align: left;
+    padding: 0px 2px 0px 2px;
+    min-width: 50px;
+    max-width: 300px;
+    text-overflow:ellipsis; /* 显示... */
+    overflow: hidden; /* 隐藏文字 */
+    white-space: nowrap; /* 不换行 */
+    //cursor: pointer; /* hover显示手形 */
+}
+
+.mat-cell.cdk-column-nr, .mat-cell.cdk-column-text,
+.mat-cell.cdk-column-beginnAm, .mat-cell.cdk-column-beginnUm,
+.mat-cell.cdk-column-endAm, .mat-cell.cdk-column-endUm, .mat-cell.cdk-column-all,
+.mat-cell.cdk-column-for, .mat-cell.cdk-column-tagtype {
+    text-align: right;
+    padding: 0px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 150px;
+    text-overflow: ellipsis; /* 显示... */
+    overflow: hidden; /* 隐藏文字 */
+    white-space: nowrap; /* 不换行 */
+}
+
+.mat-cell.cdk-column-prio {
+    text-align: right;
+    padding: 0px 2px 0px 2px;
+    min-width: 20px;
+    max-width: 150px;
+    text-overflow: ellipsis; /* 显示... */
+    overflow: hidden; /* 隐藏文字 */
+    white-space: nowrap; /* 不换行 */
+}
+
+
+.mat-cell.cdk-column-zyklus{
+    text-align: right;
+    padding: 0px 2px 0px 2px;
+    min-width: 20px;
+    max-width: 150px;
+    text-overflow: ellipsis; /* 显示... */
+    overflow: hidden; /* 隐藏文字 */
+    white-space: nowrap; /* 不换行 */
+}
+
+// einstellung für Element: Gruppe und Text
+.grBut, .txBut {
+    max-width:20px;
+    padding:0 0 0 0;
+    font-size: 10px ;
+    height:30px;
+}
+
+
+.mat-cell.mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-text,
+.mat-header-cell.cdk-column-gruppe, .mat-header-cell.cdk-column-text{
+    border-right:0px;
+}
+
+// Anzeige der Wert von ausgewählten Elementen über Combobox wird versteckt.
+::ng-deep .mat-select-value {
+    display:none !important;
+}
+
+// Einstellung für Layout von ComboBox und Werte von Elementen: prioritäten und Zyklus 
+.comboBox-val {
+    display: inline-block;
+    vertical-align:top;
+    width:40px;
+}
+.comboBox-select {
+    display: inline-block;
+    vertical-align:top;
+}

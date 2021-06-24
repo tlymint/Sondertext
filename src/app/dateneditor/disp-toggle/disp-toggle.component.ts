@@ -16,7 +16,7 @@ export class DispToggleComponent implements OnInit {
   disableSelect = new FormControl(false);
 
   public selectedVal: string
-  //combibox Inhalte
+  //combobox Inhalte
   views: View[] = [
     {name: 'Tabelle', value: 'tabe' },
     {name: 'Grafik', value: 'graf'},
