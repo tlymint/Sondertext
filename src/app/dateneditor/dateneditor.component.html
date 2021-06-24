@@ -66,7 +66,21 @@
         </div>
       </div>
       <div *ngIf = "chooseDisplayeditor">
-        <p>Here is UI for Displayeditor</p>
+        <div class="disp-title">
+          <mat-card>Displayeditor</mat-card>
+        </div>
+        <div class="displayer">
+          <app-data-display></app-data-display>
+        </div>
+        <div class="row">
+          <div class="example-button-row" > 
+            <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+            <span class= "OkandCancel-button">
+              <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+              <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+            </span>       
+          </div>
+        </div>
       </div>
   </div>  
 </div>

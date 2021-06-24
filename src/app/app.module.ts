@@ -77,7 +77,8 @@ import { DetailansichtComponent } from './dateneditor/detailansicht/detailansich
 
 import { NgMarqueeModule } from 'ng-marquee';
 import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwaltung.component';
-
+import { DataDisplayComponent } from './data-display/data-display.component';
+import {DialogTableComponent} from './dateneditor/data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -108,13 +109,18 @@ import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwal
 
     DetailansichtComponent,
 
-    AuftragsverwaltungComponent
+    AuftragsverwaltungComponent,
+
+    DataDisplayComponent,
+    DialogTableComponent,
+
   ],
   entryComponents: [
     DialogContentComponent, 
     AddfolderComponent,
     DruckenComponent,
     PrintPreviewComponent,
+    DialogTableComponent,
   ],
   imports: [
     BrowserModule,
