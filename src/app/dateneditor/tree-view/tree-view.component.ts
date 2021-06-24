@@ -11,6 +11,8 @@ import { cloneDeep } from "lodash";
 import { TREE_DATA } from '../../sondertext-datenbank/table/table-data';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
+import { DateneditorComponent } from '../dateneditor.component';
+
 
 @Component({
   selector: 'app-tree-view',
@@ -19,7 +21,8 @@ import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
   providers: [ChecklistDatabase]
 })
 
-export class TreeViewComponent {
+export class TreeViewComponent { 
+  @Input() parent: DateneditorComponent;
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
@@ -35,6 +38,8 @@ export class TreeViewComponent {
   originalText: string = '';
   name: string;
   activeNode;
+  hiddenSondertext: boolean = true;
+  showSondertext: boolean = true;
   copy: any;
   buttonColor: 'primary';
   animal: boolean = false;
@@ -256,6 +261,23 @@ export class TreeViewComponent {
     this.database.deleteItem(parentFlat!, node.name);
     this.treeControl.expand(node);
   } 
+
+  /** switch the display of the right container  */ 
+  displayRightContainer(node: TreeItemFlat){
+    console.log(this.getParentNode(node).name);
+    if(this.getParentNode(node).name == 'Sondertexte'){
+       this.parent.showSondertexte();
+    } 
+    else if(this.getParentNode(node).name == "Projektierung") {
+      this.parent.showAuftraege();
+    }
+    else if(this.getParentNode(node).name == "Grafikdaten") {
+      this.parent.showDisplayeditor();
+    }
+    else{
+      this.parent.showDateneditor();
+    }
+  }
 
   openDialog(node: TreeItemFlat) {
     let dialogRef = this.dialog.open(DialogContentComponent, {

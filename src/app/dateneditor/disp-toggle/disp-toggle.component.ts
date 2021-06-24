@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 //combobox-interface definition
 interface View {
@@ -12,6 +13,7 @@ interface View {
   styleUrls: ['./disp-toggle.component.scss']
 })
 export class DispToggleComponent implements OnInit {
+  disableSelect = new FormControl(false);
 
   public selectedVal: string
   //combibox Inhalte
@@ -38,4 +40,5 @@ export class DispToggleComponent implements OnInit {
   sendMessage() {
     this.messageEvent.emit(this.selectedVal);
   }
+  
 }

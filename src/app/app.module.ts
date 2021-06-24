@@ -70,8 +70,15 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 import { DataTableComponent } from './dateneditor/data-table/data-table.component';
 import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+import { TestComponent } from './test/test.component';
 
+// costum right-click contextmenu
+import { DetailansichtComponent } from './dateneditor/detailansicht/detailansicht.component';
 
+import { NgMarqueeModule } from 'ng-marquee';
+import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwaltung.component';
+import { DataDisplayComponent } from './data-display/data-display.component';
+import {DialogTableComponent} from './dateneditor/data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +105,14 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     DisplaymanagementComponent,
     EditorTableComponent,
     PrintPreviewComponent,
+    TestComponent,
+
+    DetailansichtComponent,
+
+    AuftragsverwaltungComponent,
+
+    DataDisplayComponent,
+    DialogTableComponent,
 
   ],
   entryComponents: [
@@ -105,6 +120,7 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     AddfolderComponent,
     DruckenComponent,
     PrintPreviewComponent,
+    DialogTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,6 +148,7 @@ import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.compo
     MatSidenavModule,
     ScrollingModule,
     MatCardModule,
+    NgMarqueeModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
