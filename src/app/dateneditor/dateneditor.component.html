@@ -12,12 +12,30 @@
   </div>
 
   <div class="right-container"> 
-     <div *ngIf = "chooseDateneditor">
+     <div *ngIf = "chooseDateneditor && !chooseDateneditor2">
         <div class = "disp-title">
           <mat-card>Tabelle Überschrift</mat-card>
         </div>
         <div class = "displayer">
           <app-data-table [toolbar]='toolbar'></app-data-table>   
+          <div class="row">
+            <div class="example-button-row" > 
+              <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+              <span class= "OkandCancel-button">
+                <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+                <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+              </span>       
+            </div>
+          </div> 
+        </div>  
+      </div> 
+
+      <div *ngIf = "chooseDateneditor && chooseDateneditor2">
+        <div class = "disp-title">
+          <mat-card>Tabelle Überschrift</mat-card>
+        </div>
+        <div class = "displayer">
+          <app-data-table-long [toolbar]='toolbar'></app-data-table-long>   
           <div class="row">
             <div class="example-button-row" > 
               <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>

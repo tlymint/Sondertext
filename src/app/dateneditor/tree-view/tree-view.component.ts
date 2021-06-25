@@ -275,7 +275,13 @@ export class TreeViewComponent {
       this.parent.showDisplayeditor();
     }
     else{
-      this.parent.showDateneditor();
+      if(node.name == "ZAK-Masken") {
+        this.parent.showDateneditor2();
+      }
+      else {
+        this.parent.showDateneditor();
+      }
+        
     }
   }
 

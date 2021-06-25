@@ -29,6 +29,7 @@ export class DateneditorComponent implements OnInit {
   leftContainerWidth: number = 250;
   mouseDownOnHandle: boolean = false;
   chooseDateneditor: boolean = false;
+  chooseDateneditor2: boolean = false;
   chooseSondertext: boolean = false;
   chooseAuftrag: boolean = false;
   chooseDisplayeditor: boolean = false;
@@ -60,6 +61,15 @@ export class DateneditorComponent implements OnInit {
    showDateneditor(){
     //console.log('tableshow');
     this.chooseDateneditor = true;
+    this.chooseDateneditor2 = false;
+    this.chooseSondertext = false;
+    this.chooseAuftrag = false;
+    this.chooseDisplayeditor = false;
+  }
+  showDateneditor2(){
+    //console.log('tableshow');
+    this.chooseDateneditor = true;
+    this.chooseDateneditor2 = true;
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
@@ -68,6 +78,7 @@ export class DateneditorComponent implements OnInit {
   showSondertexte(){
     //console.log('Detailshow');
     this.chooseDateneditor = false;
+    this.chooseDateneditor2 = false;
     this.chooseSondertext = true;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
@@ -76,6 +87,7 @@ export class DateneditorComponent implements OnInit {
   showAuftraege(){
     //console.log('Auftrag Ansicht');
     this.chooseDateneditor = false;
+    this.chooseDateneditor2 = false;
     this.chooseSondertext = false;
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
@@ -84,6 +96,7 @@ export class DateneditorComponent implements OnInit {
   showDisplayeditor(){
     //console.log('Displayeditor');
     this.chooseDateneditor = false;
+    this.chooseDateneditor2 = false;
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = true;
