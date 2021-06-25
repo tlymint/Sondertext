@@ -1,28 +1,22 @@
 import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef, Input } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
-import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
+import { TreeItem, TreeItemFlat,DyFaTreeDatabase } from './treedata';
 import { MatTreeFlattener, MatTreeFlatDataSource, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of as ofObservable, Observable, BehaviorSubject } from 'rxjs';
 import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule} from '@angular/material';
 import {MatDialog} from '@angular/material/dialog';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
-import { TREE_DATA } from '../../sondertext-datenbank/table/table-data';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
-import { DateneditorComponent } from '../dateneditor.component';
-
 
 @Component({
-  selector: 'app-tree-view',
-  templateUrl: './tree-view.component.html',
-  styleUrls: ['./tree-view.component.scss'],
-  providers: [ChecklistDatabase]
+  selector: 'app-dyfa-linienauswahl-tree-view',
+  templateUrl: './dyfa-linienauswahl-tree-view.component.html',
+  styleUrls: ['./dyfa-linienauswahl-tree-view.component.scss']
 })
 
-export class TreeViewComponent { 
-  @Input() parent: DateneditorComponent;
+
+
+export class DyfaLinienauswahlTreeViewComponent{ 
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
@@ -60,11 +54,9 @@ export class TreeViewComponent {
 
   /** The selection for checklist */
 
-  constructor(private database: ChecklistDatabase, 
+  constructor(private database: DyFaTreeDatabase, 
     public dialog: MatDialog, 
     private elementRef: ElementRef,
-    public toolbar: ToolbarComponent,
-    public show: ShowComponent
     ) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
@@ -233,22 +225,6 @@ export class TreeViewComponent {
     return false;
   }
 
-   /** Select the category so we can insert the new item. */
-   addNewItem(node: TreeItemFlat) {
-    const parentNode = this.flatNodeMap.get(node);
-    // 
-    let isParentHasChildren: boolean = false;
-    this.toolbar.showDialog();
-    if (parentNode.children)
-      isParentHasChildren = true;
-    //
-    this.database.insertItem(parentNode!, this.show.getInputValues());
-    this.saveNode(node, this.show.getInputValues())
-    // expand the subtree only if the parent has children (parent is not a leaf node)
-    if (isParentHasChildren)
-      this.treeControl.expand(node);
-  }
-
   /**remove a node */
   removeItem(node: TreeItemFlat) {
     console.log(node)
@@ -261,39 +237,6 @@ export class TreeViewComponent {
     this.database.deleteItem(parentFlat!, node.name);
     this.treeControl.expand(node);
   } 
-
-  /** switch the display of the right container  */ 
-  displayRightContainer(node: TreeItemFlat){
-    console.log(this.getParentNode(node).level);
-    if(this.getParentNode(node).level == 0){
-      if(this.getParentNode(node).name == 'Sondertexte'){
-        this.parent.showSondertexte();
-      } 
-      else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
-        this.parent.showAuftraege();
-      }
-      else if(this.getParentNode(node).name == "Displayeditor") {
-        this.parent.showDisplayeditor();
-      }
-      else{
-        this.parent.showDateneditor();
-      }
-    }else{
-      node = this.getParentNode(node);
-      this.displayRightContainer(node);
-    }
-  }
-
-  openDialog(node: TreeItemFlat) {
-    let dialogRef = this.dialog.open(DialogContentComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.removeItem(node);
-    });
-  }
 
   /**copy a node */
   copyItem(node: TreeItemFlat) {
@@ -325,9 +268,7 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
-    if(this.getParentNode(node).name == 'Sondertexte' && node.expandable == false){
-       this.parent.addSondertexte();
-   } 
+
   }
 }
 

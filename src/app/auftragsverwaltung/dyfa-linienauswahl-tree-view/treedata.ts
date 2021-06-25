@@ -72,7 +72,7 @@ const TREE_DATA = {
 
 
 @Injectable()
-export class FormatTreeDatabase {
+export class DyFaTreeDatabase {
   dataChange: BehaviorSubject<TreeItem[]> = new BehaviorSubject<TreeItem[]>([]);
   parentNodeMap = new Map<TreeItemFlat, TreeItem>();
 

@@ -15,7 +15,7 @@ export class ChangeSondertextComponent implements OnInit {
   //
   hiddenTable: boolean = false;
   mouseDownOnHandle: boolean = false;
-  leftContainerWidth: number = 250;
+  leftContainerWidth: number = 300;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{
