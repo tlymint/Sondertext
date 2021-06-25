@@ -1,0 +1,12 @@
+
+<div class="main-container"  (mouseup)="changeResizeMode(false, $event)" (mousemove)="changeLeftContainerWidth($event)" (mouseleave)="changeResizeMode(false, $event)">
+    <div class="left-container" [style.width.px]="leftContainerWidth">      
+        <app-format-tree-view></app-format-tree-view>
+    </div>
+  
+    <div class="resize-handle" (mousedown)="changeResizeMode(true, $event)" (mouseup)="changeResizeMode(false, $event)" [style.background-color]="highlightHandle">
+    </div>
+  
+    <div class="right-container"> 
+            <app-format-show></app-format-show>
+    </div> 

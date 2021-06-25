@@ -1,0 +1,50 @@
+.mat-card {
+    padding: 2px;
+    padding-left: 5px;
+    margin: 2px;
+    box-shadow: none;
+    width: 660px;
+    margin-left: 2rem;
+    margin-top: 10rem;
+    border-radius: 0px;
+    border-top: 2px solid rgb(150, 150, 150);
+    border-left: 2px solid rgb(150, 150, 150);
+    border-bottom: 2px solid #e7e7e7;
+    border-right: 2px solid #e7e7e7;
+}
+
+.text{
+  position: relative;
+  top:120px;
+}
+
+.display {
+    display: block;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;
+    height: 150px; 
+    margin-left: 2rem;
+    margin-right: 0rem;
+    border: thin dotted #337599;
+    background-color: black;
+    color: yellow;
+}
+
+.show {
+    max-width: 700px;
+    height: 50px; 
+    margin-top: 10rem;
+    margin-left: 2rem;
+}
+
+.grBut {
+    max-width:30px; 
+    margin-top: 10rem;
+    font-size: 10px ;
+    height:25px;
+}
+
+.new {
+    display: inline-flex;
+}

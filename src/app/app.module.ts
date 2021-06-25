@@ -82,15 +82,18 @@ import { DialogTableComponent } from './dateneditor/data-table/data-table.compon
 import { DataTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 import { DialogTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 
-//print-modul
+// print modul
 import { NgxPrintModule } from 'ngx-print';
+
+import { FormatTreeViewComponent } from './dateneditor/change-sondertext/format-tree-view/format-tree-view.component';
+import { ChangeSondertextComponent } from './dateneditor/change-sondertext/change-sondertext.component';
+import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeViewComponent,
     TableComponent,
-    ShowComponent,
     DruckenComponent,
     DialogContentComponent,
     DataTableComponent ,
@@ -111,6 +114,7 @@ import { NgxPrintModule } from 'ngx-print';
     EditorTableComponent,
     PrintPreviewComponent,
     TestComponent,
+    ShowComponent,
     DetailansichtComponent,
     AuftragsverwaltungComponent,
     DataDisplayComponent,
@@ -118,6 +122,10 @@ import { NgxPrintModule } from 'ngx-print';
     DataTableLongComponent,
     DialogTableLongComponent,
     
+    FormatTreeViewComponent,
+    ChangeSondertextComponent,
+    FormatShowComponent,
+
   ],
   entryComponents: [
     DialogContentComponent, 
