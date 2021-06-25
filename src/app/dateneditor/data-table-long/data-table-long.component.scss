@@ -1,0 +1,256 @@
+.scroll-window{
+    height: 100%;
+    width: 100%;
+    border: 0px solid black;
+  }
+  
+  .full-width-table {
+      width: 100%;
+      height: 100%;
+      margin-right: 10px; 
+    }
+  
+  .mat-header-row{
+    height: 30px;
+  }
+  
+  .mat-row{
+    height: 2px;
+  }
+  .mat-cell.cdk-column-id{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 0px 0px 0px 0px;
+    border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+  }
+  
+  .mat-header-cell.cdk-column-id{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+  }
+  
+  
+  
+  .mat-header-cell{
+    background-color: rgb(204, 207, 207);
+  }
+  
+  .mat-cell.cdk-column-Zeit, .mat-header-cell.cdk-column-Zeit{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-RZL, .mat-header-cell.cdk-column-RZL{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 0px 7px 8px;
+    //border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-RZL_Button, .mat-header-cell.cdk-column-RZL_Button{
+    font-size:12px;
+    height: 5px;
+    width: 5px;
+    vertical-align: middle;
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    //background-color: rgb(204, 207, 207);
+  }
+  
+  .mat-cell.cdk-column-Richtung, .mat-header-cell.cdk-column-Richtung{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-M_Zeit, .mat-header-cell.cdk-column-M_Zeit{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-M_Linie, .mat-header-cell.cdk-column-M_Linie{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-M_Kurs, .mat-header-cell.cdk-column-M_Kurs{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-Route, .mat-header-cell.cdk-column-Route{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-Fahrtart, .mat-header-cell.cdk-column-Fahrtart{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .mat-cell.cdk-column-Umlauf, .mat-header-cell.cdk-column-Umlauf{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 7px 8px 7px 8px;
+    //border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+  
+  
+  
+  .mat-icon-button{
+    width: 100%;
+    height: 500%;
+    line-height: 0px;
+    font-size:12px;
+    font-weight:4px;
+    //font-size: 2.5px;
+    //margin-top: 10px;
+  }
+  
+  .mat-icon {
+    width: 100%;
+    height: 100%;
+    font-size:12px;
+    //margin-bottom: 2px;
+    //transform: rotate(90deg);
+    color: #dce0e0;
+  }
+  
+  .mat-icon:hover{
+    font-size:12px;
+    color: #595c5c;
+  }
+  
+  .mat-button-toggle-group {
+  width: 100%;
+  }
+  
+  .mat-button-toggle {
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  }
+  
+  ::ng-deep .mat-button-toggle-label-content{
+  line-height: 29px !important;
+  padding: 0px 16px 0px 0px !important;
+  }
+  
+  
+  
+  .mat-elevation-z8{
+      transition: none !important;
+      box-shadow: none !important;
+  }
+  
+  .wind1 {
+    width: 100%;
+    height: 508px;
+    //margin-top: 10px;
+    //margin-left: 2px;
+    background-color: white;
+    overflow: auto;
+  }
+  
+  .wind1-row{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(204, 207, 207);
+  }
+  
+  .wind1-column{
+    width: 45.05px;
+    height: 508px;
+    background-color: rgb(204, 207, 207);
+  }
+  
+  .wind2 {
+    width: 100%;
+    margin-top: 10px;
+    background-color: white;
+  }
+  
+  .highlight{
+    background: #e7e7e7; 
+  }
+  
+  .buttonclick {
+    background-color: rgb(0, 0, 0, 0.12);
+  }
+  
+  .buttonorigin {
+    background-color: rgb(204, 207, 207);
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 100%;
+    height: 29px;
+    padding: 0px 0px 0px 0px;
+    color: rgba(0, 0, 0, 0.733);
+    //background-color: rgb(204, 207, 207);
+    }
+  
+    ::ng-deep .mat-button{
+      line-height: 29px !important;
+      padding: 0px 0px 0px 0px !important;
+      min-width: 10px !important;
+      }
+  
+  .mat-button-wrapper{
+    padding: 0px 0px 0px 0px;
+  }
+  
+  .window-table{
+    width: 100%;
+    height: 508px;
+    //margin-top: 10px;
+    //margin-left: 2px;
+    background-color: white;
+    overflow: auto;
+  }
+  
+ 
