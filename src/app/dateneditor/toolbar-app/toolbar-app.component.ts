@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-toolbar-app',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar-app.component.scss']
 })
 export class ToolbarAppComponent implements OnInit {
-
+  @Input() chooseDE: boolean;
   constructor() { }
 
   ngOnInit() {

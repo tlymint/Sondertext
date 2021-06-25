@@ -1,0 +1,25 @@
+<div class="window-dispay">
+    <table>
+      <tbody>
+        <tr *ngFor="let ApiDataFile of filteredApiDataFiles; let idx1=index; let idx2=index; let idx3=index">
+      <div class="example-button-row">
+        <button mat-stroked-button 
+        class="light-button-li"
+        [ngClass]="{'buttonclick' : rowClicked1 == idx1, 'buttonorigin': rowClicked1 != idx1}"
+        (click)="changeTableRowColor(idx1)"
+        >{{ ApiDataFile.li }}</button>
+        <button mat-stroked-button 
+        class="light-button-z"
+        [ngClass]="{'buttonclick' : rowClicked2 == idx2, 'buttonorigin': rowClicked2 != idx2}"
+        (click)="changeTableRow2Color(idx2)"
+        >{{ ApiDataFile.z }}</button>
+        <button mat-stroked-button 
+        class="light-button-wmin"
+        [ngClass]="{'buttonclick' : rowClicked3 == idx3, 'buttonorigin': rowClicked3 != idx3}"
+        (click)="changeTableRow3Color(idx3)"
+        >{{ ApiDataFile.wmin }}</button>
+      </div>
+      </tr>
+    </tbody>
+  </table>
+  </div> 

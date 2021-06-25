@@ -70,17 +70,24 @@ import { DisplaymanagementComponent } from './displaymanagement/displaymanagemen
 import { EditorTableComponent } from './dateneditor/editor-table/editor-table.component';
 import { DataTableComponent } from './dateneditor/data-table/data-table.component';
 import { DataGrafikComponent } from './dateneditor/data-grafik/data-grafik.component';
+import { TestComponent } from './test/test.component';
+
+// costum right-click contextmenu
 import { DetailansichtComponent } from './dateneditor/detailansicht/detailansicht.component';
 
-
-
+import { NgMarqueeModule } from 'ng-marquee';
+import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwaltung.component';
+import { DataDisplayComponent } from './data-display/data-display.component';
+import {DialogTableComponent} from './dateneditor/data-table/data-table.component';
+import { FormatTreeViewComponent } from './dateneditor/change-sondertext/format-tree-view/format-tree-view.component';
+import { ChangeSondertextComponent } from './dateneditor/change-sondertext/change-sondertext.component';
+import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeViewComponent,
     TableComponent,
-    ShowComponent,
     DruckenComponent,
     DialogContentComponent,
     DataTableComponent ,
@@ -100,13 +107,23 @@ import { DetailansichtComponent } from './dateneditor/detailansicht/detailansich
     DisplaymanagementComponent,
     EditorTableComponent,
     PrintPreviewComponent,
-    DetailansichtComponent
+    TestComponent,
+    ShowComponent,
+    DetailansichtComponent,
+    AuftragsverwaltungComponent,
+    DataDisplayComponent,
+    DialogTableComponent,
+    FormatTreeViewComponent,
+    ChangeSondertextComponent,
+    FormatShowComponent,
+
   ],
   entryComponents: [
     DialogContentComponent, 
     AddfolderComponent,
     DruckenComponent,
     PrintPreviewComponent,
+    DialogTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,6 +151,7 @@ import { DetailansichtComponent } from './dateneditor/detailansicht/detailansich
     MatSidenavModule,
     ScrollingModule,
     MatCardModule,
+    NgMarqueeModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],

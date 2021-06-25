@@ -1,27 +1,27 @@
 import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef, Input } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
-import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
+import { TreeItem, TreeItemFlat,FormatTreeDatabase } from './treedata';
 import { MatTreeFlattener, MatTreeFlatDataSource, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of as ofObservable, Observable, BehaviorSubject } from 'rxjs';
 import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule} from '@angular/material';
 import {MatDialog} from '@angular/material/dialog';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
-import { TREE_DATA } from '../../sondertext-datenbank/table/table-data';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
-import { DateneditorComponent } from '../dateneditor.component';
-
+import { TREE_DATA } from '../../../sondertext-datenbank/table/table-data';
+import { ToolbarComponent } from '../../toolbar/toolbar.component';
+import { ShowComponent } from '../../../sondertext-datenbank/show/show.component';
+import { DateneditorComponent } from '../../dateneditor.component';
+import { DialogContentComponent } from '../../tree-view/dialog-content/dialog-content.component';
 
 @Component({
-  selector: 'app-tree-view',
-  templateUrl: './tree-view.component.html',
-  styleUrls: ['./tree-view.component.scss'],
-  providers: [ChecklistDatabase]
+  selector: 'app-format-tree-view',
+  templateUrl: './format-tree-view.component.html',
+  styleUrls: ['./format-tree-view.component.scss'],
+  providers: [FormatTreeDatabase]
 })
 
-export class TreeViewComponent { 
+
+export class FormatTreeViewComponent{ 
   @Input() parent: DateneditorComponent;
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
@@ -60,7 +60,7 @@ export class TreeViewComponent {
 
   /** The selection for checklist */
 
-  constructor(private database: ChecklistDatabase, 
+  constructor(private database: FormatTreeDatabase, 
     public dialog: MatDialog, 
     private elementRef: ElementRef,
     public toolbar: ToolbarComponent,
@@ -320,7 +320,7 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
-    this.parent.addSondertexte();
+
   }
 }
 

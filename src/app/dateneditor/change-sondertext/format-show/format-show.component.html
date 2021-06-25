@@ -1,0 +1,23 @@
+<!--
+<div class ="show">
+    <div class="mat-card">
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+    </div>
+</div>-->
+<div style="display: inline-flex;">
+    <div class = "disp-title">
+        <mat-card appearance="fill">
+            <input matInput [(ngModel)]='sondertext'>
+        </mat-card>
+    </div>
+    <div class="new">
+        <button class = "grBut">...</button>
+    </div>
+</div>
+<div class="display">
+    <ng-marquee speed="drowsy" class="text">
+        {{sondertext}}
+    </ng-marquee>
+</div>

@@ -21,13 +21,12 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table> 
   </div>
-                      
-<mat-card>
+  <mat-card>
     <h4>Displayvorlage: 017::4Z:ZAK + 1Z SOT(24)</h4>
-    <marquee behavior="scroll" direction="left" class = 'display'>
-        <div class="text">
-            {{removeQuotes(dataSource[0].Text | json)}}
-        </div>
-    </marquee>
-</mat-card>
+    <div class = "display">
+      <ng-marquee speed="drowsy" class="text">
+          {{removeQuotes(dataSource[0].Text | json)}}
+      </ng-marquee>
+    </div>
+  </mat-card>          
 </cdk-virtual-scroll-viewport>
