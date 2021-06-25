@@ -154,10 +154,16 @@ height: 30px;
 /**
  * Einstellung für Farbenänderung wenn id gedrückt ist
  */
- .buttonclick {
+.buttonclick {
     background-color: rgb(0, 0, 0, 0.12);
-  }
-  
-  .buttonorigin {
+}
+
+.buttonorigin {
     background-color: rgb(204, 207, 207);
-  }
+}
+
+.mat-menu-item{
+    line-height: 30px;
+    height: 30px;
+}
+  
