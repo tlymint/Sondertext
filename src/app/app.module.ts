@@ -82,6 +82,9 @@ import { DialogTableComponent } from './dateneditor/data-table/data-table.compon
 import { DataTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 import { DialogTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 
+//print-modul
+import { NgxPrintModule } from 'ngx-print';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,15 +111,13 @@ import { DialogTableLongComponent } from './dateneditor/data-table-long/data-tab
     EditorTableComponent,
     PrintPreviewComponent,
     TestComponent,
-
     DetailansichtComponent,
-
     AuftragsverwaltungComponent,
-
     DataDisplayComponent,
     DialogTableComponent,
     DataTableLongComponent,
     DialogTableLongComponent,
+    
   ],
   entryComponents: [
     DialogContentComponent, 
@@ -153,6 +154,8 @@ import { DialogTableLongComponent } from './dateneditor/data-table-long/data-tab
     ScrollingModule,
     MatCardModule,
     NgMarqueeModule,
+    //print-modul
+    NgxPrintModule,
   ],
   providers: [ToolbarComponent, TreeViewComponent,ShowComponent],
   bootstrap: [AppComponent],
