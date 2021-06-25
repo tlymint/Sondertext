@@ -78,7 +78,9 @@ import { DetailansichtComponent } from './dateneditor/detailansicht/detailansich
 import { NgMarqueeModule } from 'ng-marquee';
 import { AuftragsverwaltungComponent } from './auftragsverwaltung/auftragsverwaltung.component';
 import { DataDisplayComponent } from './data-display/data-display.component';
-import {DialogTableComponent} from './dateneditor/data-table/data-table.component';
+import { DialogTableComponent } from './dateneditor/data-table/data-table.component';
+import { DataTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
+import { DialogTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,8 @@ import {DialogTableComponent} from './dateneditor/data-table/data-table.componen
 
     DataDisplayComponent,
     DialogTableComponent,
-
+    DataTableLongComponent,
+    DialogTableLongComponent,
   ],
   entryComponents: [
     DialogContentComponent, 
@@ -121,6 +124,7 @@ import {DialogTableComponent} from './dateneditor/data-table/data-table.componen
     DruckenComponent,
     PrintPreviewComponent,
     DialogTableComponent,
+    DialogTableLongComponent,
   ],
   imports: [
     BrowserModule,
