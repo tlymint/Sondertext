@@ -8,19 +8,56 @@ import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatPro
 import {MatDialog} from '@angular/material/dialog';
 import { cloneDeep } from "lodash";
 
+
+export interface AuftTemplate {
+  name: string;
+  value1:number;
+  value2:number;
+}
+
+const ELEMENT_DATA: AuftTemplate[] = [
+  {name:'AMN',value1:1,value2:null},
+  {name:'SNE',value1:null,value2:null},
+  {name:'FGP',value1:1,value2:2},
+  {name:'SKS',value1:1,value2:2},
+  {name:'REP',value1:1,value2:2},
+  {name:'TEO',value1:1,value2:2},
+  {name:'GOP',value1:1,value2:2},
+  {name:'KEN',value1:1,value2:2},
+  {name:'KVS',value1:2,value2:1},
+  {name:'NOS',value1:2,value2:1},
+  {name:'HHO',value1:2,value2:1},
+  {name:'STS',value1:2,value2:1},
+  {name:'OSS',value1:2,value2:1},
+  {name:'DHB',value1:2,value2:1},
+  {name:'OBM',value1:1,value2:2},
+  {name:'ELS',value1:1,value2:2},
+  {name:'OBB',value1:1,value2:2},
+  {name:'KSN',value1:1,value2:2},
+  {name:'TON',value1:1,value2:2},
+  {name:'LUP',value1:1,value2:2},
+  {name:'BAP',value1:1,value2:2},
+  {name:'BLP',value1:5,value2:null},
+];
+  
+
 @Component({
   selector: 'app-dyfa-linienauswahl-tree-view',
   templateUrl: './dyfa-linienauswahl-tree-view.component.html',
-  styleUrls: ['./dyfa-linienauswahl-tree-view.component.scss']
+  styleUrls: ['./dyfa-linienauswahl-tree-view.component.scss'],
+  providers: [DyFaTreeDatabase]
 })
 
 
 
 export class DyfaLinienauswahlTreeViewComponent{ 
+  checkdata = ELEMENT_DATA;
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
   itemSelection = new SelectionModel<TreeItemFlat>(true);
+  itemSelection1 = new SelectionModel<TreeItemFlat>(true);
+  itemSelection2 = new SelectionModel<TreeItemFlat>(true);
   showAllNodes: boolean;
   selectedItems: number;
   itemCount: number;
@@ -108,15 +145,26 @@ export class DyfaLinienauswahlTreeViewComponent{
   }
 
   /* Toggle selection */
-  itemSelectionToggle(node: TreeItemFlat) {
-    this.itemSelection.toggle(node);
+  itemSelectionToggle(node: TreeItemFlat,column:number) {
+    if(column ==1){
+    this.itemSelection1.toggle(node);
     const descendants = this.treeControl.getDescendants(node);
-    this.itemSelection.isSelected(node) ?
-      this.itemSelection.select(...descendants) : this.itemSelection.deselect(...descendants);
+    this.itemSelection1.isSelected(node) ?
+      this.itemSelection1.select(...descendants) : this.itemSelection1.deselect(...descendants);
 
     //
-    descendants.forEach(child => this.itemSelection.isSelected(child));
+    descendants.forEach(child => this.itemSelection1.isSelected(child));
+    this.checkAllParentsSelection(node);}
+    else if(column ==2){
+      this.itemSelection2.toggle(node);
+    const descendants = this.treeControl.getDescendants(node);
+    this.itemSelection2.isSelected(node) ?
+      this.itemSelection2.select(...descendants) : this.itemSelection2.deselect(...descendants);
+
+    //
+    descendants.forEach(child => this.itemSelection2.isSelected(child));
     this.checkAllParentsSelection(node);
+    }
   }
 
   /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
@@ -237,6 +285,22 @@ export class DyfaLinienauswahlTreeViewComponent{
     this.database.deleteItem(parentFlat!, node.name);
     this.treeControl.expand(node);
   } 
+
+  getValue1(node:TreeItemFlat){
+    for(const n of this.checkdata){
+      if(node.name == n.name){
+        return n.value1;
+      }
+    }
+  }
+
+  getValue2(node:TreeItemFlat){
+    for(const n of this.checkdata){
+      if(node.name == n.name){
+        return n.value2;
+      }
+    }
+  }
 
   /**copy a node */
   copyItem(node: TreeItemFlat) {

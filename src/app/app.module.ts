@@ -84,6 +84,7 @@ import { ChangeSondertextComponent } from './dateneditor/change-sondertext/chang
 import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
 import { DyfaGruppenComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-gruppen.component';
 import { DyfaLinienauswahlTreeViewComponent } from './auftragsverwaltung/dyfa-linienauswahl-tree-view/dyfa-linienauswahl-tree-view.component';
+import { DyfaRightViewComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-right-view/dyfa-right-view.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { DyfaLinienauswahlTreeViewComponent } from './auftragsverwaltung/dyfa-li
     FormatShowComponent,
     DyfaGruppenComponent,
     DyfaLinienauswahlTreeViewComponent,
+    DyfaRightViewComponent,
 
   ],
   entryComponents: [

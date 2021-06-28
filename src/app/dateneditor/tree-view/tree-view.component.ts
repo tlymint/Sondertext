@@ -278,7 +278,8 @@ export class TreeViewComponent {
       else{
         this.parent.showDateneditor();
       }
-    }else{
+    } 
+    else{
       node = this.getParentNode(node);
       this.displayRightContainer(node);
     }

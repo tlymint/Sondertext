@@ -125,4 +125,22 @@
     display: table-cell;
     width: 100%;
   }
+
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .cb-vertival {
+    flex-flow: column;
+  }
+  .cb-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    justify-content: left;
+    flex-flow: row;
+  }  
   

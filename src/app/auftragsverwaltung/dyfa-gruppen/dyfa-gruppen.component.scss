@@ -1,0 +1,154 @@
+
+.main-container{
+    display: flex;
+    height: 500px;
+    background-color: #e7e7e7;
+}
+  
+.left-container{
+    background-color:white;
+    margin-left: 2px;
+    flex: 1 1 55vw;
+    height: 425px;
+    border-top: 2px solid rgb(150, 150, 150);
+    border-left: 2px solid rgb(150, 150, 150);
+
+}
+
+.resize-handle{
+    flex: 0 0 5px;
+    cursor: col-resize;
+    display: flex;
+    height: 450px;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    border: 1px solid rgb(150, 150, 150);
+    
+}
+
+.button_position {
+    margin-top: 14vw;
+    margin-left: 1.5vw;
+    width: 50px;
+    height: 30px;
+    border-top:azure;
+    border-left:azure;
+    border-right: 1px solid rgb(87, 81, 81) !important;
+    border-bottom: 1px solid rgb(87, 81, 81) !important;
+
+}
+
+.mittel-container {
+    width:20%;
+    flex: 1 1 10vw;
+    position:relative;   
+    height: 450px;
+    border-top: 2px solid rgb(150, 150, 150);
+    border-left: 2px solid rgb(150, 150, 150);
+}
+
+
+.right-container{
+    width:100%;
+    flex: 1 1 50vw;
+    position:relative;
+    margin-right: 4px;
+    background-color:white;   
+    height: 450px;
+    margin-left: 2px;
+    border-top: 2px solid rgb(150, 150, 150);
+    border-left: 2px solid rgb(150, 150, 150);
+
+}
+
+.mat-card {
+    padding: 0px;
+    padding-left: 5px;
+    background-color: #e7e7e7;
+    box-shadow: none;
+    border-radius: 0px;
+    border:1px solid #969696;
+}
+
+.displayer {
+    width:100%;
+    height:508px;
+    background-color: #fdfdfd;
+    margin-right: 4px;
+    border-right: 2px solid rgb(243, 243, 243);
+    border-bottom: 1px solid rgb(243, 243, 243);
+}
+
+.displayer{
+    width: 100%;
+    height: 500px;
+}
+
+.row {
+    background-color: #e7e7e7;
+    width: 100%;
+    text-align: right;
+    height:60px;
+    margin-left: 2px;
+    margin-right: 2px;
+    position:absolute;
+    bottom:0;
+    border-left: 2px solid rgb(243, 243, 243);
+}
+
+
+
+.example-button-row {
+    display: table-cell;
+    width: 100%;
+    
+}
+
+.example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.OkandCancel-button{
+    margin-left: 30px;
+}
+
+
+.status-container{
+    padding:5px;
+    padding-left: 20px;
+    background-color: #e7e7e7;
+    color:black;
+    //font-family: 'Arial Narrow';
+    font-size: 12px;
+    border-top: 2px solid rgb(243, 243, 243);
+
+}
+
+.example-button-row {
+    display: table-cell;
+    width: 100%;
+    
+}
+
+.row {
+    background-color: #e7e7e7;
+    width: 100%;
+    text-align: right;
+    height:60px;
+    margin-left: 2px;
+    margin-right: 2px;
+    position:absolute;
+    bottom:0;
+    border-left: 2px solid rgb(243, 243, 243);
+}
+
+.Loeschen-button{
+    margin-left:2px;
+    margin-top:10px
+}
+
+.ListeLoeschen-button {
+    margin-left:150px;
+    margin-top:10px
+}
