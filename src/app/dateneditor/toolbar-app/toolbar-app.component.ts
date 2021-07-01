@@ -34,16 +34,14 @@ export class ToolbarAppComponent implements OnInit {
     return this;
   }
 
-  showDyFa(){
-    //this.disp.views = this.views;
-    //this.chooseDE = true;
-  }
+  
 
   message:string= "tabe";
   signalG:boolean= true;
   signalT:boolean= false;
   dialoghidden: boolean = false;
   dialogshow: boolean = true;
+  groupIsOpened:boolean = false;
 
   receiveMessage($event:string) {
     if($event == "tabe" ) {

@@ -107,6 +107,7 @@ export class AuftragsverwaltungComponent implements OnInit {
 
   openGroup() {
     this.groupIsOpened = true;
+    this.auftToolbar.groupIsOpened = true;
   }
 
   openDyFaGruppen(){

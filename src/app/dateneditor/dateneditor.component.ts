@@ -38,6 +38,7 @@ export class DateneditorComponent implements OnInit {
   chooseSondertext: boolean = false;
   chooseAuftrag: boolean = false;
   chooseDisplayeditor: boolean = false;
+  chooseGroup:boolean;
   addSondertext: boolean = false;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
@@ -134,6 +135,9 @@ export class DateneditorComponent implements OnInit {
     if(this.chooseAuftrag == true)
     {
       this.auftrag.groupIsOpened = false;
+      this.chooseGroup = this.auftrag.groupIsOpened;
+      console.log(this.auftrag.groupIsOpened);
+      this.toolbar.groupIsOpened = false;
     }
   }
 

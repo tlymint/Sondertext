@@ -23,7 +23,7 @@
     <app-disp-toggle #disp (messageEvent)="receiveMessage($event)"></app-disp-toggle>
   </span>
   
-  <span class="auftrag-comboBox" *ngIf="chooseAf" >
+  <span class="auftrag-comboBox" *ngIf="chooseAf&&groupIsOpened" >
     <mat-form-field appearance=""  floatLabel="never" style="width:100px ! important">
         <mat-label>Ansicht</mat-label>
         <mat-select disableRipple (selectionChange)="valChange($event.value)" [(value)]="selectedView" [disabled]= false> 

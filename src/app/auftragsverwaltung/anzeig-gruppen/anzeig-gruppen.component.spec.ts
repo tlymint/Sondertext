@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChangebuslineComponent } from './changebusline.component';
+import { AnzeigGruppenComponent } from './anzeig-gruppen.component';
 
-describe('ChangebuslineComponent', () => {
-  let component: ChangebuslineComponent;
-  let fixture: ComponentFixture<ChangebuslineComponent>;
+describe('AnzeigGruppenComponent', () => {
+  let component: AnzeigGruppenComponent;
+  let fixture: ComponentFixture<AnzeigGruppenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangebuslineComponent ]
+      declarations: [ AnzeigGruppenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChangebuslineComponent);
+    fixture = TestBed.createComponent(AnzeigGruppenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

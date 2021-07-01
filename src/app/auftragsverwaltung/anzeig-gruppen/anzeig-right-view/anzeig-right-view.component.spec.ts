@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChangeGroupComponent } from './change-group.component';
+import { AnzeigRightViewComponent } from './anzeig-right-view.component';
 
-describe('ChangeGroupComponent', () => {
-  let component: ChangeGroupComponent;
-  let fixture: ComponentFixture<ChangeGroupComponent>;
+describe('AnzeigRightViewComponent', () => {
+  let component: AnzeigRightViewComponent;
+  let fixture: ComponentFixture<AnzeigRightViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangeGroupComponent ]
+      declarations: [ AnzeigRightViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChangeGroupComponent);
+    fixture = TestBed.createComponent(AnzeigRightViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
