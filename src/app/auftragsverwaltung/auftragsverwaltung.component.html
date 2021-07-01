@@ -173,7 +173,7 @@
                 [class.row-is-clicked]="clickedRows.add(element)"
                 [class.demo-row-is-clicked]="clickedRows.has(element)"
                 [ngStyle]="elementClicked == idx ?{'.demo-row-is-clicked.font-weight': 'bold'}:{'font-weight': 400}"
-                [style.background-color]="elementClicked == idx ? 'rgb(0, 0, 0, 0.12)' : 'white'"></tr>
+                [style.background-color]="elementClicked == idx ? 'white':'rgb(0, 0, 0, 0.08)' "></tr>
             </table>
             <!---->
             <div style="visibility: hidden; position: fixed"
@@ -199,5 +199,28 @@
             <!---->
         </div>
     </div> </div>
+</div>
+<div class = "wind2">
+    <span class="detail1"> 
+        <div class="detail-info">
+            <table class="detail1-table">
+                <tr>
+                    <th class="detail1-table-title">Dyfas(15)</th>
+                    <th class="detail1-table-title"></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        
+    </span>
+    <span class="detail2"> 
+        <div class="detail-info">
+            <b>Text:</b>
+            <p class="auf-text">Auf der Linie U79 kommt es aktuell leider zu Verspätung. Grund dafür sind Bauarbeiten in Duisburg.</p>
+        </div>
+    </span>
 </div>
 

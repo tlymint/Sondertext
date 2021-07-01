@@ -268,14 +268,13 @@ export class TreeViewComponent {
     if(this.getParentNode(node).name == 'Sondertexte'){
        this.parent.showSondertexte();
     } 
-    else if(this.getParentNode(node).name == "Projektierung") {
+    else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
       this.parent.showAuftraege();
     }
-    else if(this.getParentNode(node).name == "Grafikdaten") {
+    else if(this.getParentNode(node).name == "Gruppe 001 ZAK-Masken") {
       this.parent.showDisplayeditor();
     }
     else{
-<<<<<<< HEAD
       if(node.name == "ZAK-Masken") {
         this.parent.showDateneditor2();
       }
@@ -283,9 +282,6 @@ export class TreeViewComponent {
         this.parent.showDateneditor();
       }
         
-=======
-      this.parent.showDateneditor();
->>>>>>> tou
     }
   }
 
@@ -330,7 +326,9 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
+    if(this.getParentNode(node).name == "Sondertexte") {
     this.parent.addSondertexte();
+    }
   }
 }
 

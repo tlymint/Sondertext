@@ -1,7 +1,20 @@
 
 
 <app-toolbar ></app-toolbar>
-<app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor"></app-toolbar-app>
+
+<mat-toolbar class="icons">
+  <span class="icons1">
+    <app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor"></app-toolbar-app>
+  </span>
+  <span *ngIf="chooseAuftrag" class="icons2"> 
+    <button mat-stroked-button class="button-auftrag">Neu</button>
+    <button mat-stroked-button class="button-auftrag">Ändern</button>
+    <button mat-stroked-button class="button-auftrag">Kopieren</button>
+    <button mat-stroked-button class="button-auftrag">Löschen</button>
+    <button mat-stroked-button class="button-auftrag">Aufräumen</button>
+  </span>
+</mat-toolbar>
+
 
 <div class="main-container"  (mouseup)="changeResizeMode(false, $event)" (mousemove)="changeLeftContainerWidth($event)" (mouseleave)="changeResizeMode(false, $event)">
   <div class="left-container" [style.width.px]="leftContainerWidth">      
@@ -65,8 +78,27 @@
         </div>  
       </div> 
 
+      <!--  Sondertext-ändern   -->
+      <div *ngIf = "addSondertext">
+        <div class="disp-title">
+          <mat-card>Sondertext 461 bearbeiten</mat-card>
+        </div>
+        <div class="displayer">
+          <app-change-sondertext></app-change-sondertext>
+        </div>
+        <div class="row">
+          <div class="example-button-row" > 
+            <button mat-raised-button  (click)="Uebernehmen()"><b>Übernehmen</b></button>
+            <span class= "OkandCancel-button">
+              <button mat-raised-button (click)="Okay()"><b>Ok</b></button>
+              <button mat-raised-button (click)="Abbrechen()"><b>Abbrechen</b></button>
+            </span>       
+          </div>
+        </div>
+      </div>
+
+      <!--  Auftragsverwaltung   -->
       <div *ngIf = "chooseAuftrag">
-        <!--  Auftragsverwaltung   -->
         <div class="disp-title">
           <mat-card>Benutzerdefinierte Aufträge</mat-card>
         </div>
@@ -83,6 +115,7 @@
           </div>
         </div>
       </div>
+
       <div *ngIf = "chooseDisplayeditor">
         <div class="disp-title">
           <mat-card>Displayeditor</mat-card>

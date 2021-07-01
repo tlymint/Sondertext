@@ -174,10 +174,7 @@
   display: flex;
 }
 
-::ng-deep .mat-button-toggle-label-content{
-  line-height: 29px !important;
-  padding: 0px 16px 0px 0px !important;
-}
+
 
 
 
@@ -234,11 +231,7 @@
   //background-color: rgb(204, 207, 207);
 }
 
-::ng-deep .mat-button{
-  line-height: 29px !important;
-  padding: 0px 0px 0px 0px !important;
-  min-width: 10px !important;
-}
+
 
 .mat-button-wrapper{
   padding: 0px 0px 0px 0px;

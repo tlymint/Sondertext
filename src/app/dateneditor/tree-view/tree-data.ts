@@ -233,7 +233,7 @@ const TREE_DATA = {
 
     },
     'CMS-Liniennummer':null,
-    'Display-Vorlagen':{
+    'Displayvorlage':{
 
     },
     'Fahrgastwechselzeiten':null,
@@ -291,7 +291,7 @@ const TREE_DATA = {
     },
     '6':'Fahrplananzeige (Notfallmodus)',
   },
-  'Displayvorlagen':{
+  'Displayeditor':{
     'Gruppe 001 ZAK-Masken':{
       '1':'004::6Z: ZAK',
       '2':'008::4Z: PAS mit Kopf (bereiteres Linienfeld)',

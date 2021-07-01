@@ -88,6 +88,8 @@ import { NgxPrintModule } from 'ngx-print';
 import { FormatTreeViewComponent } from './dateneditor/change-sondertext/format-tree-view/format-tree-view.component';
 import { ChangeSondertextComponent } from './dateneditor/change-sondertext/change-sondertext.component';
 import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
+import { ChangeGroupComponent } from './auftragsverwaltung/change-group/change-group.component';
+import { ChangebuslineComponent } from './auftragsverwaltung/changebusline/changebusline.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import { FormatShowComponent } from './dateneditor/change-sondertext/format-show
     FormatTreeViewComponent,
     ChangeSondertextComponent,
     FormatShowComponent,
+    ChangeGroupComponent,
+    ChangebuslineComponent,
 
   ],
   entryComponents: [

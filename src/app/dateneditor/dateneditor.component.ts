@@ -33,6 +33,7 @@ export class DateneditorComponent implements OnInit {
   chooseSondertext: boolean = false;
   chooseAuftrag: boolean = false;
   chooseDisplayeditor: boolean = false;
+  addSondertext: boolean = false;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{
@@ -65,6 +66,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
   }
   showDateneditor2(){
     //console.log('tableshow');
@@ -73,6 +75,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
   }
 
   showSondertexte(){
@@ -82,6 +85,16 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = true;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
+  }
+
+  addSondertexte(){
+    this.chooseDateneditor = false;
+    this.chooseDateneditor2 = false;
+    this.chooseSondertext = false;
+    this.chooseAuftrag = false;
+    this.chooseDisplayeditor = false;
+    this.addSondertext = true;
   }
 
   showAuftraege(){
@@ -91,6 +104,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
   }
 
   showDisplayeditor(){
@@ -100,8 +114,10 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = true;
+    this.addSondertext = false;
   }
 
+  
   /**To do */
 
   Uebernehmen(){
