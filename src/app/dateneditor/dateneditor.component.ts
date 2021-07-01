@@ -1,6 +1,6 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, Input, OnInit,ViewChild } from '@angular/core';
 import { TreeViewComponent } from './tree-view/tree-view.component';
-
+import { AuftragsverwaltungComponent } from '../auftragsverwaltung/auftragsverwaltung.component';
 
 
 @Component({
@@ -9,14 +9,20 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
   styleUrls: ['./dateneditor.component.scss']
 })
 export class DateneditorComponent implements OnInit {
+
+  // Auftragsverwaltung component communication
+  @ViewChild('auftrag', {static: false}) auftrag:any;
   
-  @ViewChild('toolbar', {static: false}) toolbar:any
+  @ViewChild('toolbar', {static: false}) toolbar:any;
 
   //variable using to resize container left and right
   oldX = 0;
   //
   hiddenTable: boolean = false;
   help_content:string = "This container used to help User to understand some difficulty operation.";
+
+  
+
   constructor() { }
 
   ngOnInit() {
@@ -125,7 +131,11 @@ export class DateneditorComponent implements OnInit {
   }
 
   Okay(){
-
+    if(this.chooseAuftrag == true)
+    {
+      console.log('change !');
+      this.auftrag.groupIsOpened = false;
+    }
   }
 
   Abbrechen(){
