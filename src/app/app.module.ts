@@ -90,6 +90,9 @@ import { ChangeSondertextComponent } from './dateneditor/change-sondertext/chang
 import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
 import { ChangeGroupComponent } from './auftragsverwaltung/change-group/change-group.component';
 import { ChangebuslineComponent } from './auftragsverwaltung/changebusline/changebusline.component';
+import { DyfaGruppenComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-gruppen.component';
+import { DyfaLinienauswahlTreeViewComponent } from './auftragsverwaltung/dyfa-linienauswahl-tree-view/dyfa-linienauswahl-tree-view.component';
+import { DyfaRightViewComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-right-view/dyfa-right-view.component';
 
 @NgModule({
   declarations: [
@@ -129,6 +132,9 @@ import { ChangebuslineComponent } from './auftragsverwaltung/changebusline/chang
     FormatShowComponent,
     ChangeGroupComponent,
     ChangebuslineComponent,
+    DyfaGruppenComponent,
+    DyfaLinienauswahlTreeViewComponent,
+    DyfaRightViewComponent,
 
   ],
   entryComponents: [

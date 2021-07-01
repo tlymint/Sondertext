@@ -169,8 +169,10 @@ height: 30px;
 .wind2{
     height:120px;
     background-color: #e7e7e7;
+    overflow: auto;
 }
 .detail1{
+    font-size: 14px;
     display: inline-block;
     margin: 5px 0 0 5px;
     height: 90%;
@@ -196,6 +198,7 @@ height: 30px;
 
 
 .detail2{
+    font-size: 14px;
     display: inline-block;
     margin: 5px 0 0 15px;
     height: 90%;
@@ -211,4 +214,7 @@ height: 30px;
 }
 .auf-text{
     margin:0 auto;
+}
+mat-checkbox ::ng-deep .mat-checkbox-inner-container{
+    background-color: red !important;
 }

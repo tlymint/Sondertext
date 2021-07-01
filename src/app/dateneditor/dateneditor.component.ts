@@ -1,6 +1,5 @@
 import { Component, Input, OnInit,ViewChild } from '@angular/core';
 import { TreeViewComponent } from './tree-view/tree-view.component';
-import { AuftragsverwaltungComponent } from '../auftragsverwaltung/auftragsverwaltung.component';
 
 
 @Component({
@@ -111,6 +110,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
     this.addSondertext = false;
+    this.toolbar.showDyFa();
   }
 
   showDisplayeditor(){

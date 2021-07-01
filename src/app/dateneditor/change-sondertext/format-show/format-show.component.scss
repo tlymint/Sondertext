@@ -5,7 +5,6 @@
     box-shadow: none;
     width: 660px;
     margin-left: 2rem;
-    margin-top: 10rem;
     border-radius: 0px;
     border-top: 2px solid rgb(150, 150, 150);
     border-left: 2px solid rgb(150, 150, 150);
@@ -14,8 +13,23 @@
 }
 
 .text{
+    position: relative;
+    top:15px;
+  }
+
+.text1{
+    position: relative;
+    top:35px;
+  }
+
+.text2{
+    position: relative;
+    top:55px;
+  }
+
+.text3{
   position: relative;
-  top:120px;
+  top:75px;
 }
 
 .display {
@@ -38,13 +52,29 @@
     margin-left: 2rem;
 }
 
+.column-spacer {
+    margin-top: 10rem;
+}
+
 .grBut {
     max-width:30px; 
-    margin-top: 10rem;
     font-size: 10px ;
+    margin-left: 21rem;
     height:25px;
 }
 
-.new {
-    display: inline-flex;
-}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .grid {
+      grid-template-columns: minmax(200px, 1fr) minmax(max-content, 1fr);
+    }
+  }
+  
+  .input {
+    width: 180%;
+    margin-left:2rem;
+  }

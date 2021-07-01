@@ -1,32 +1,63 @@
 import { Component, ViewContainerRef, ViewChild, ViewEncapsulation,ElementRef, Input } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { SelectionModel } from '@angular/cdk/collections';
-import { TreeItem, TreeItemFlat,ChecklistDatabase } from './tree-data';
+import { TreeItem, TreeItemFlat,DyFaTreeDatabase } from './treedata';
 import { MatTreeFlattener, MatTreeFlatDataSource, MatTreeNestedDataSource } from '@angular/material/tree';
 import { of as ofObservable, Observable, BehaviorSubject } from 'rxjs';
 import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule} from '@angular/material';
 import {MatDialog} from '@angular/material/dialog';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import { cloneDeep } from "lodash";
-import { TREE_DATA } from '../../sondertext-datenbank/table/table-data';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { ShowComponent } from '../../sondertext-datenbank/show/show.component';
-import { DateneditorComponent } from '../dateneditor.component';
 
+
+export interface AuftTemplate {
+  name: string;
+  value1:number;
+  value2:number;
+}
+
+const ELEMENT_DATA: AuftTemplate[] = [
+  {name:'AMN',value1:1,value2:null},
+  {name:'SNE',value1:null,value2:null},
+  {name:'FGP',value1:1,value2:2},
+  {name:'SKS',value1:1,value2:2},
+  {name:'REP',value1:1,value2:2},
+  {name:'TEO',value1:1,value2:2},
+  {name:'GOP',value1:1,value2:2},
+  {name:'KEN',value1:1,value2:2},
+  {name:'KVS',value1:2,value2:1},
+  {name:'NOS',value1:2,value2:1},
+  {name:'HHO',value1:2,value2:1},
+  {name:'STS',value1:2,value2:1},
+  {name:'OSS',value1:2,value2:1},
+  {name:'DHB',value1:2,value2:1},
+  {name:'OBM',value1:1,value2:2},
+  {name:'ELS',value1:1,value2:2},
+  {name:'OBB',value1:1,value2:2},
+  {name:'KSN',value1:1,value2:2},
+  {name:'TON',value1:1,value2:2},
+  {name:'LUP',value1:1,value2:2},
+  {name:'BAP',value1:1,value2:2},
+  {name:'BLP',value1:5,value2:null},
+];
+  
 
 @Component({
-  selector: 'app-tree-view',
-  templateUrl: './tree-view.component.html',
-  styleUrls: ['./tree-view.component.scss'],
-  providers: [ChecklistDatabase]
+  selector: 'app-dyfa-linienauswahl-tree-view',
+  templateUrl: './dyfa-linienauswahl-tree-view.component.html',
+  styleUrls: ['./dyfa-linienauswahl-tree-view.component.scss'],
+  providers: [DyFaTreeDatabase]
 })
 
-export class TreeViewComponent { 
-  @Input() parent: DateneditorComponent;
+
+
+export class DyfaLinienauswahlTreeViewComponent{ 
+  checkdata = ELEMENT_DATA;
   treeData: any[];
   treeControl: FlatTreeControl<TreeItemFlat>;
   dataSource : MatTreeFlatDataSource<TreeItem, TreeItemFlat>;
   itemSelection = new SelectionModel<TreeItemFlat>(true);
+  itemSelection1 = new SelectionModel<TreeItemFlat>(true);
+  itemSelection2 = new SelectionModel<TreeItemFlat>(true);
   showAllNodes: boolean;
   selectedItems: number;
   itemCount: number;
@@ -60,11 +91,9 @@ export class TreeViewComponent {
 
   /** The selection for checklist */
 
-  constructor(private database: ChecklistDatabase, 
+  constructor(private database: DyFaTreeDatabase, 
     public dialog: MatDialog, 
     private elementRef: ElementRef,
-    public toolbar: ToolbarComponent,
-    public show: ShowComponent
     ) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
@@ -116,15 +145,26 @@ export class TreeViewComponent {
   }
 
   /* Toggle selection */
-  itemSelectionToggle(node: TreeItemFlat) {
-    this.itemSelection.toggle(node);
+  itemSelectionToggle(node: TreeItemFlat,column:number) {
+    if(column ==1){
+    this.itemSelection1.toggle(node);
     const descendants = this.treeControl.getDescendants(node);
-    this.itemSelection.isSelected(node) ?
-      this.itemSelection.select(...descendants) : this.itemSelection.deselect(...descendants);
+    this.itemSelection1.isSelected(node) ?
+      this.itemSelection1.select(...descendants) : this.itemSelection1.deselect(...descendants);
 
     //
-    descendants.forEach(child => this.itemSelection.isSelected(child));
+    descendants.forEach(child => this.itemSelection1.isSelected(child));
+    this.checkAllParentsSelection(node);}
+    else if(column ==2){
+      this.itemSelection2.toggle(node);
+    const descendants = this.treeControl.getDescendants(node);
+    this.itemSelection2.isSelected(node) ?
+      this.itemSelection2.select(...descendants) : this.itemSelection2.deselect(...descendants);
+
+    //
+    descendants.forEach(child => this.itemSelection2.isSelected(child));
     this.checkAllParentsSelection(node);
+    }
   }
 
   /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
@@ -233,22 +273,6 @@ export class TreeViewComponent {
     return false;
   }
 
-   /** Select the category so we can insert the new item. */
-   addNewItem(node: TreeItemFlat) {
-    const parentNode = this.flatNodeMap.get(node);
-    // 
-    let isParentHasChildren: boolean = false;
-    this.toolbar.showDialog();
-    if (parentNode.children)
-      isParentHasChildren = true;
-    //
-    this.database.insertItem(parentNode!, this.show.getInputValues());
-    this.saveNode(node, this.show.getInputValues())
-    // expand the subtree only if the parent has children (parent is not a leaf node)
-    if (isParentHasChildren)
-      this.treeControl.expand(node);
-  }
-
   /**remove a node */
   removeItem(node: TreeItemFlat) {
     console.log(node)
@@ -262,50 +286,20 @@ export class TreeViewComponent {
     this.treeControl.expand(node);
   } 
 
-  /** switch the display of the right container  */ 
-  displayRightContainer(node: TreeItemFlat){
-    console.log(this.getParentNode(node).level);
-    if(node.name == "ZAK-Masken") {
-      this.parent.showDateneditor2();
-    }
-    else {
-      this.parent.showDateneditor();
-    }
-    if(this.getParentNode(node).level == 0){
-      if(this.getParentNode(node).name == 'Sondertexte'){
-        this.parent.showSondertexte();
-      } 
-      else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
-        this.parent.showAuftraege();
+  getValue1(node:TreeItemFlat){
+    for(const n of this.checkdata){
+      if(node.name == n.name){
+        return n.value1;
       }
-      else if(this.getParentNode(node).name == "Displayeditor") {
-        this.parent.showDisplayeditor();
-      }
-      else{
-        this.parent.showDateneditor();
-      }
-    } 
-    else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
-      this.parent.showAuftraege();
-    }
-    else if(this.getParentNode(node).name == "Gruppe 001 ZAK-Masken") {
-      this.parent.showDisplayeditor();
-    }  
-    else{
-      node = this.getParentNode(node);
-      this.displayRightContainer(node);
     }
   }
 
-  openDialog(node: TreeItemFlat) {
-    let dialogRef = this.dialog.open(DialogContentComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.removeItem(node);
-    });
+  getValue2(node:TreeItemFlat){
+    for(const n of this.checkdata){
+      if(node.name == n.name){
+        return n.value2;
+      }
+    }
   }
 
   /**copy a node */
@@ -338,9 +332,7 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
-    if(this.getParentNode(node).name == 'Sondertexte' && node.expandable == false){
-       this.parent.addSondertexte();
-   } 
+
   }
 }
 

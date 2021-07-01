@@ -1,0 +1,96 @@
+<cdk-virtual-scroll-viewport itemSize="150" class="scroll-window">
+  
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+      
+        <button mat-icon-button disabled></button>
+        
+        
+        <div class="example-button-row">
+          <div (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
+            <button mat-icon-button class="checklist-leaf-node" class="material-icons-outlined"
+              (click)="displayRightContainer(node)"
+              (change)="LeafItemSelectionToggle(node)" 
+              ><mat-icon>description</mat-icon>{{node.name}}
+            </button>    
+          </div>
+        </div>
+        <div class="cb-wrapper" [ngClass]="{'cb-vertival': !tmp }">
+              <div *ngIf = 'getValue1(node) != null'>
+              <mat-checkbox class="checklist-leaf-node"
+              [checked]="itemSelection1.isSelected(node)">{{getValue1(node)}}</mat-checkbox></div> 
+              <div *ngIf = 'getValue2(node) != null'>
+              <mat-checkbox class="checklist-leaf-node"
+              [checked]="itemSelection2.isSelected(node)">{{getValue2(node)}}</mat-checkbox></div>
+        </div>
+         <!--
+        <div (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
+         
+        <label [ngClass]="{show_btn: activeNode === node, hide_btn: activeNode !== node}">  
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
+            <button mat-menu-item (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
+            <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
+          </mat-menu>
+        </label>
+      </div>
+        -->
+      </mat-tree-node>
+  
+      <mat-tree-node class = "letNodeNoContent" *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding 
+      (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
+        <button mat-icon-button disabled></button>
+        <mat-form-field>
+          <mat-label>New item...</mat-label>
+          <input matInput #itemValue placeholder="Ex. Lettuce">
+        </mat-form-field>
+        <button mat-button (click)="saveNode(node, itemValue.value)">Save</button>
+      
+      </mat-tree-node>
+  
+      <mat-tree-node class = "letNodeNoChild" *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding
+      (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }" >
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'indeterminate_check_box' : 'add_box'}}
+          </mat-icon>
+        </button>
+        
+        <div class="example-button-row">
+        <button mat-icon-button class="checklist-leaf-node"
+                      (click)="descendantsAllSelected(node)"
+                      (change)="itemSelectionToggle(node)">{{node.name}}</button> </div>
+
+            <div class="cb-wrapper" [ngClass]="{'cb-vertival': !tmp }">
+              <mat-checkbox [checked]="descendantsAllSelected(node)" 
+              (change)='itemSelectionToggle(node,1)'>Ri AMN</mat-checkbox>
+              <mat-checkbox [checked]="descendantsAllSelected(node)" 
+              (change)='itemSelectionToggle(node,2)'>Ri UNV</mat-checkbox>
+            </div>
+        <!--
+          <label [ngClass]="{show_btn: activeNode === node, hide_btn: activeNode !== node}">         
+            
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="addNewItem(node)" color="primary"><mat-icon>add</mat-icon></button>
+            <button mat-menu-item (click)="openDialog(node)" color="primary"><mat-icon>delete</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="copyItem(node)" color="primary"><mat-icon>content_copy</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="cutItem(node)" color="primary"><mat-icon>content_cut</mat-icon></button>
+            <button mat-menu-item class="material-icons-outlined" (click)="pasteItem(node)" color="primary"><mat-icon>content_paste</mat-icon></button>
+            <button mat-menu-item (click)="changeItem(node)" color="primary"><mat-icon>create</mat-icon></button>
+            </mat-menu>
+          </label> 
+          -->
+      </mat-tree-node>
+    </mat-tree>
+  
+  </cdk-virtual-scroll-viewport>

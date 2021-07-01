@@ -67,6 +67,9 @@ export class AuftragsverwaltungComponent implements OnInit {
   
   dataSource=ELEMENT_DATA;
 
+  showGruppen: boolean = false;
+  hiddenGruppen: boolean = true;
+
   // Dong: right-click-contextmenu
   @ViewChild(MatMenuTrigger, {static: true})
   contextMenu: MatMenuTrigger;
@@ -103,5 +106,9 @@ export class AuftragsverwaltungComponent implements OnInit {
     this.groupIsOpened = true;
   }
 
+  openDyFaGruppen(){
+    this.showGruppen = true;
+    this.hiddenGruppen = false;
+  }
 }
 

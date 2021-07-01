@@ -6,18 +6,84 @@
         </mat-form-field>
     </div>
 </div>-->
+<div style="margin-top: 10rem;"></div>
+<section class="grid">
+    <div>
+      <input type="text" class="input" [(ngModel)]='sondertext1'>
+    </div>
+  
+    <div>
+        <button class="grBut">...</button>
+    </div>
+    
+  
+    <div>
+      <input type="text" class="input" [(ngModel)]='sondertext2'>
+    </div>
+  
+    <div>
+        <button class="grBut">...</button>
+    </div>
+    
+    <div>
+      <input type="text" class="input" [(ngModel)]='sondertext3'>
+    </div>
+  
+    <div>
+        <button class="grBut">...</button>
+    </div>
+    
+    <div>
+      <input type="text" class="input" [(ngModel)]='sondertext4'>
+    </div>
+  
+    <div>
+      <button class="grBut">...</button>
+    </div>
+  </section>
+  <!--
 <div style="display: inline-flex;">
+    <div class = 'column-spacer'>
     <div class = "disp-title">
+        <div class="input-container">
+            <input type="text" class="input">
+          </div>
+        
+          <div class="buttons-container">
+            <button class="button">complete</button>
+            <button class="button">delete</button>
+          </div>        
+        <mat-card appearance="fill">
+            <input matInput>
+        </mat-card>
+        <button class = "grBut">...</button>
+        <mat-card appearance="fill">
+            <input matInput>
+        </mat-card>
+        <button class = "grBut">...</button>
+        <mat-card appearance="fill">
+            <input matInput>
+        </mat-card>
+        <button class = "grBut">...</button>
         <mat-card appearance="fill">
             <input matInput [(ngModel)]='sondertext'>
         </mat-card>
-    </div>
-    <div class="new">
         <button class = "grBut">...</button>
     </div>
-</div>
+   </div>
+    
+</div>-->
 <div class="display">
     <ng-marquee speed="drowsy" class="text">
-        {{sondertext}}
+        {{sondertext1}}
+    </ng-marquee>
+    <ng-marquee speed="drowsy" class="text1">
+        {{sondertext2}}
+    </ng-marquee>
+    <ng-marquee speed="drowsy" class="text2">
+        {{sondertext3}}
+    </ng-marquee>
+    <ng-marquee speed="drowsy" class="text3">
+        {{sondertext4}}
     </ng-marquee>
 </div>
