@@ -20,9 +20,7 @@
   display: none;
 }
 
-.mat-icon {
-  color: #eca92d;
-}
+
 
 // Node background colors
 /*
@@ -46,9 +44,16 @@
   border: 0px solid rgb(167, 167, 167);
 }
 
+.file_icon{
+  color: #f0de3e !important;
+}
+
+.file_open_icon{
+  color: #097d90 !important;
+}
 
 .mat-icon {
-  color: rgb(150, 150, 150);
+  color: #969696;
 }
 .mat-icon:hover {
   color:rgb(12, 12, 12);

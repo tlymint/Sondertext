@@ -82,6 +82,9 @@ import {DialogTableComponent} from './dateneditor/data-table/data-table.componen
 import { FormatTreeViewComponent } from './dateneditor/change-sondertext/format-tree-view/format-tree-view.component';
 import { ChangeSondertextComponent } from './dateneditor/change-sondertext/change-sondertext.component';
 import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
+import { DyfaGruppenComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-gruppen.component';
+import { DyfaLinienauswahlTreeViewComponent } from './auftragsverwaltung/dyfa-linienauswahl-tree-view/dyfa-linienauswahl-tree-view.component';
+import { DyfaRightViewComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-right-view/dyfa-right-view.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +119,9 @@ import { FormatShowComponent } from './dateneditor/change-sondertext/format-show
     FormatTreeViewComponent,
     ChangeSondertextComponent,
     FormatShowComponent,
+    DyfaGruppenComponent,
+    DyfaLinienauswahlTreeViewComponent,
+    DyfaRightViewComponent,
 
   ],
   entryComponents: [

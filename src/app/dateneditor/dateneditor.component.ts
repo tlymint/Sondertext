@@ -1,8 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 
-
-
 @Component({
   selector: 'app-dateneditor',
   templateUrl: './dateneditor.component.html',
@@ -83,6 +81,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
     this.addSondertext = false;
+    this.toolbar.showDyFa();
   }
 
   showDisplayeditor(){

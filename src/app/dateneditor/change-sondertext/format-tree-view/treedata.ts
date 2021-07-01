@@ -15,69 +15,58 @@ export class TreeItemFlat {
 
 const TREE_DATA = {
   'Gruppe 002 SOT AMN': {
-    'Qualitätsreporting': null,
-    'Statistuik': {
-        'DyFa-BR': null,
-        'DyFa-ZR':null,
-    },
-    'Systemmeldungen 18.06.21': {
-
-    }
+    '4Z XL BBR': null,
+    '8Z BBR': null,
   },
   'Gruppe 004 SOT 4Z': {
-    '1': '10Z:InfoSteele + 1Z SOT (10)',
-    '2': '11Z XL Ex-DyFa: ZAK + 1Z SOT (32)',
-    '3': '11Z: PAS + 1Z: SOT',
-    '4': null,
-    '5': null,
-    '6': null,
-    '7': null,
-    '8': null,
-    '9': null,
-    '10': null,
-    '11': null,
-    '12': null,
-    '13': null,
+    '1': '11Z: PAS + 4Z SOT (10)',
+    '2': '3Z: 4Z SOT HHO (68)',
+    '3': '4Z XL BBR: 4Z SOT (101)',
+    '4': '4Z XL: 4Z SOT (64)',
+    '5': '4Z: 4Z SOT',
+    '6': '4Z: 4Z FETT',
+    '7': '4Z: 4Z SOT KLP (114)',
+    '8': '4Z: 4Z SOT KLP (124)',
+    '9': '4ZL: 4Z SOT',
+    '10': '6Z: ZAK + 4Z SOT (4)',
+    '11': '8Z BBR: PAS + 4Z SOT (nur Arena)(102)',
+    '12': '4Z XL BBR: 4Z SOT (101)',
+
 
   },
-'Gruppe 005 SOT 2Z': {
-    '1': '10Z:InfoSteele + 1Z SOT (10)',
-    '2': '11Z XL Ex-DyFa: ZAK + 1Z SOT (32)',
-    '3': '11Z: PAS + 1Z: SOT',
-    '4': null,
-    '5': null,
-    '6': null,
-    '7': null,
-    '8': null,
-    '9': null,
-    '10': null,
-    '11': null,
-    '12': null,
-    '13': null,
-
+  'Gruppe 005 SOT 2Z': {
+    '1': '10Z: InfoSteele + 2Z SOT (10)',
+    '2': '11Z: PAS + 2Z SOT (10)',
+    '3': '2Z: 2Z SOT'
   },
   'Gruppe 006 SOT 1Z': {
     '1': '10Z:InfoSteele + 1Z SOT (10)',
     '2': '11Z XL Ex-DyFa: ZAK + 1Z SOT (32)',
     '3': '11Z: PAS + 1Z: SOT',
-      '4':'014::4Z: PAS mit Kopf',
-      '5':'024::4Z: ZAK',
-      '6':'026::6Z: PAS mit Kopf',
-      '7':'031::2Z: ZAK',
-      '8':'036::9Z: ZAK',
-      '9':'041::8Z: ZAK',
-      '10':'044::4ZL: ZAK',
-      '11':'050::9Z: PAS Mini-Dyfa',
-      '12':'053::4Z: ZAK',
-      '13':'063::4Z XL: 2Z Info + 2Z ZAK',
-      '14':'064::4Z XL: ZAK',
-      '15':'068::3Z: PAS mit Kopf',
-      '16':'080::8Z: PAS mit Kopf',
-      '17':'081::8Z: PAS',
-      '18':'083::4Z: PAS',
-      '19':'085::4Z: PAS HIS Vorplatz',
-
-
+    '4':'17Z XL Ex-DyFa:4Z: ZAK + 1Z SOT (100)',
+    '5':'2Z:1Z SOT (31)',
+    '6':'3Z XL Ex-DyFa:4Z: ZAK + 1Z SOT (100)',
+    '7':'3Z: ZAK + 1Z SOT(68)',
+    '8':'3ZL: ZAK + 1Z SOT(53)'
+  },
+  'Gruppe 007 Dunkelbilder': {
+    '4Z: Dunkel': null
+  },
+  'Gruppe 008 Nicht Einsteigen': {
+    '4Z: Nicht Einsteigen': null
+  },
+  'Gruppe 009 Lautsp. + Wagenbesch.': {
+    '4Z: LS und WB': null
+  },
+  'Gruppe 010 Rauchverbot': {
+    '4Z: Rauchverbot': null
+  },
+  'Gruppe 012': {
+    '3ZL: 3Z SOT': null
+  },
+  'Gruppe 013': {
+    '6Z: 6Z SOT': null,
+    '8Z: 8Z SOT': null
   }
 }
 

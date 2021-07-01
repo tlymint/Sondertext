@@ -1,3 +1,7 @@
+<div *ngIf = "showGruppen">
+    <app-dyfa-gruppen></app-dyfa-gruppen>
+</div>
+<div *ngIf = "hiddenGruppen">
 <div class = "wind1">
     <div class="wind1-row">   <div class="wind1-column">
         <div class="win-table">
@@ -45,7 +49,7 @@
                  <ng-container matColumnDef="grupButton">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
-                        <button class = "grBut">
+                        <button class = "grBut" (click) = 'openDyFaGruppen()'>
                         ...</button>
                        
                     </td>
@@ -200,4 +204,4 @@
         </div>
     </div> </div>
 </div>
-
+</div>

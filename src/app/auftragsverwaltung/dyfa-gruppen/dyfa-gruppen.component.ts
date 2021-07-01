@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-change-sondertext',
-  templateUrl: './change-sondertext.component.html',
-  styleUrls: ['./change-sondertext.component.scss']
+  selector: 'app-dyfa-gruppen',
+  templateUrl: './dyfa-gruppen.component.html',
+  styleUrls: ['./dyfa-gruppen.component.scss']
 })
-export class ChangeSondertextComponent implements OnInit {
+export class DyfaGruppenComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
+
   oldX = 0;
   //
   hiddenTable: boolean = false;
   mouseDownOnHandle: boolean = false;
-  leftContainerWidth: number = 300;
+  leftContainerWidth: number = 600;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{

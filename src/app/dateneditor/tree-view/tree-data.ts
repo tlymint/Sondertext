@@ -82,10 +82,30 @@ const TREE_DATA = {
   },
   'Fahrpläne':{
     'Tages-Fahrplan':{
-      'ZAK-Masken':null,
-      'SOT-Masken':null,
-      'ZZA-Masken':null,
-      'MAM-Masken':null,
+      'Li=003,Ku=04(2)':null,
+      'Li=003,Ku=07(2)':null,
+      'Li=003,Ku=11(1)':null,
+      'Li=003,Ku=14(4)':null,
+      'Li=003,Ku=16(3)':null,
+      'Li=003,Ku=20(3)':null,
+      'Li=003,Ku=23(1)':null,
+      'Li=003,Ku=24(6)':null,
+      'Li=003,Ku=26(2)':null,
+      'Li=003,Ku=28(2)':null,
+      'Li=003,Ku=29(3)':null,
+      'Li=003,Ku=30(4)':null,
+      'Li=003,Ku=31(3)':null,
+      'Li=003,Ku=32(3)':null,
+      'Li=003,Ku=33(4)':null,
+      'Li=003,Ku=35(3)':null,
+      'Li=003,Ku=36(3)':null,
+      'Li=004,Ku=01(5)':null,
+      'Li=004,Ku=02(3)':null,
+      'Li=004,Ku=03(2)':null,
+      'Li=004,Ku=04(2)':null,
+      'Li=004,Ku=05(3)':null,
+      'Li=004,Ku=06(4)':null,
+      'Li=004,Ku=07(3)':null,
     }
   },
   'Sondertexte': {
@@ -291,7 +311,7 @@ const TREE_DATA = {
     },
     '6':'Fahrplananzeige (Notfallmodus)',
   },
-  'Displayvorlagen':{
+  'Displayeditor':{
     'Gruppe 001 ZAK-Masken':{
       '1':'004::6Z: ZAK',
       '2':'008::4Z: PAS mit Kopf (bereiteres Linienfeld)',
