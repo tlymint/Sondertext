@@ -1,0 +1,14 @@
+.scroll-window{
+    height: 100%;
+    width: 100%;
+    border: 0px solid black;
+  }
+    
+.example-margin {
+    margin-left:20px;
+    
+}
+
+mat-checkbox ::ng-deep .mat-checkbox-inner-container{
+    background-color: red !important;
+}

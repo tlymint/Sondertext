@@ -264,24 +264,36 @@ export class TreeViewComponent {
 
   /** switch the display of the right container  */ 
   displayRightContainer(node: TreeItemFlat){
-    console.log(this.getParentNode(node).name);
-    if(this.getParentNode(node).name == 'Sondertexte'){
-       this.parent.showSondertexte();
-    } 
-    else if(this.getParentNode(node).name == "Projektierung") {
-      this.parent.showAuftraege();
+    console.log(this.getParentNode(node).level);
+    if(node.name == "ZAK-Masken") {
+      this.parent.showDateneditor2();
     }
-    else if(this.getParentNode(node).name == "Grafikdaten") {
-      this.parent.showDisplayeditor();
+    else {
+      this.parent.showDateneditor();
     }
-    else{
-      if(node.name == "ZAK-Masken") {
-        this.parent.showDateneditor2();
+    if(this.getParentNode(node).level == 0){
+      if(this.getParentNode(node).name == 'Sondertexte'){
+        this.parent.showSondertexte();
+      } 
+      else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
+        this.parent.showAuftraege();
       }
-      else {
+      else if(this.getParentNode(node).name == "Displayeditor") {
+        this.parent.showDisplayeditor();
+      }
+      else{
         this.parent.showDateneditor();
       }
-        
+    } 
+    else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
+      this.parent.showAuftraege();
+    }
+    else if(this.getParentNode(node).name == "Gruppe 001 ZAK-Masken") {
+      this.parent.showDisplayeditor();
+    }  
+    else{
+      node = this.getParentNode(node);
+      this.displayRightContainer(node);
     }
   }
 
@@ -326,7 +338,9 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
-
+    if(this.getParentNode(node).name == 'Sondertexte' && node.expandable == false){
+       this.parent.addSondertexte();
+   } 
   }
 }
 

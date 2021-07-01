@@ -11,7 +11,7 @@
           <button mat-icon-button class="checklist-leaf-node" class="material-icons-outlined"
             (click)="displayRightContainer(node)"
             (change)="LeafItemSelectionToggle(node)" 
-            ><mat-icon>description</mat-icon>{{node.name}}
+            ><mat-icon class="file_open_icon">description</mat-icon>{{node.name}}
           </button>    
         </div>
       </div>
@@ -48,7 +48,7 @@
     (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }" >
       <button mat-icon-button matTreeNodeToggle
               [attr.aria-label]="'Toggle ' + node.name">
-        <mat-icon class="mat-icon-rtl-mirror">
+        <mat-icon class="file_icon">
           {{treeControl.isExpanded(node) ? 'folder_open' : 'folder'}}
         </mat-icon>
       </button>

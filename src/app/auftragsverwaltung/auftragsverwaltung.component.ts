@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatListIconCssMatStyler } from '@angular/material';
 import { MatTable } from '@angular/material/table';
-import {  MatMenuTrigger } from '@angular/material';
+import { MatMenuTrigger } from '@angular/material';
 
 export interface AuftTemplate {
   id: string;
@@ -67,11 +67,15 @@ export class AuftragsverwaltungComponent implements OnInit {
   
   dataSource=ELEMENT_DATA;
 
+  showGruppen: boolean = false;
+  hiddenGruppen: boolean = true;
+
   // Dong: right-click-contextmenu
   @ViewChild(MatMenuTrigger, {static: true})
   contextMenu: MatMenuTrigger;
   contextMenuPosition = { x: '0px', y: '0px' };
   // bis here
+  groupIsOpened: boolean = false;
 
 
   constructor() { }
@@ -87,7 +91,6 @@ export class AuftragsverwaltungComponent implements OnInit {
   if(this.elementClicked === idx) this.elementClicked = -1;
   else this.elementClicked = idx;
   }
-
   //Dong: right-click-contextmenu
   onContextMenu(event: MouseEvent, element: AuftTemplate) {
     event.preventDefault();
@@ -98,4 +101,14 @@ export class AuftragsverwaltungComponent implements OnInit {
     this.contextMenu.menu.focusFirstItem('mouse');
     this.contextMenu.openMenu();
   }
+
+  openGroup() {
+    this.groupIsOpened = true;
+  }
+
+  openDyFaGruppen(){
+    this.showGruppen = true;
+    this.hiddenGruppen = false;
+  }
 }
+

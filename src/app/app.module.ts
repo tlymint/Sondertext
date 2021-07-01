@@ -82,15 +82,26 @@ import { DialogTableComponent } from './dateneditor/data-table/data-table.compon
 import { DataTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 import { DialogTableLongComponent } from './dateneditor/data-table-long/data-table-long.component';
 
-//print-modul
+// print modul
 import { NgxPrintModule } from 'ngx-print';
+
+import { FormatTreeViewComponent } from './dateneditor/change-sondertext/format-tree-view/format-tree-view.component';
+import { ChangeSondertextComponent } from './dateneditor/change-sondertext/change-sondertext.component';
+import { FormatShowComponent } from './dateneditor/change-sondertext/format-show/format-show.component';
+import { ChangeGroupComponent } from './auftragsverwaltung/change-group/change-group.component';
+import { ChangebuslineComponent } from './auftragsverwaltung/changebusline/changebusline.component';
+import { DyfaGruppenComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-gruppen.component';
+import { DyfaLinienauswahlTreeViewComponent } from './auftragsverwaltung/dyfa-linienauswahl-tree-view/dyfa-linienauswahl-tree-view.component';
+import { DyfaRightViewComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-right-view/dyfa-right-view.component';
+import { AnzeigGruppenComponent } from './auftragsverwaltung/anzeig-gruppen/anzeig-gruppen.component';
+import { AnzeigLinienauswahlTreeViewComponent } from './auftragsverwaltung/anzeig-linienauswahl-tree-view/anzeig-linienauswahl-tree-view.component';
+import { AnzeigRightViewComponent } from './auftragsverwaltung/anzeig-gruppen/anzeig-right-view/anzeig-right-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeViewComponent,
     TableComponent,
-    ShowComponent,
     DruckenComponent,
     DialogContentComponent,
     DataTableComponent ,
@@ -111,6 +122,7 @@ import { NgxPrintModule } from 'ngx-print';
     EditorTableComponent,
     PrintPreviewComponent,
     TestComponent,
+    ShowComponent,
     DetailansichtComponent,
     AuftragsverwaltungComponent,
     DataDisplayComponent,
@@ -118,6 +130,18 @@ import { NgxPrintModule } from 'ngx-print';
     DataTableLongComponent,
     DialogTableLongComponent,
     
+    FormatTreeViewComponent,
+    ChangeSondertextComponent,
+    FormatShowComponent,
+    ChangeGroupComponent,
+    ChangebuslineComponent,
+    DyfaGruppenComponent,
+    DyfaLinienauswahlTreeViewComponent,
+    DyfaRightViewComponent,
+    AnzeigGruppenComponent,
+    AnzeigLinienauswahlTreeViewComponent,
+    AnzeigRightViewComponent,
+
   ],
   entryComponents: [
     DialogContentComponent, 

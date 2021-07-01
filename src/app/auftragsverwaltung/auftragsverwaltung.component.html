@@ -1,203 +1,238 @@
-<div class = "wind1">
-    <div class="wind1-row">   <div class="wind1-column">
-        <div class="win-table">
-            <table mat-table [dataSource]="dataSource" class="auftrag-table">
-                <!-- id -->
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let element;let idx=index">
-                        <div class="mat-button-id" (contextmenu)="onContextMenu($event,element)">
-                            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-                                <mat-button-toggle value="element.id" (click)="changeTableElementColor(idx)" 
-                                [ngClass]="{'buttonclick' : elementClicked == idx, 'buttonorigin': elementClicked != idx}" > 
-                                    {{element.id}}
-                                </mat-button-toggle>
-                            </mat-button-toggle-group>
-                            
-                        </div>
-                    </td>
-                </ng-container>
-
-                <!-- Nr -->
-                <ng-container matColumnDef="nr">
-                    <th mat-header-cell *matHeaderCellDef> Nr. </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.nr}}
-                    </td>
-                </ng-container> 
-
-                <!-- Bez. -->
-                <ng-container matColumnDef="bez">
-                    <th mat-header-cell *matHeaderCellDef> Bez. </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.bez}}
-                    </td>
-                </ng-container>
-
-                <!-- Gruppe -->
-                <ng-container matColumnDef="gruppe">
-                    <th mat-header-cell *matHeaderCellDef> Gruppe </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
-                        <div>{{element.gruppe}}</div>
-                    </td>
-                </ng-container>
-                 <!-- Gruppe Button -->
-                 <ng-container matColumnDef="grupButton">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
-                        <button class = "grBut">
-                        ...</button>
-                       
-                    </td>
-                </ng-container>
-
-                <!-- Text -->
-                <ng-container matColumnDef="text">
-                    <th mat-header-cell *matHeaderCellDef> Text </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
-                        {{element.text}}
-                    </td>
-                </ng-container>
-                <!-- Text Button -->
-                <ng-container matColumnDef="textButton">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element">
-                         <button class = "txBut" >
-                        ...</button>
-                        
-                    </td>
-                </ng-container>
-
-                <!-- Priorität -->
-                <ng-container matColumnDef="prio">
-                    <th mat-header-cell *matHeaderCellDef> Priorität </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        <span class="comboBox-val">{{element.prio}}</span>
-                        <!--combo-box-->
-                        <span class="comboBox-select" >
-                            <form appearance=""   style="width:18px ! important">
-                                <mat-select class="selec" disableRipple (selectionChange)="boxValChange($event.value, element.prio)" [(value)]= "element.prio" [disabled]= false > 
-                                <mat-option *ngFor="let mPrio of mPrios" [value]="mPrio.value" >
-                                    {{mPrio.name}}
-                                </mat-option>
-                                </mat-select>   
-                            </form>
-                        </span>
+<div class= main-wind *ngIf="!groupIsOpened">
+    <div class = "wind1">
+        <div class="wind1-row">   <div class="wind1-column">
+            <div class="win-table">
+                <table mat-table [dataSource]="dataSource" class="auftrag-table">
+                    <!-- id -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element;let idx=index">
+                            <div class="mat-button-id" (contextmenu)="onContextMenu($event,element)">
+                                <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+                                    <mat-button-toggle value="element.id" (click)="changeTableElementColor(idx)" 
+                                    [ngClass]="{'buttonclick' : elementClicked == idx, 'buttonorigin': elementClicked != idx}" > 
+                                        {{element.id}}
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                                
+                            </div>
                         </td>
-                </ng-container>
+                    </ng-container>
 
-                <!-- Beginn am -->
-                <ng-container matColumnDef="beginnAm">
-                    <th mat-header-cell *matHeaderCellDef> Beginn am </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.begA}}
-                    </td>
-                </ng-container>
+                    <!-- Nr -->
+                    <ng-container matColumnDef="nr">
+                        <th mat-header-cell *matHeaderCellDef> Nr. </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.nr}}
+                        </td>
+                    </ng-container> 
 
-                <!-- um -->
-                <ng-container matColumnDef="beginnUm">
-                    <th mat-header-cell *matHeaderCellDef> um </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.begU}}
-                    </td>
-                </ng-container>
+                    <!-- Bez. -->
+                    <ng-container matColumnDef="bez">
+                        <th mat-header-cell *matHeaderCellDef> Bez. </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.bez}}
+                        </td>
+                    </ng-container>
 
-                <!-- Ende am -->
-                <ng-container matColumnDef="endAm">
-                    <th mat-header-cell *matHeaderCellDef> Ende am </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.endA}}
-                    </td>
-                </ng-container>
+                    <!-- Gruppe -->
+                    <ng-container matColumnDef="gruppe">
+                        <th mat-header-cell *matHeaderCellDef> Gruppe </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
+                            <div>{{element.gruppe}}</div>
+                        </td>
+                    </ng-container>
+                    <!-- Gruppe Button -->
+                    <ng-container matColumnDef="grupButton">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
+                            <button class = "grBut" (click)="openGroup()">
+                            ...</button>
+                        
+                        </td>
+                    </ng-container>
 
-                <!-- um -->
-                <ng-container matColumnDef="endUm">
-                    <th mat-header-cell *matHeaderCellDef> um </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.endU}}
-                    </td>
-                </ng-container>
+                    <!-- Text -->
+                    <ng-container matColumnDef="text">
+                        <th mat-header-cell *matHeaderCellDef> Text </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)">
+                            {{element.text}}
+                        </td>
+                    </ng-container>
+                    <!-- Text Button -->
+                    <ng-container matColumnDef="textButton">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element">
+                            <button class = "txBut" >
+                            ...</button>
+                            
+                        </td>
+                    </ng-container>
 
-                <!-- Alle -->
-                <ng-container matColumnDef="all">
-                    <th mat-header-cell *matHeaderCellDef> Alle </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.all}}
-                    </td>
-                </ng-container>
+                    <!-- Priorität -->
+                    <ng-container matColumnDef="prio">
+                        <th mat-header-cell *matHeaderCellDef> Priorität </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            <span class="comboBox-val">{{element.prio}}</span>
+                            <!--combo-box-->
+                            <span class="comboBox-select" >
+                                <form appearance=""   style="width:18px ! important">
+                                    <mat-select class="selec" disableRipple (selectionChange)="boxValChange($event.value, element.prio)" [(value)]= "element.prio" [disabled]= false > 
+                                    <mat-option *ngFor="let mPrio of mPrios" [value]="mPrio.value" >
+                                        {{mPrio.name}}
+                                    </mat-option>
+                                    </mat-select>   
+                                </form>
+                            </span>
+                            </td>
+                    </ng-container>
 
-                <!-- Für -->
-                <ng-container matColumnDef="for">
-                    <th mat-header-cell *matHeaderCellDef> Für </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.for}}
-                    </td>
-                </ng-container>
+                    <!-- Beginn am -->
+                    <ng-container matColumnDef="beginnAm">
+                        <th mat-header-cell *matHeaderCellDef> Beginn am </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.begA}}
+                        </td>
+                    </ng-container>
 
-                <!-- Zyklus -->
-                <ng-container matColumnDef="zyklus">
-                    <th mat-header-cell *matHeaderCellDef> Zyklus </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        <span class="comboBox-val">{{element.zykl}}</span>
-                        <!--combo-box-->
-                        <span class="comboBox-select" >
-                            <form appearance=""   style="width:18px ! important">
-                                <mat-select class="selec" disableRipple (selectionChange)="boxValChange($event.value, element.zykl)" [(value)]= "element.zykl" [disabled]= false > 
-                                <mat-option *ngFor="let mZykl of mZykls" [value]="mZykl.value" >
-                                    {{mZykl.name}}
-                                </mat-option>
-                                </mat-select>   
-                            </form>
-                        </span>
-                    </td>
-                </ng-container>
+                    <!-- um -->
+                    <ng-container matColumnDef="beginnUm">
+                        <th mat-header-cell *matHeaderCellDef> um </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.begU}}
+                        </td>
+                    </ng-container>
 
-                <!-- Tagtype -->
-                <ng-container matColumnDef="tagtype">
-                    <th mat-header-cell *matHeaderCellDef> Tagtype </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.tagt}}
-                    </td>
-                </ng-container>
+                    <!-- Ende am -->
+                    <ng-container matColumnDef="endAm">
+                        <th mat-header-cell *matHeaderCellDef> Ende am </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.endA}}
+                        </td>
+                    </ng-container>
 
-                <!-- Status -->
-                <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef> Status </th>
-                    <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
-                        {{element.stat}}
-                    </td>
-                </ng-container>
-            
-                <tr mat-header-row *matHeaderRowDef= "displayedColumns"></tr>
-                <tr mat-row *matRowDef="let element; columns: displayedColumns;let idx=index"
-                [class.row-is-clicked]="clickedRows.add(element)"
-                [class.demo-row-is-clicked]="clickedRows.has(element)"
-                [ngStyle]="elementClicked == idx ?{'.demo-row-is-clicked.font-weight': 'bold'}:{'font-weight': 400}"
-                [style.background-color]="elementClicked == idx ? 'rgb(0, 0, 0, 0.12)' : 'white'"></tr>
-            </table>
-            <!---->
-            <div style="visibility: hidden; position: fixed"
-                [style.left]="contextMenuPosition.x"
-                [style.top]="contextMenuPosition.y"
-                [matMenuTriggerFor]="contextMenu">
+                    <!-- um -->
+                    <ng-container matColumnDef="endUm">
+                        <th mat-header-cell *matHeaderCellDef> um </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.endU}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Alle -->
+                    <ng-container matColumnDef="all">
+                        <th mat-header-cell *matHeaderCellDef> Alle </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.all}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Für -->
+                    <ng-container matColumnDef="for">
+                        <th mat-header-cell *matHeaderCellDef> Für </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.for}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Zyklus -->
+                    <ng-container matColumnDef="zyklus">
+                        <th mat-header-cell *matHeaderCellDef> Zyklus </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            <span class="comboBox-val">{{element.zykl}}</span>
+                            <!--combo-box-->
+                            <span class="comboBox-select" >
+                                <form appearance=""   style="width:18px ! important">
+                                    <mat-select class="selec" disableRipple (selectionChange)="boxValChange($event.value, element.zykl)" [(value)]= "element.zykl" [disabled]= false > 
+                                    <mat-option *ngFor="let mZykl of mZykls" [value]="mZykl.value" >
+                                        {{mZykl.name}}
+                                    </mat-option>
+                                    </mat-select>   
+                                </form>
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Tagtype -->
+                    <ng-container matColumnDef="tagtype">
+                        <th mat-header-cell *matHeaderCellDef> Tagtype </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.tagt}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Status -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element" (contextmenu)="onContextMenu($event,element)"> 
+                            {{element.stat}}
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef= "displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let element; columns: displayedColumns;let idx=index"
+                    [class.row-is-clicked]="clickedRows.add(element)"
+                    [class.demo-row-is-clicked]="clickedRows.has(element)"
+                    [ngStyle]="elementClicked == idx ?{'.demo-row-is-clicked.font-weight': 'bold'}:{'font-weight': 400}"
+                    [style.background-color]="elementClicked == idx ? 'white':'rgb(0, 0, 0, 0.08)' "></tr>
+                </table>
+                <!---->
+                <div style="visibility: hidden; position: fixed"
+                    [style.left]="contextMenuPosition.x"
+                    [style.top]="contextMenuPosition.y"
+                    [matMenuTriggerFor]="contextMenu">
+                </div>
+                <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+                    <ng-template matMenuContent let-item>
+                        <button mat-menu-item (click)="onContextMenuAction()">Ändern</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Neu</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Löschen</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Kopieren</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Ausschneiden</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Einfügen</button>
+                        <mat-divider></mat-divider>
+                        <button mat-menu-item (click)="onContextMenuAction()">Suchen...</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Ersetzen...</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Gehe zu...</button>
+                        <button mat-menu-item (click)="onContextMenuAction()">Auswahl anzeigen...</button>
+                    </ng-template>
+                </mat-menu>
+                <!---->
             </div>
-            <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
-                <ng-template matMenuContent let-item>
-                    <button mat-menu-item (click)="onContextMenuAction()">Ändern</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Neu</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Löschen</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Kopieren</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Ausschneiden</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Einfügen</button>
-                    <mat-divider></mat-divider>
-                    <button mat-menu-item (click)="onContextMenuAction()">Suchen...</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Ersetzen...</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Gehe zu...</button>
-                    <button mat-menu-item (click)="onContextMenuAction()">Auswahl anzeigen...</button>
-                </ng-template>
-            </mat-menu>
-            <!---->
-        </div>
-    </div> </div>
+        </div> </div>
+    </div>
+    <div class = "wind2">
+        <span class="detail1"> 
+            <div class="detail-info">
+                <table class="detail1-table">
+                    <tr>
+                        <th class="detail1-table-title">Dyfas(15)</th>
+                        <th class="detail1-table-title"></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><mat-checkbox class="example-margin">HHO->HOL 4Z</mat-checkbox> </span>
+                            <br>  
+                            <span><mat-checkbox class="example-margin">OSS->HOL 4Z</mat-checkbox>  </span>
+                            <br>
+                            <span><mat-checkbox class="example-margin">STS->HOL 4Z</mat-checkbox> </span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </span>
+        <span class="detail2"> 
+            <div class="detail-info">
+                <b>Text:</b>
+                <p class="auf-text">Auf der Linie U79 kommt es aktuell leider zu Verspätung. Grund dafür sind Bauarbeiten in Duisburg.</p>
+            </div>
+        </span>
+    </div>
 </div>
 
+<div class = group-wind *ngIf = "groupIsOpened">
+    <!--<app-dyfa-gruppen></app-dyfa-gruppen>-->
+    <app-anzeig-gruppen></app-anzeig-gruppen>
+</div>

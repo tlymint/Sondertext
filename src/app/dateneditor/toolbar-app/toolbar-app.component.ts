@@ -1,5 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
+interface View {
+  name: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-toolbar-app',
@@ -8,9 +12,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ToolbarAppComponent implements OnInit {
   @Input() chooseDE: boolean;
+  @ViewChild('disp',{static: false}) disp:any;
+  
+  views: View[] = [
+    {name: 'Anzeigergruppe und Einzelanzeiger', value: 'anzeiger' },
+    {name: 'Linienauswahl', value: 'linien'}
+  ];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showDyFa(){
+    //this.disp.views = this.views;
+    //this.chooseDE = true;
   }
 
   message:string= "tabe";

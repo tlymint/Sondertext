@@ -24,6 +24,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@circlon/angular-tree-component": "^11.0.4",
     "@lidorsystems/integralui-web": "^20.2.1",
     "angular-resizable": "^1.2.0",
     "express": "^4.17.1",

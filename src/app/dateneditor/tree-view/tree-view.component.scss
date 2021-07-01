@@ -21,6 +21,7 @@
 }
 
 
+
 // Node background colors
 /*
 .level-1 {
@@ -43,9 +44,16 @@
   border: 0px solid rgb(167, 167, 167);
 }
 
+.file_icon{
+  color: #f0de3e !important;
+}
+
+.file_open_icon{
+  color: #097d90 !important;
+}
 
 .mat-icon {
-  color: rgb(150, 150, 150);
+  color: #969696;
 }
 .mat-icon:hover {
   color:rgb(12, 12, 12);
@@ -62,7 +70,8 @@
 }
 .mat-icon-button{
   font-family: sans-serif,  Arial, 'Arial Narrow','Franklin Gothic Medium'  ;
-  font-size: 16px;
+  font-size: 14px;
+  height:30px;  // change the distance between the table cell to each other in height(default 40px)
 }
 
 .example-spacer {

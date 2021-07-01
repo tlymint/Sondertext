@@ -1,0 +1,105 @@
+// Setting for scrollbar
+.scroll-window{
+    height: 100%;
+    width: 100%;
+    border: 0px solid black;
+  }
+    
+  // Setting 
+  .action-icons {
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .row {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    width: 100%;
+  }
+  .tree-invisible {
+    display: none;
+  }
+  
+  .mat-tree-node, .mat-nested-tree-node {
+    min-height: auto;
+    background-color: white;
+    color:black;
+    border: 0px solid rgb(167, 167, 167);
+  }
+  
+  
+  .mat-icon {
+    color: rgb(150, 150, 150);
+  }
+  .mat-icon:hover {
+    color:rgb(12, 12, 12);
+  }
+  
+  .txtColor:hover{
+    color: rgb(50, 50, 50);
+    cursor: pointer;
+  }
+  
+  .background-highlight{
+    background: #e7e7e7;
+    
+  }
+  .mat-icon-button{
+    font-family: sans-serif,  Arial, 'Arial Narrow','Franklin Gothic Medium'  ;
+    font-size: 16px;
+    width: 20px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .hide_btn {
+    overflow: hidden;
+    opacity: 0;
+  }
+  
+  .show_btn {
+    opacity: 0.5;
+  }
+  
+  .show_btn:hover
+  {
+    opacity: 1;
+  }
+  
+  .checklist-leaf-node {
+    margin: 0 0px;
+  }
+  
+  .mat-menu-item{
+    background-color: rgb(255, 255, 255);
+  
+  }
+  .mat-menu-item:hover{
+    background-color:#e7e7e7;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 100%;
+  }
+
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .cb-vertival {
+    flex-flow: column;
+  }
+  .cb-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    justify-content: left;
+    flex-flow: row;
+  }  
+  

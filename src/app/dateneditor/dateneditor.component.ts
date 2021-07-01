@@ -1,6 +1,5 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, Input, OnInit,ViewChild } from '@angular/core';
 import { TreeViewComponent } from './tree-view/tree-view.component';
-
 
 
 @Component({
@@ -9,14 +8,20 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
   styleUrls: ['./dateneditor.component.scss']
 })
 export class DateneditorComponent implements OnInit {
+
+  // Auftragsverwaltung component communication
+  @ViewChild('auftrag', {static: false}) auftrag:any;
   
-  @ViewChild('toolbar', {static: false}) toolbar:any
+  @ViewChild('toolbar', {static: false}) toolbar:any;
 
   //variable using to resize container left and right
   oldX = 0;
   //
   hiddenTable: boolean = false;
   help_content:string = "This container used to help User to understand some difficulty operation.";
+
+  
+
   constructor() { }
 
   ngOnInit() {
@@ -33,6 +38,7 @@ export class DateneditorComponent implements OnInit {
   chooseSondertext: boolean = false;
   chooseAuftrag: boolean = false;
   chooseDisplayeditor: boolean = false;
+  addSondertext: boolean = false;
   highlightHandle: string = 'rgb(243, 243, 243)';
 
   changeResizeMode(value: boolean, event:MouseEvent): void{
@@ -65,6 +71,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
   }
   showDateneditor2(){
     //console.log('tableshow');
@@ -73,6 +80,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
   }
 
   showSondertexte(){
@@ -82,6 +90,16 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = true;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
+  }
+
+  addSondertexte(){
+    this.chooseDateneditor = false;
+    this.chooseDateneditor2 = false;
+    this.chooseSondertext = false;
+    this.chooseAuftrag = false;
+    this.chooseDisplayeditor = false;
+    this.addSondertext = true;
   }
 
   showAuftraege(){
@@ -91,6 +109,8 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
+    this.addSondertext = false;
+    this.toolbar.showDyFa();
   }
 
   showDisplayeditor(){
@@ -100,8 +120,10 @@ export class DateneditorComponent implements OnInit {
     this.chooseSondertext = false;
     this.chooseAuftrag = false;
     this.chooseDisplayeditor = true;
+    this.addSondertext = false;
   }
 
+  
   /**To do */
 
   Uebernehmen(){
@@ -109,7 +131,11 @@ export class DateneditorComponent implements OnInit {
   }
 
   Okay(){
-
+    if(this.chooseAuftrag == true)
+    {
+      console.log('change !');
+      this.auftrag.groupIsOpened = false;
+    }
   }
 
   Abbrechen(){
