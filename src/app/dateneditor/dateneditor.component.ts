@@ -133,7 +133,6 @@ export class DateneditorComponent implements OnInit {
   Okay(){
     if(this.chooseAuftrag == true)
     {
-      console.log('change !');
       this.auftrag.groupIsOpened = false;
     }
   }

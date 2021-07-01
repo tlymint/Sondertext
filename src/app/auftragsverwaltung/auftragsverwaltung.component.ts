@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatListIconCssMatStyler } from '@angular/material';
 import { MatTable } from '@angular/material/table';
 import { MatMenuTrigger } from '@angular/material';
+import { ToolbarAppComponent } from '../dateneditor/toolbar-app/toolbar-app.component';
 
 export interface AuftTemplate {
   id: string;
@@ -77,8 +78,10 @@ export class AuftragsverwaltungComponent implements OnInit {
   // bis here
   groupIsOpened: boolean = false;
 
+  @Input() auftToolbar: ToolbarAppComponent;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }
@@ -109,6 +112,10 @@ export class AuftragsverwaltungComponent implements OnInit {
   openDyFaGruppen(){
     this.showGruppen = true;
     this.hiddenGruppen = false;
+  }
+  
+  chooseGroup(){
+    return this.auftToolbar.choosedShow;
   }
 }
 

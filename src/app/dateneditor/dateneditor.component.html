@@ -4,7 +4,7 @@
 
 <mat-toolbar class="icons">
   <span class="icons1">
-    <app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor"></app-toolbar-app>
+    <app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor" [chooseAf] = "chooseAuftrag"></app-toolbar-app>
   </span>
   <span *ngIf="chooseAuftrag" class="icons2"> 
     <button mat-stroked-button class="button-auftrag">Neu</button>
@@ -103,7 +103,7 @@
           <mat-card>Benutzerdefinierte Aufträge</mat-card>
         </div>
         <div class="displayer">
-          <app-auftragsverwaltung #auftrag></app-auftragsverwaltung>
+          <app-auftragsverwaltung #auftrag [auftToolbar]='toolbar'></app-auftragsverwaltung>
         </div>
         <div class="row">
           <div class="example-button-row" > 

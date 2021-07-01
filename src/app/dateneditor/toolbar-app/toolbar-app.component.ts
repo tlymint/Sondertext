@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
-interface View {
+interface AuftragView {
   name: string;
   value: string;
 }
@@ -12,16 +12,26 @@ interface View {
 })
 export class ToolbarAppComponent implements OnInit {
   @Input() chooseDE: boolean;
+  @Input() chooseAf: boolean;
   @ViewChild('disp',{static: false}) disp:any;
+
   
-  views: View[] = [
-    {name: 'Anzeigergruppe und Einzelanzeiger', value: 'anzeiger' },
-    {name: 'Linienauswahl', value: 'linien'}
+  
+  auftragViews: AuftragView[] = [
+    {name: 'Anzeigergruppe und Einzelanzeiger', value: 'show' },
+    {name: 'Linienauswahl', value: 'line'}
   ];
+  choosedShow:boolean = true;
+  selectedView = this.auftragViews[0].value;
 
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  get self(): ToolbarAppComponent {
+    return this;
   }
 
   showDyFa(){
@@ -45,6 +55,16 @@ export class ToolbarAppComponent implements OnInit {
       this.signalG = false;
     }
     this.message = $event;
+  }
+
+  valChange(val:string){
+    if(val == "show"){
+      this.choosedShow = true;
+    }
+    else {
+      this.choosedShow = false;
+    }
+    
   }
 
 }
