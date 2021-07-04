@@ -2,14 +2,11 @@
   
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
-      
-        <button mat-icon-button disabled></button>
-        
         
         <button mat-icon-button class="checklist-leaf-node" class="material-icons-outlined"
         (click)="displayRightContainer(node)"
         (change)="LeafItemSelectionToggle(node)" 
-        ><mat-icon>description</mat-icon>{{node.name}}
+        ><mat-icon class="icon-file">description</mat-icon>{{node.name}}
       </button>   
 
   <div class="cb-wrapper" [ngClass]="{'cb-vertival': !tmp }">
@@ -18,7 +15,7 @@
         [checked]="itemSelection1.isSelected(node)">{{getValue1(node)}}</mat-checkbox></div> 
         <div *ngIf = 'getValue2(node) != null'>
         <mat-checkbox class="checklist-leaf-node  check2"
-        [checked]="itemSelection2.isSelected(node)">{{getValue2(node)}}</mat-checkbox></div>
+        [checked]="itemSelection2.isSelected(node)" >{{getValue2(node)}}</mat-checkbox></div>
   </div>
          <!--
         <div (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
@@ -68,7 +65,7 @@
           <mat-checkbox [checked]="descendantsAllSelected(node)" 
             (change)='itemSelectionToggle(node,1)'>Ri AMN</mat-checkbox>
           <mat-checkbox [checked]="descendantsAllSelected(node)" 
-            (change)='itemSelectionToggle(node,2)'>Ri UNV</mat-checkbox>
+            (change)='itemSelectionToggle(node,2)' style="margin-left:10px">Ri UNV</mat-checkbox>
         </div>
         <!--
           <label [ngClass]="{show_btn: activeNode === node, hide_btn: activeNode !== node}">         

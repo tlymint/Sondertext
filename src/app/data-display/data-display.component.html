@@ -1,4 +1,4 @@
-<div class="window-dispay">
+<div class="window-display" *ngIf="dispToolbar.signalG">
     <table>
       <tbody>
         <tr *ngFor="let ApiDataFile of filteredApiDataFiles; let idx1=index; let idx2=index; let idx3=index">
@@ -22,4 +22,8 @@
       </tr>
     </tbody>
   </table>
-  </div> 
+</div> 
+
+<div class="window-table" *ngIf="dispToolbar.signalT">
+  <app-tabledisplay></app-tabledisplay>
+</div>

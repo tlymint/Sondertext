@@ -45,12 +45,12 @@ export class ToolbarAppComponent implements OnInit {
 
   receiveMessage($event:string) {
     if($event == "tabe" ) {
-      this.signalT = false;
-      this.signalG = true;
-    }
-    if($event == "graf") {
       this.signalT = true;
       this.signalG = false;
+    }
+    if($event == "graf") {
+      this.signalT = false;
+      this.signalG = true;
     }
     this.message = $event;
   }

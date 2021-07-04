@@ -265,11 +265,9 @@ export class TreeViewComponent {
   /** switch the display of the right container  */ 
   displayRightContainer(node: TreeItemFlat){
     console.log(this.getParentNode(node).level);
-    if(node.name == "ZAK-Masken") {
+    if(node.name == "Li=003,Ku=07(2)") {
       this.parent.showDateneditor2();
-    }
-    else {
-      this.parent.showDateneditor();
+      return;
     }
     if(this.getParentNode(node).level == 0){
       if(this.getParentNode(node).name == 'Sondertexte'){
@@ -338,9 +336,15 @@ export class TreeViewComponent {
   }
 
   changeItem(node: TreeItemFlat){
-    if(this.getParentNode(node).name == 'Sondertexte' && node.expandable == false){
-       this.parent.addSondertexte();
-   } 
+    if(this.getParentNode(node).level == 0){
+      if(this.getParentNode(node).name == 'Sondertexte'){
+        this.parent.addSondertexte();
+      }
+    }
+    else{
+      node = this.getParentNode(node);
+      this.changeItem(node);
+    }
   }
 }
 

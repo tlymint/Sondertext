@@ -46,6 +46,7 @@
   
   .mat-icon {
     color: rgb(150, 150, 150);
+    width:40px;
   }
   .mat-icon:hover {
     color:rgb(12, 12, 12);
@@ -62,7 +63,9 @@
   }
   .mat-icon-button{
     font-family: sans-serif,  Arial, 'Arial Narrow','Franklin Gothic Medium'  ;
-    font-size: 16px;
+    font-size: 14px;
+    height:30px;  // change the distance between the table cell to each other in height(default 40px)
+    line-height:normal;
   }
   
   .example-spacer {
@@ -126,3 +129,9 @@
     width: 100%;
   }
   
+  .mat-icon-rtl-mirror{
+    color: #f0de3e !important;
+  }
+  .mat-icon-file{
+    color: #9ce3f0 !important;
+  }

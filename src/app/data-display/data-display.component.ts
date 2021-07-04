@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ToolbarAppComponent } from 'src/app/dateneditor/toolbar-app/toolbar-app.component';
+
 
 @Component({
   selector: 'app-data-display',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataDisplayComponent implements OnInit {
 
+  @Input() dispToolbar: ToolbarAppComponent;
   constructor() { }
 
   ngOnInit() {

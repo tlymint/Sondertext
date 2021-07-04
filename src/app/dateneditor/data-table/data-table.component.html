@@ -1,5 +1,5 @@
 
-<div class="wind1" [hidden]="toolbar.signalT">  
+<div class="wind1" [hidden]= "false">  <!-- [hidden]= "toolbar.signalT" -->
     <div class="wind1-row">   <div class="wind1-column"> 
     <div class="mat-elevation-z8">
         <table mat-table class="full-width-table" matSort aria-label="Elements">
@@ -147,7 +147,7 @@
     </ul>
 </div>-->
 
-  <div class="wind2" [hidden]="toolbar.signalG">
+  <div class="wind2" [hidden] = "true" >  <!-- [hidden]="toolbar.signalG" -->
      <app-data-grafik [grafikSource]="grafikSource"></app-data-grafik>
   </div>
 

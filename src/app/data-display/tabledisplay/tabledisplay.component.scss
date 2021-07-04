@@ -1,0 +1,62 @@
+.main-wind {
+    width: 100%;
+    height: 500px;
+    //margin-top: 10px;
+    //margin-left: 2px;
+    background-color: white;
+    overflow: auto;
+}
+
+.wind-row{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(204, 207, 207);
+}
+
+.wind-column{
+    width: 40px;
+    height: 508px;
+    background-color: rgb(204, 207, 207);
+}
+
+.display-table {
+    width: 100%;
+    height: 100%;
+    margin-right: 10px; 
+}
+
+//Einstellung für Zeile: Title
+.mat-header-row{
+    height: 30px;
+}
+
+.mat-row{
+    height: 2px;
+}
+
+//Einstellung für allen Einheiten in der title
+.mat-header-cell{
+    font-size:12px;
+    height: 5px;
+    vertical-align: left;
+    padding: 0px 5px 0px 5px;
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+    white-space: nowrap; /* 不换行 */
+}
+//spezial für erste Zeile:
+.mat-cell.cdk-column-id, .mat-header-cell.cdk-column-id{
+    font-size:12px;
+    height: 5px;
+    vertical-align: middle;
+    padding: 0px 0px 0px 0px;
+    border-left: .5px solid rgba(0, 0, 0, 0.12);
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(204, 207, 207);
+}
+
+.mat-cell {
+    font-size:12px;
+    height: 5px;
+    border-right: .5px solid rgba(0, 0, 0, 0.12);
+}

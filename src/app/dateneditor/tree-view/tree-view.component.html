@@ -1,9 +1,9 @@
 <cdk-virtual-scroll-viewport itemSize="150" class="scroll-window">
   
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-    <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePaddingIndent="20">
+    <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding matTreeNodePaddingIndent="20">
     
-      <button mat-icon-button disabled></button>
+      
       
       
       <div class="example-button-row">
@@ -34,7 +34,7 @@
     </mat-tree-node>
 
     <mat-tree-node class = "letNodeNoContent" *matTreeNodeDef="let node; when: hasNoContent"
-    (click)="activeNode = node" matTreeNodePaddingIndent="20" [ngClass]="{ 'background-highlight': activeNode === node }" >
+    (click)="activeNode = node" matTreeNodePadding matTreeNodePaddingIndent="20" [ngClass]="{ 'background-highlight': activeNode === node }" >
       <button mat-icon-button disabled></button>
       <mat-form-field>
         <mat-label>New item...</mat-label>
@@ -45,7 +45,7 @@
     </mat-tree-node>
 
     <mat-tree-node class = "letNodeNoChild" *matTreeNodeDef="let node; when: hasChild" 
-    (click)="activeNode = node" matTreeNodePaddingIndent="20" [ngClass]="{ 'background-highlight': activeNode === node }" >
+    (click)="activeNode = node" matTreeNodePadding matTreeNodePaddingIndent="20" [ngClass]="{ 'background-highlight': activeNode === node }" >
       <button mat-icon-button matTreeNodeToggle
               [attr.aria-label]="'Toggle ' + node.name">
         <mat-icon class="file_icon">

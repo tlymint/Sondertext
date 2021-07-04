@@ -45,7 +45,7 @@ const TREE_DATA = {
   },
   'Betriebstagebuch': {
     'Qualitätsreporting': null,
-    'Statistuik': {
+    'Statistik': {
         'DyFa-BR': null,
         'DyFa-ZR':null,
     },
@@ -253,9 +253,6 @@ const TREE_DATA = {
 
     },
     'CMS-Liniennummer':null,
-    'Displayvorlage':{
-
-    },
     'Fahrgastwechselzeiten':null,
     'Fahrzeuggruppen':null,
     'Feinziel nach Grobziel':null,

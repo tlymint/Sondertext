@@ -1,17 +1,14 @@
 <cdk-virtual-scroll-viewport itemSize="150" class="scroll-window">
   
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-      <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
-      
-        <button mat-icon-button disabled></button>
-        
-        
+      <mat-tree-node class = "letNode" *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding matTreeNodePaddingIndent="20">
+       
         <div class="example-button-row">
           <div (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
             <button mat-icon-button class="checklist-leaf-node" class="material-icons-outlined"
               (click)="displayRightContainer(node)"
               (change)="LeafItemSelectionToggle(node)" 
-              ><mat-icon>description</mat-icon>{{node.name}}
+              ><mat-icon class= "mat-icon-file">description</mat-icon>{{node.name}}
             </button>    
           </div>
         </div>
@@ -33,7 +30,7 @@
       </div>
       </mat-tree-node>
   
-      <mat-tree-node class = "letNodeNoContent" *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding 
+      <mat-tree-node class = "letNodeNoContent" *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding matTreeNodePaddingIndent="20"
       (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }">
         <button mat-icon-button disabled></button>
         <mat-form-field>
@@ -44,7 +41,7 @@
       
       </mat-tree-node>
   
-      <mat-tree-node class = "letNodeNoChild" *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding
+      <mat-tree-node class = "letNodeNoChild" *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding matTreeNodePaddingIndent="20"
       (click)="activeNode = node" [ngClass]="{ 'background-highlight': activeNode === node }" >
         <button mat-icon-button matTreeNodeToggle
                 [attr.aria-label]="'Toggle ' + node.name">

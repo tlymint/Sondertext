@@ -95,6 +95,7 @@ import { DyfaRightViewComponent } from './auftragsverwaltung/dyfa-gruppen/dyfa-r
 import { AnzeigGruppenComponent } from './auftragsverwaltung/anzeig-gruppen/anzeig-gruppen.component';
 import { AnzeigLinienauswahlTreeViewComponent } from './auftragsverwaltung/anzeig-linienauswahl-tree-view/anzeig-linienauswahl-tree-view.component';
 import { AnzeigRightViewComponent } from './auftragsverwaltung/anzeig-gruppen/anzeig-right-view/anzeig-right-view.component';
+import { TabledisplayComponent } from './data-display/tabledisplay/tabledisplay.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +138,8 @@ import { AnzeigRightViewComponent } from './auftragsverwaltung/anzeig-gruppen/an
     DyfaRightViewComponent,
     AnzeigGruppenComponent,
     AnzeigLinienauswahlTreeViewComponent,
-    AnzeigRightViewComponent
+    AnzeigRightViewComponent,
+    TabledisplayComponent
 
   ],
   entryComponents: [

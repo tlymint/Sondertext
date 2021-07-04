@@ -14,6 +14,8 @@ export class DateneditorComponent implements OnInit {
   
   @ViewChild('toolbar', {static: false}) toolbar:any;
 
+  
+
   //variable using to resize container left and right
   oldX = 0;
   //
@@ -111,7 +113,7 @@ export class DateneditorComponent implements OnInit {
     this.chooseAuftrag = true;
     this.chooseDisplayeditor = false;
     this.addSondertext = false;
-    this.toolbar.showDyFa();
+    //this.toolbar.showDyFa();
   }
 
   showDisplayeditor(){

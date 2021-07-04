@@ -4,14 +4,24 @@
 
 <mat-toolbar class="icons">
   <span class="icons1">
-    <app-toolbar-app #toolbar [chooseDE] = "chooseDateneditor" [chooseAf] = "chooseAuftrag" ></app-toolbar-app>
+    <app-toolbar-app #toolbar [chooseDE] = "chooseDisplayeditor" [chooseAf] = "chooseAuftrag" ></app-toolbar-app>
   </span>
   <span *ngIf="chooseAuftrag" class="icons2"> 
-    <button mat-stroked-button class="button-auftrag">Neu</button>
-    <button mat-stroked-button class="button-auftrag">Ändern</button>
-    <button mat-stroked-button class="button-auftrag">Kopieren</button>
-    <button mat-stroked-button class="button-auftrag">Löschen</button>
-    <button mat-stroked-button class="button-auftrag">Aufräumen</button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>add_box</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>file_copy</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>autorenew</mat-icon>
+    </button>
   </span>
 </mat-toolbar>
 
@@ -27,7 +37,7 @@
   <div class="right-container"> 
      <div *ngIf = "chooseDateneditor && !chooseDateneditor2">
         <div class = "disp-title">
-          <mat-card>Tabelle Überschrift</mat-card>
+          <mat-card>Fahrpläne Tages-Fahrplan Li=003, Ku=04 (2)</mat-card>
         </div>
         <div class = "displayer">
           <app-data-table [toolbar]='toolbar'></app-data-table>   
@@ -45,7 +55,7 @@
 
       <div *ngIf = "chooseDateneditor && chooseDateneditor2">
         <div class = "disp-title">
-          <mat-card>Tabelle Überschrift</mat-card>
+          <mat-card>Fahrpläne Tages-Fahrplan Li=079, Ku=31 (42)</mat-card>
         </div>
         <div class = "displayer">
           <app-data-table-long [toolbar]='toolbar'></app-data-table-long>   
@@ -61,9 +71,11 @@
         </div>  
       </div> 
 
+      <!--   Sondertext    -->
       <div *ngIf = "chooseSondertext">
         <div class = "disp-title">
-          <mat-card>Detailansicht</mat-card>
+          <mat-card>Sondertexte Arena/Messe Nord-diverse Spezialtexte für Messen und Veranstalungen(deutsch,english)
+             arena-Anfahren 461 Detailansicht</mat-card>
         </div>
         <div class = "displayer">
           <app-detailansicht></app-detailansicht>   
@@ -81,7 +93,8 @@
       <!--  Sondertext-ändern   -->
       <div *ngIf = "addSondertext">
         <div class="disp-title">
-          <mat-card>Sondertext 461 bearbeiten</mat-card>
+          <mat-card>Sondertexte Arena/Messe Nord-diverse Spezialtexte für Messen und Veranstalungen(deutsch,english)
+            arena-Anfahren 461 bearbeiten</mat-card>
         </div>
         <div class="displayer">
           <app-change-sondertext></app-change-sondertext>
@@ -100,7 +113,7 @@
       <!--  Auftragsverwaltung   -->
       <div *ngIf = "chooseAuftrag">
         <div class="disp-title">
-          <mat-card>Benutzerdefinierte Aufträge</mat-card>
+          <mat-card>Auftragsverwaltungen Benutzerdefinierte Aufträge</mat-card>
         </div>
         <div class="displayer">
           <app-auftragsverwaltung #auftrag [auftToolbar]='toolbar'></app-auftragsverwaltung>
@@ -116,12 +129,13 @@
         </div>
       </div>
 
+      <!--   Display Editor   -->
       <div *ngIf = "chooseDisplayeditor">
         <div class="disp-title">
-          <mat-card>Displayeditor</mat-card>
+          <mat-card>Displayeditor Gruppe 001 ZAK-Masken 004::6Z:ZAK</mat-card>
         </div>
         <div class="displayer">
-          <app-data-display></app-data-display>
+          <app-data-display [dispToolbar] = toolbar></app-data-display>
         </div>
         <div class="row">
           <div class="example-button-row" > 

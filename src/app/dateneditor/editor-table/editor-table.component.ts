@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import xml2js from 'xml2js';  
 import { HttpClient, HttpHeaders } from '@angular/common/http';  
 
 export interface PeriodicElement {
@@ -28,6 +27,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./editor-table.component.scss']
 })
 export class EditorTableComponent{
+  /** 
 
   displayedColumns: string[] = ['recht', 'wert'];
   dataSource = ELEMENT_DATA;
@@ -76,5 +76,6 @@ export class EditorTableComponent{
       });  
     });  
   }  
+  */
 
 }

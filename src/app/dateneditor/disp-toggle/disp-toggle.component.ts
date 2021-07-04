@@ -22,14 +22,14 @@ export class DispToggleComponent implements OnInit {
     {name: 'Grafik', value: 'graf'},
     {name: 'Detail', value: 'deta'},
   ];
-  selectedView = this.views[0].value
+  selectedView = this.views[1].value
   //
   @Output() messageEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
-    this.selectedVal = "tabe";
+    this.selectedVal = "graf";
   }
 
   public valChange(val: string){
