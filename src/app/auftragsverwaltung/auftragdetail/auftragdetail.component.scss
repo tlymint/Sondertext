@@ -1,0 +1,25 @@
+.full-width-table{
+    width: 100%;
+}
+
+.display {
+    display: block;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 400px;
+    height: 150px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    border: thin dotted #337599;
+    background-color: black;
+    color: yellow;
+}
+
+.text{
+    position: relative;
+    top:120px;
+  }
+
+  .head{
+    background-color: rgb(204, 207, 207);
+  }

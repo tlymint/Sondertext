@@ -96,6 +96,7 @@ import { AnzeigGruppenComponent } from './auftragsverwaltung/anzeig-gruppen/anze
 import { AnzeigLinienauswahlTreeViewComponent } from './auftragsverwaltung/anzeig-linienauswahl-tree-view/anzeig-linienauswahl-tree-view.component';
 import { AnzeigRightViewComponent } from './auftragsverwaltung/anzeig-gruppen/anzeig-right-view/anzeig-right-view.component';
 import { TabledisplayComponent } from './data-display/tabledisplay/tabledisplay.component';
+import { AuftragdetailComponent } from './auftragsverwaltung/auftragdetail/auftragdetail.component';
 
 @NgModule({
   declarations: [
@@ -139,7 +140,8 @@ import { TabledisplayComponent } from './data-display/tabledisplay/tabledisplay.
     AnzeigGruppenComponent,
     AnzeigLinienauswahlTreeViewComponent,
     AnzeigRightViewComponent,
-    TabledisplayComponent
+    TabledisplayComponent,
+    AuftragdetailComponent
 
   ],
   entryComponents: [
