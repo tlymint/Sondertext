@@ -20,7 +20,7 @@ export class DateneditorComponent implements OnInit {
   oldX = 0;
   //
   hiddenTable: boolean = false;
-  help_content:string = "This container used to help User to understand some difficulty operation.";
+  help_content:string = "Bezeichung des Auftrags";
 
   
 

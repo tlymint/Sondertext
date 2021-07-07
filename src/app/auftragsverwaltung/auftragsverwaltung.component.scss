@@ -61,7 +61,7 @@ height: 30px;
     border-right: .5px solid rgba(0, 0, 0, 0.12);
 }
 
-.mat-cell.cdk-column-bez, .mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-status{
+.mat-cell.cdk-column-gruppe, .mat-cell.cdk-column-status{
     text-align: left;
     padding: 0px 2px 0px 2px;
     min-width: 50px;
@@ -71,6 +71,19 @@ height: 30px;
     white-space: nowrap; /* 不换行 */
     //cursor: pointer; /* hover显示手形 */
 }
+
+.mat-cell.cdk-column-bez{
+    text-align: left;
+    padding: 0px 2px 0px 2px;
+    min-width: 50px;
+    //max-width: 220px;
+    text-overflow:ellipsis; /* 显示... */
+    overflow: hidden; /* 隐藏文字 */
+    white-space: nowrap; /* 不换行 */
+    //cursor: pointer; /* hover显示手形 */
+}
+
+
 
 /**
  *  Einstellung für jede Spalte in Data-Table
@@ -82,7 +95,7 @@ height: 30px;
 .mat-cell.cdk-column-for, .mat-cell.cdk-column-tagtype {
     text-align: right;
     padding: 0px 2px 0px 2px;
-    min-width: 40px;
+    min-width: 25px;
     max-width: 150px;
     text-overflow: ellipsis; /* 显示... */
     overflow: hidden; /* 隐藏文字 */

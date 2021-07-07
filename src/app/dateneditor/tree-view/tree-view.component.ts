@@ -265,7 +265,7 @@ export class TreeViewComponent {
   /** switch the display of the right container  */ 
   displayRightContainer(node: TreeItemFlat){
     console.log(this.getParentNode(node).level);
-    if(node.name == "Li=003,Ku=07(2)") {
+    if(node.name == "Li=079,Ku=31(42)") {
       this.parent.showDateneditor2();
       return;
     }
@@ -276,7 +276,7 @@ export class TreeViewComponent {
       else if(this.getParentNode(node).name == "Auftragsverwaltungen") {
         this.parent.showAuftraege();
       }
-      else if(this.getParentNode(node).name == "Displayeditor") {
+      else if(this.getParentNode(node).name == "Displaymasken") {
         this.parent.showDisplayeditor();
       }
       else{

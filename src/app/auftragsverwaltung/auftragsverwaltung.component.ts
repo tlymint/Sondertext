@@ -20,25 +20,24 @@ export interface AuftTemplate {
   all: string;
   for: string;
   zykl: string;
-  tagt: string;
   stat: string;
 }
 
 const ELEMENT_DATA: AuftTemplate[] = [
   {id: "1", nr: "13", bez: "Bauarbeiten U79 Duisburg", gruppe: "Dyfas (15)", grBut:"",  text: "0", txBut:"", prio: "minimal", begA: "01.01.2100", 
-  begU: "06:00", endA: "01.01.2100", endU: "12:00", all: "180", for: "60", zykl: "dauernd", tagt: "", stat:"erteilt" },
+  begU: "06:00", endA: "01.01.2100", endU: "12:00", all: "180", for: "60", zykl: "dauernd",  stat:"erteilt" },
   {id: "2", nr: "1", bez: "EVAKUIERUNGSTEXT Steige de/en Grundtext", gruppe: "Evakuierung Tunnel", grBut:"", text: "1548", txBut:"", prio: "hoch",
-  begA: "01.01.2025", begU: "03:30", endA: "01.01.2026", endU: "03:30", all: "180", for: "30", zykl: "dauernd", tagt: "", stat: "erteilt"},
+  begA: "01.01.2025", begU: "03:30", endA: "01.01.2026", endU: "03:30", all: "180", for: "30", zykl: "dauernd",  stat: "erteilt"},
   {id: "3", nr: "9", bez: "Heinrichstraße Steig 3", gruppe: "HRS->DHB Strab 4Z", grBut:"", text: "0", txBut:"", prio: "minimal",
-  begA: "27.02.2019", begU: "14:57", endA: "31.12.2500", endU: "03:15", all: "120", for: "60", zykl: "dauernd", tagt: "", stat: "aktiv"},
+  begA: "27.02.2019", begU: "14:57", endA: "31.12.2500", endU: "03:15", all: "120", for: "60", zykl: "dauernd",  stat: "aktiv"},
   {id: "4", nr: "8", bez: "ISS-DOME Hinweistext Umstieg HBF", gruppe: "Dyfas (5)", grBut:"", text: "0", txBut:"", prio: "minimal",
-  begA: "16.02.2019", begU: "10:26", endA: "02.02.2023", endU: "10:27", all: "60", for: "30", zykl: "dauernd", tagt: "", stat: "aktiv"},
+  begA: "16.02.2019", begU: "10:26", endA: "02.02.2023", endU: "10:27", all: "60", for: "30", zykl: "dauernd",  stat: "aktiv"},
   {id: "5", nr: "17", bez: "NEUSTART diesen Auftrag nur kopieren!", gruppe: "ALLE", grBut:"", text: "25", txBut:"", prio: "hoch",
-  begA: "11.11.2034", begU: "10:00", endA: "01.01.2035", endU: "11:56", all: "", for: "30", zykl: "dauernd", tagt: "", stat: "erteilt"},
-  {id: "6", nr: "2", bez: "aaa", gruppe: "AAP->SCD 4Z", grBut:"", text: "1547", txBut:"", prio: "niedrig",
-  begA: "14.06.2021", begU: "15:13", endA: "14.06.2021", endU: "15:14", all: "60", for: "30", zykl: "dauernd", tagt: "", stat: "abgelaufen"},
+  begA: "11.11.2034", begU: "10:00", endA: "01.01.2035", endU: "11:56", all: "", for: "30", zykl: "dauernd",  stat: "abgelaufen"},
+  {id: "6", nr: "2", bez: "Veranstaltung", gruppe: "AAP->SCD 4Z", grBut:"", text: "1547", txBut:"", prio: "niedrig",
+  begA: "14.06.2021", begU: "15:13", endA: "14.06.2021", endU: "15:14", all: "60", for: "30", zykl: "dauernd",  stat: "abgelaufen"},
   {id: "*", nr: "", bez: "", gruppe: "", grBut:"", text: "", txBut:"", prio: "",
-  begA: "", begU: "", endA: "", endU: "", all: "", for: "", zykl: "", tagt: "", stat: ""},
+  begA: "", begU: "", endA: "", endU: "", all: "", for: "", zykl: "",  stat: ""},
 ];
   
 interface MComboBox {
@@ -55,7 +54,7 @@ interface MComboBox {
 })
 export class AuftragsverwaltungComponent implements OnInit {
   displayedColumns: string[]=["id","nr","bez","gruppe","grupButton","text", "textButton","prio","beginnAm","beginnUm",
-  "endAm","endUm","all","for","zyklus","tagtype","status"];
+  "endAm","endUm","all","for","zyklus","status"];
   mPrios:MComboBox[] = [
     {name: "", value: ""}, {name: "hoch", value:"hoch"}, {name: "mittel", value:"mittel"}, {name: "niedrig", value:"niedrig"}, 
     {name: "minimal", value:"minimal"} 

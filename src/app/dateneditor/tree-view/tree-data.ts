@@ -17,24 +17,10 @@ const TREE_DATA = {
   'Administration': {
     'Allgemeine Einstellungen': null,
     'Benutzerrollen': {
-        'Neu': null,
-        'Admin':null,
         'Bahnhofsbeobachter':null,
-        'BBR-Admin':null,
         'Bedienplatz':null,
-        'Bereichsrecher':null,
-        'BR-Wartung':null,
-        'Disponent-Messe':null,
-        'DyFaAdmin':null,
-        'ELA-Video':null,
-        'Schaltwart':null,
-        'Solldatenrechner':null,
-        'Testumgebung_Bedienplatz':null,
-        'Testumgebung_Bereichsrechner':null,
-        'Testumgebung_Solldatensatz':null,
-        'Testumgebung_Zentralrechner':null,
         'Textersteller':null,
-        'Zentralrechner':null,
+
     },
     'Kommunikation': {
       'Netzwerkverbindungen':null,
@@ -106,6 +92,7 @@ const TREE_DATA = {
       'Li=004,Ku=05(3)':null,
       'Li=004,Ku=06(4)':null,
       'Li=004,Ku=07(3)':null,
+      'Li=079,Ku=31(42)':null,
     }
   },
   'Sondertexte': {
@@ -253,6 +240,58 @@ const TREE_DATA = {
 
     },
     'CMS-Liniennummer':null,
+    'Displaymasken':{
+      'Gruppe 001 ZAK-Masken':{
+        '1':'004::6Z: ZAK',
+        '2':'008::4Z: PAS mit Kopf (bereiteres Linienfeld)',
+        '3':'010::11Z: PAS mit Kopf',
+        '4':'014::4Z: PAS mit Kopf',
+        '5':'024::4Z: ZAK',
+        '6':'026::6Z: PAS mit Kopf',
+        '7':'031::2Z: ZAK',
+        '8':'036::9Z: ZAK',
+        '9':'041::8Z: ZAK',
+        '10':'044::4ZL: ZAK',
+        '11':'050::9Z: PAS Mini-Dyfa',
+        '12':'053::4Z: ZAK',
+        '13':'063::4Z XL: 2Z Info + 2Z ZAK',
+        '14':'064::4Z XL: ZAK',
+        '15':'068::3Z: PAS mit Kopf',
+        '16':'080::8Z: PAS mit Kopf',
+        '17':'081::8Z: PAS',
+        '18':'083::4Z: PAS',
+        '19':'085::4Z: PAS HIS Vorplatz',
+        
+      },
+      'Gruppe 002 SOT AMN':{
+      },
+      'Gruppe 003 SOT AMN':{
+      },
+      'Gruppe 004 SOT AMN':{
+      },
+      'Gruppe 005 SOT AMN':{
+      },
+      'Gruppe 006 SOT AMN':{
+      },
+      'Gruppe 007 SOT AMN':{
+      },
+      'Gruppe 008 SOT AMN':{
+      },
+      'Gruppe 009 SOT AMN':{
+      },
+      'Gruppe 010 SOT AMN':{
+      },
+      'Gruppe 011 SOT AMN':{
+      },
+      'Gruppe 012 SOT AMN':{
+      },
+      'Gruppe 013 SOT AMN':{
+      },
+      'Gruppe 014 SOT AMN':{
+      },
+      'Gruppe 049 SOT AMN':{
+      }
+    },
     'Fahrgastwechselzeiten':null,
     'Fahrzeuggruppen':null,
     'Feinziel nach Grobziel':null,
@@ -285,83 +324,39 @@ const TREE_DATA = {
   'Reisezeitlisten':{
   },
   'Auftragsverwaltungen':{ 
-    '1':'Benutzerdefinierte Aufträge',
-    '2':'Ständige Aufträge',
-    '3':'Grundbilder',
-    'MAM':{    
-      '1':'MAM Normal',
-      '2':'MAM Messe',
-      '3':'MAM Arena',
-      '4':'MAM Arena + Messe',
-      '5':'MAM Wendeschleife gestört',
-      '6':'MAM Normal mit U79',
-      '7':'MAM Messe mit U79',
-      '8':'MAM Arena mit U79',
-      '9':'MAM Arena + Messe mit U79',
-      '10':'MAM Wendeschleife gestört mit U79',
-    },
-    '4':'CMS Aufträge',
-    '5':'Ausblenden von Linien',
-    'Evakuierungmaßnahmen':{
-      '1':'Aktuelle Evakuierungmaßnahmen',
-      '2':'Vorlage Evakuierungmaßnahmen',
-    },
-    '6':'Fahrplananzeige (Notfallmodus)',
-  },
-  'Displayeditor':{
-    'Gruppe 001 ZAK-Masken':{
-      '1':'004::6Z: ZAK',
-      '2':'008::4Z: PAS mit Kopf (bereiteres Linienfeld)',
-      '3':'010::11Z: PAS mit Kopf',
-      '4':'014::4Z: PAS mit Kopf',
-      '5':'024::4Z: ZAK',
-      '6':'026::6Z: PAS mit Kopf',
-      '7':'031::2Z: ZAK',
-      '8':'036::9Z: ZAK',
-      '9':'041::8Z: ZAK',
-      '10':'044::4ZL: ZAK',
-      '11':'050::9Z: PAS Mini-Dyfa',
-      '12':'053::4Z: ZAK',
-      '13':'063::4Z XL: 2Z Info + 2Z ZAK',
-      '14':'064::4Z XL: ZAK',
-      '15':'068::3Z: PAS mit Kopf',
-      '16':'080::8Z: PAS mit Kopf',
-      '17':'081::8Z: PAS',
-      '18':'083::4Z: PAS',
-      '19':'085::4Z: PAS HIS Vorplatz',
+    'Benutzerdefinierte Aufträge':{
+      'Veranstaltungen':null,
+      'Wartung':null,
       
     },
-    'Gruppe 002 SOT AMN':{
+    'Spezialfälle':{
+      'MAM-Anlage':{    
+        '1':'Normal',
+        '2':'Messe',
+        '3':'Arena',
+        '4':'Arena + Messe',
+        '5':'Wendeschleife gestört',
+        '6':'Normal mit U79',
+        '7':'Messe mit U79',
+        '8':'Arena mit U79',
+        '9':'Arena + Messe mit U79',
+        '10':'Wendeschleife gestört mit U79',
+      },
+      'Evakuierungmaßnahmen':{
+        '1':'Aktuelle Evakuierungmaßnahmen',
+        '2':'Vorlage Evakuierungmaßnahmen',
+      },
+      '4':'CMS Aufträge',
+      '5':'Ausblenden von Linien',
+      '6':'Fahrplananzeige (Notfallmodus)',
+      'Grundbilder':null,
+      'Ständige Aufträge':null,
     },
-    'Gruppe 003 SOT AMN':{
-    },
-    'Gruppe 004 SOT AMN':{
-    },
-    'Gruppe 005 SOT AMN':{
-    },
-    'Gruppe 006 SOT AMN':{
-    },
-    'Gruppe 007 SOT AMN':{
-    },
-    'Gruppe 008 SOT AMN':{
-    },
-    'Gruppe 009 SOT AMN':{
-    },
-    'Gruppe 010 SOT AMN':{
-    },
-    'Gruppe 011 SOT AMN':{
-    },
-    'Gruppe 012 SOT AMN':{
-    },
-    'Gruppe 013 SOT AMN':{
-    },
-    'Gruppe 014 SOT AMN':{
-    },
-    'Gruppe 049 SOT AMN':{
+    'Benutzerdefinierte Anzeigegruppe':{
+      'Dyfas(15): Veranstaltung':null,
+      'Dyfas(16): Störung':null,
     }
-  }
-
-
+  },
 }
 
 

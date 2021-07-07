@@ -19,9 +19,27 @@
     <button mat-icon-button class="button-auftrag">
       <mat-icon>delete</mat-icon>
     </button>
+  </span>
+  <span *ngIf="chooseDateneditor||chooseDateneditor2||chooseDisplayeditor" class="icons2"> 
     <button mat-icon-button class="button-auftrag">
-      <mat-icon>autorenew</mat-icon>
+      <mat-icon>add_box</mat-icon>
     </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>file_copy</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>content_paste</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>content_cut</mat-icon>
+    </button>
+    <button mat-icon-button class="button-auftrag">
+      <mat-icon>delete</mat-icon>
+    </button>
+
   </span>
 </mat-toolbar>
 
@@ -113,7 +131,7 @@
       <!--  Auftragsverwaltung   -->
       <div *ngIf = "chooseAuftrag">
         <div class="disp-title">
-          <mat-card>Auftragsverwaltungen Benutzerdefinierte Aufträge</mat-card>
+          <mat-card>Auftragsverwaltungen Benutzerdefinierte Aufträge Veranstaltungen</mat-card>
         </div>
         <div class="displayer">
           <app-auftragsverwaltung #auftrag [auftToolbar]='toolbar'></app-auftragsverwaltung>
