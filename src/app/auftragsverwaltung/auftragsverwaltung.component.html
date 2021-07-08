@@ -1,6 +1,6 @@
 
 
-<div class= main-wind *ngIf="!groupIsOpened">
+<div class= main-wind *ngIf="!groupIsOpened&&!showDetail">
     <div class = "wind1">
         <div class="wind1-row">   <div class="wind1-column">
             <div class="win-table">
@@ -65,7 +65,7 @@
                     <ng-container matColumnDef="textButton">
                         <th mat-header-cell *matHeaderCellDef></th>
                         <td mat-cell *matCellDef="let element">
-                            <button class = "txBut" >
+                            <button class = "txBut" (click)="openDetail()">
                             ...</button>
                             
                         </td>
@@ -229,4 +229,8 @@
 <div class = group-wind *ngIf = "groupIsOpened">
     <app-anzeig-gruppen *ngIf="chooseGroup()"></app-anzeig-gruppen>
     <app-dyfa-gruppen *ngIf="!chooseGroup()"></app-dyfa-gruppen>   
+</div>
+
+<div class = detail-wind *ngIf = "showDetail">
+    <app-auftragdetail></app-auftragdetail>
 </div>

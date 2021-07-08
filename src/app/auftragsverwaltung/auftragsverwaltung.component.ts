@@ -69,6 +69,7 @@ export class AuftragsverwaltungComponent implements OnInit {
 
   showGruppen: boolean = false;
   hiddenGruppen: boolean = true;
+  showDetail:boolean = false;
 
   // Dong: right-click-contextmenu
   @ViewChild(MatMenuTrigger, {static: true})
@@ -116,6 +117,11 @@ export class AuftragsverwaltungComponent implements OnInit {
   
   chooseGroup(){
     return this.auftToolbar.choosedShow;
+  }
+
+  openDetail(){
+    this.showDetail=true;
+    this.groupIsOpened=false;
   }
 }
 

@@ -138,7 +138,8 @@ export class DateneditorComponent implements OnInit {
     {
       this.auftrag.groupIsOpened = false;
       this.chooseGroup = this.auftrag.groupIsOpened;
-      console.log(this.auftrag.groupIsOpened);
+      this.auftrag.showDetail = false;
+      //console.log(this.auftrag.groupIsOpened);
       this.toolbar.groupIsOpened = false;
     }
   }
